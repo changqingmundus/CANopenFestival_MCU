@@ -25,7 +25,7 @@
 
 
 #define DATA_EE_BANKS                     1
-#define DATA_EE_SIZE                      255
+#define DATA_EE_SIZE                      32
 #define DATA_EE_TOTAL_SIZE                (DATA_EE_BANKS * DATA_EE_SIZE)
 #define NUM_DATA_EE_PAGES                 2
 #define	NUMBER_OF_INSTRUCTIONS_IN_PAGE    1024
