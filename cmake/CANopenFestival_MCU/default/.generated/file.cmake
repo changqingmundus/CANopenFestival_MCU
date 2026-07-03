@@ -20,7 +20,6 @@ endforeach()
 
 set(CANopenFestival_MCU_default_default_XC16_FILE_TYPE_compile
     "${CMAKE_CURRENT_SOURCE_DIR}/../../../CANopenFestival.mcc/dictionary/Master.c"
-    "${CMAKE_CURRENT_SOURCE_DIR}/../../../CANopenFestival.mcc/hardware/canmcu.c"
     "${CMAKE_CURRENT_SOURCE_DIR}/../../../CANopenFestival.mcc/main.c"
     "${CMAKE_CURRENT_SOURCE_DIR}/../../../CANopenFestival.mcc/mcc_generated_files/can/src/can1.c"
     "${CMAKE_CURRENT_SOURCE_DIR}/../../../CANopenFestival.mcc/mcc_generated_files/dee/src/dee.c"
