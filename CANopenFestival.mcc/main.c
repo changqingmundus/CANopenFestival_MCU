@@ -23,12 +23,18 @@
 /*
     Main application
 */
+#include "states.h"
 
 int main(void)
 {
     
     SYSTEM_Initialize();
     DEE_Init();
+
+    unsigned char nodeID = 0x00;
+    setNodeId();
+    setState(&Master_Data,Initialisation);
+
 
     while(1)
     {

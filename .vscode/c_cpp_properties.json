@@ -1,0 +1,30 @@
+{
+    "configurations": [
+        {
+            "name": "XC16",
+            "includePath": [
+                "${workspaceFolder}/**",
+                "${workspaceFolder}/CANopenFestival.mcc",
+                "${workspaceFolder}/CANopenFestival.mcc/inc",
+                "${workspaceFolder}/CANopenFestival.mcc/hardware",
+                "${workspaceFolder}/CANopenFestival.mcc/inc/MCU",
+                "D:/Microchip/xc16/include"
+            ],
+            "compilerPath": "D:/Microchip/xc16/bin/xc16-gcc",
+            "intelliSenseMode": "gcc-x86",
+            "browse": {
+                "limitSymbolsToIncludedHeaders": true,
+                "path": [
+
+                    "${workspaceFolder}/**",
+                    "${workspaceFolder}/CANopenFestival.mcc",
+                    "${workspaceFolder}/CANopenFestival.mcc/inc",
+                    "${workspaceFolder}/CANopenFestival.mcc/hardware",
+                    "${workspaceFolder}/CANopenFestival.mcc/inc/MCU",
+                    "D:/Microchip/xc16/include"
+                ]
+            }
+        }
+    ],
+    "version": 4
+}
