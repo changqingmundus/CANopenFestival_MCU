@@ -23,18 +23,20 @@
 /*
     Main application
 */
-#include "states.h"
+#include "inc/states.h"
+#include "driver/encoder.h"
 
 int main(void)
 {
     
     SYSTEM_Initialize();
     DEE_Init();
+    Encoder_Init(void);
 
     unsigned char nodeID = 0x00;
-    setNodeId();
-    setState(&Master_Data,Initialisation);
-
+    setNodeId(&Data,1);
+    setState(&Data,Initialisation);
+    
 
     while(1)
     {

@@ -1,3 +1,7 @@
 {
-    "mplab.clangd.compileCommandsDir": "${workspaceFolder}\\_build\\CANopenFestival_MCU\\default"
+    "mplab.clangd.compileCommandsDir": "${workspaceFolder}\\_build\\CANopenFestival_MCU\\default",
+    "cmake.sourceDirectory": "/home/coder/project/CANopenFestival_MCU/cmake/CANopenFestival_MCU/default",
+    "clangd.arguments": [
+        "--compile-commands-dir=${workspaceFolder}/_build/CANopenFestival_MCU/default/"
+    ]
 }
