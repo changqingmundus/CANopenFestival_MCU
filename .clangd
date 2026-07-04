@@ -1,0 +1,4 @@
+CompileFlags:
+  Add:
+     - -I/home/coder/project/Tools/xc16/support/generic/h
+     - -I/home/coder/project/CANopenFestival_MCU/CANopenFestival.mcc/mcc_generated_files
