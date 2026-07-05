@@ -18,13 +18,13 @@
     EXCEED AMOUNT OF FEES, IF ANY, YOU PAID DIRECTLY TO MICROCHIP FOR 
     THIS SOFTWARE.
 */
-#include "mcc_generated_files/dee/dee.h"
-#include "mcc_generated_files/system/system.h"
+#include "dee.h"
+#include "system.h"
 /*
     Main application
 */
-#include "inc/states.h"
-#include "driver/encoder.h"
+#include "states.h"
+#include "encoder.h"
 
 int main(void)
 {
@@ -33,13 +33,16 @@ int main(void)
     DEE_Init();
     Encoder_Init();
 
-    unsigned char nodeID = 0x00;
-    setNodeId(&Data,1);
-    setState(&Data,Initialisation);
+    unsigned char nodeID = 0x01;
+    setNodeId(&Encoder_Slave_Data,nodeID);
+    setState(&Encoder_Slave_Data,Initialisation);
+    setState(&Encoder_Slave_Data,Pre_operational);
+    setState(&Encoder_Slave_Data,Operational);
     
-
     while(1)
     {
-
+        CO_process(&Encoder_Slave_Data, 0);
+        Encoder_Read_Data();
+        Encoder_Update_To_CANopen();
     }    
 }

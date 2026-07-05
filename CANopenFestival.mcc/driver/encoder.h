@@ -1,19 +1,21 @@
 #ifndef ENCODER_H
 #define ENCODER_H
 
-#include "dee/dee.h"
+#include "dee.h"
 #include "stdbool.h"
 #include "stdint.h"
 #include "timer/delay.h"
 #include "system/pins.h"
+#include "Encoder_Slave.h"
 
 #define DEE_Encoder_MagicKey 0            //DEE存放編碼器出廠狀態數據
 #define DEE_Encoder_MultiturnBitSize 1    //DEE存放編碼器多圈位數配置
 #define DEE_Encoder_SingleTurnBitSize 2   //DEE存放編碼器單圈位數配置
 #define DEE_Encoder_CRCBitSize 3          //DEE存放編碼器CRC位數配置
 
-#define Slo_Clear() MISO_SLO_SetLow()     //設置SLO腳為低電平
-#define Slo_Set() MISO_SLO_SetHigh()      //設置SLO腳為高電平
+#define MA_Clear() SCLK_MA_SetLow()     //設置SLO腳為低電平
+#define MA_Set() SCLK_MA_SetHigh()      //設置SLO腳為高電平
+#define SLO_Get_Value() MISO_SLO_GetValue()  //讀取MISO腳的電平值
 
 #define Factory_Magic_Value 0x500A        //編碼器出廠特徵碼
 
@@ -38,9 +40,9 @@ extern ENCODER_CONFIG Encoder_Config;  //聲明為全局變量
 void Delay_us(uint16_t us);
 
 void Encoder_Init(void);
-void Encoder_SSI_Read(ENCODER_CONFIG *config);
+void Encoder_SSI_Read(uint8_t bit_num, uint32_t *data);
 void Encoder_Read_Data(void);
-void Encoder_Clear_Data(void);
+//void Encoder_Clear_Data(void);
 
 void Encoder_Update_To_CANopen(void);
 

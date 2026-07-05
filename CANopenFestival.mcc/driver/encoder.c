@@ -28,7 +28,7 @@ void Encoder_Init(void)
 
 void Encoder_Read_Data(void)
 {
-   Slo_Clear();  
+   MA_Clear();   //Start Readout Data
    Delay_us(1);
    Encoder_SSI_Read(Encoder_Config.Multiturn_Bit,&Encoder_Config.Multiturn_Data);
    Encoder_SSI_Read(Encoder_Config.SingleTurn_Bit,&Encoder_Config.SingleTurn_Data);
@@ -37,4 +37,38 @@ void Encoder_Read_Data(void)
    Encoder_SSI_Read(Encoder_Config.CRC_Bit,&Encoder_Config.CRC_Data);
    Delay_us(5);
    Slo_Set();
+
+   Encoder_Config.Raw_Data = ((uint64_t)Encoder_Config.Multiturn_Data  << (Encoder_Config.SingleTurn_Bit + 2 + Encoder_Config.CRC_Bit)) |
+                             ((uint64_t)Encoder_Config.SingleTurn_Data << (2 + Encoder_Config.CRC_Bit)) |
+                             ((uint64_t)Encoder_Config.Warning_Data    << Encoder_Config.CRC_Bit + 1) |
+                             ((uint64_t)Encoder_Config.Error_Data      << (Encoder_Config.CRC_Bit)) |
+                             ((uint64_t)Encoder_Config.CRC_Data);
+}
+
+void Encoder_SSI_Read(uint8_t bit_num, uint32_t *data)
+{
+   uint32_t Data_Temp = 0;
+   for(int i=0; i<bit_num; i++)
+   {
+      MA_Set();
+      Delay_us(1);
+      SLO_Get_Value();
+      Data_Temp = (Data_Temp <<= 1) | SLO_Get_Value();
+      MA_Clear();
+      Delay_us(1);
+   }
+   if(data != 0)
+   {
+   *data = Data_Temp;
+   }
+}
+
+void Encoder_Update_To_CANopen(void)
+{
+   Encoder_Raw_Data = Encoder_Config.Raw_Data;
+   Multiturn_Data = Encoder_Config.Multiturn_Data;
+   SingleTurn_Data = Encoder_Config.SingleTurn_Data;
+   Warning_Data = Encoder_Config.Warning_Data;
+   Error_Data = Encoder_Config.Error_Data;
+   CRC_Data = Encoder_Config.CRC_Data;
 }
