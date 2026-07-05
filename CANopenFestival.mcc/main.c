@@ -31,7 +31,7 @@ int main(void)
     
     SYSTEM_Initialize();
     DEE_Init();
-    Encoder_Init(void);
+    Encoder_Init();
 
     unsigned char nodeID = 0x00;
     setNodeId(&Data,1);
