@@ -1,6 +1,6 @@
 # The following functions contains all the flags passed to the different build stages.
 
-set(PACK_REPO_PATH "C:/Users/Changqing Mundus/.mchp_packs" CACHE PATH "Path to the root of a pack repository.")
+set(PACK_REPO_PATH "/home/coder/project/Tools" CACHE PATH "Path to the root of a pack repository.")
 
 function(CANopenFestival_MCU_default_default_XC16_assemble_rule target)
     set(options
