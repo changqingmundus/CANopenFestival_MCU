@@ -45,17 +45,17 @@ endif()
 
 
 # Main target for this project
-add_executable(CANopenFestival_MCU_default_image_qNDzaU8w ${CANopenFestival_MCU_default_library_list})
+add_executable(CANopenFestival_MCU_default_image_hUGsFjIX ${CANopenFestival_MCU_default_library_list})
 
-set_target_properties(CANopenFestival_MCU_default_image_qNDzaU8w PROPERTIES
+set_target_properties(CANopenFestival_MCU_default_image_hUGsFjIX PROPERTIES
     OUTPUT_NAME "default"
     SUFFIX ".elf"
     RUNTIME_OUTPUT_DIRECTORY "${CANopenFestival_MCU_default_output_dir}")
-target_link_libraries(CANopenFestival_MCU_default_image_qNDzaU8w PRIVATE ${CANopenFestival_MCU_default_default_XC16_FILE_TYPE_link})
+target_link_libraries(CANopenFestival_MCU_default_image_hUGsFjIX PRIVATE ${CANopenFestival_MCU_default_default_XC16_FILE_TYPE_link})
 
 # Add the link options from the rule file.
-CANopenFestival_MCU_default_link_rule( CANopenFestival_MCU_default_image_qNDzaU8w)
+CANopenFestival_MCU_default_link_rule( CANopenFestival_MCU_default_image_hUGsFjIX)
 
 # Call bin2hex function from the rule file
-CANopenFestival_MCU_default_bin2hex_rule(CANopenFestival_MCU_default_image_qNDzaU8w)
+CANopenFestival_MCU_default_bin2hex_rule(CANopenFestival_MCU_default_image_hUGsFjIX)
 

@@ -10,7 +10,7 @@ include_directories(
     ${CMAKE_CURRENT_SOURCE_DIR}/../../../Mongo_CanFestival/hardware
 )
 add_subdirectory(
-"D:/Project Docs/VS Code PRJ/CANopenFestival_MCU/Mongo_CanFestival"
+"${CMAKE_CURRENT_SOURCE_DIR}/../../../Mongo_CanFestival"
 "${CMAKE_BINARY_DIR}/Mongo_CanFestival"
 )
 

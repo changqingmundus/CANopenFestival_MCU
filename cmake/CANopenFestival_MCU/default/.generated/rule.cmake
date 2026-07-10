@@ -1,17 +1,18 @@
 # The following functions contains all the flags passed to the different build stages.
 
-set(PACK_REPO_PATH "C:/Users/wsh/.mchp_packs" CACHE PATH "Path to the root of a pack repository.")
+set(PACK_REPO_PATH "C:/Users/ChangqingMundus/.mchp_packs" CACHE PATH "Path to the root of a pack repository.")
 
 function(CANopenFestival_MCU_default_default_XC16_assemble_rule target)
     set(options
         "-g"
         "-mcpu=33CK256MP502"
-        "-Wa,--defsym=__MPLAB_BUILD=1,--defsym=__MPLAB_DEBUG=1,--defsym=__DEBUG=1,-g,--no-relax"
+        "-Wa,--defsym=__MPLAB_BUILD=1,--defsym=__MPLAB_DEBUG=1,--defsym=__DEBUG=1,-g,--defsym=__MPLAB_DEBUGGER_SIMULATOR=1,--no-relax"
         "-mdfp=${PACK_REPO_PATH}/Microchip/dsPIC33CK-MP_DFP/1.15.423/xc16")
     list(REMOVE_ITEM options "")
     target_compile_options(${target} PRIVATE "${options}")
     target_compile_definitions(${target}
         PRIVATE "__DEBUG=1"
+        PRIVATE "__MPLAB_DEBUGGER_SIMULATOR=1"
         PRIVATE "XPRJ_default=default")
 endfunction()
 function(CANopenFestival_MCU_default_default_XC16_assemblePreproc_rule target)
@@ -20,12 +21,13 @@ function(CANopenFestival_MCU_default_default_XC16_assemblePreproc_rule target)
         "assembler-with-cpp"
         "-g"
         "-mcpu=33CK256MP502"
-        "-Wa,--defsym=__MPLAB_BUILD=1,--defsym=__MPLAB_DEBUG=1,--defsym=__DEBUG=1,-g,--no-relax"
+        "-Wa,--defsym=__MPLAB_BUILD=1,--defsym=__MPLAB_DEBUG=1,--defsym=__DEBUG=1,-g,--defsym=__MPLAB_DEBUGGER_SIMULATOR=1,--no-relax"
         "-mdfp=${PACK_REPO_PATH}/Microchip/dsPIC33CK-MP_DFP/1.15.423/xc16")
     list(REMOVE_ITEM options "")
     target_compile_options(${target} PRIVATE "${options}")
     target_compile_definitions(${target}
         PRIVATE "__DEBUG=1"
+        PRIVATE "__MPLAB_DEBUGGER_SIMULATOR=1"
         PRIVATE "XPRJ_default=default")
 endfunction()
 function(CANopenFestival_MCU_default_default_XC16_compile_rule target)
@@ -42,6 +44,7 @@ function(CANopenFestival_MCU_default_default_XC16_compile_rule target)
     target_compile_options(${target} PRIVATE "${options}")
     target_compile_definitions(${target}
         PRIVATE "__DEBUG"
+        PRIVATE "__MPLAB_DEBUGGER_SIMULATOR=1"
         PRIVATE "XPRJ_default=default")
 endfunction()
 function(CANopenFestival_MCU_default_dependentObject_rule target)
@@ -56,12 +59,13 @@ function(CANopenFestival_MCU_default_link_rule target)
     set(options
         "-g"
         "-mcpu=33CK256MP502"
-        "-Wl,--script=p33CK256MP502.gld,--local-stack,--defsym=__MPLAB_BUILD=1,--defsym=__MPLAB_DEBUG=1,--defsym=__DEBUG=1,-D__DEBUG=__DEBUG,--stack=16,--check-sections,--data-init,--pack-data,--handles,--isr,--no-gc-sections,--fill-upper=0,--stackguard=16,--no-force-link,--smart-io,--report-mem,--memorysummary,memoryfile.xml"
+        "-Wl,--script=p33CK256MP502.gld,--local-stack,--defsym=__MPLAB_BUILD=1,--defsym=__MPLAB_DEBUG=1,--defsym=__DEBUG=1,-D__DEBUG=__DEBUG,--defsym=__MPLAB_DEBUGGER_SIMULATOR=1,--stack=16,--check-sections,--data-init,--pack-data,--handles,--isr,--no-gc-sections,--fill-upper=0,--stackguard=16,--no-force-link,--smart-io,--report-mem,--memorysummary,memoryfile.xml"
         "-mdfp=${PACK_REPO_PATH}/Microchip/dsPIC33CK-MP_DFP/1.15.423/xc16")
     list(REMOVE_ITEM options "")
     target_link_options(${target} PRIVATE "${options}")
     target_compile_definitions(${target}
         PRIVATE "__DEBUG=__DEBUG"
+        PRIVATE "__MPLAB_DEBUGGER_SIMULATOR=1"
         PRIVATE "XPRJ_default=default")
 endfunction()
 function(CANopenFestival_MCU_default_bin2hex_rule target)

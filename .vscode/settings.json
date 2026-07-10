@@ -1,7 +1,13 @@
 {
     "mplab.clangd.compileCommandsDir": "${workspaceFolder}\\_build\\CANopenFestival_MCU\\default",
-    "cmake.sourceDirectory": "D:/Project Docs/VS Code PRJ/CANopenFestival_MCU/cmake/CANopenFestival_MCU/default",
+    "cmake.sourceDirectory": "D:/Project Docs/VS Code PRJ/Git Remote Works/CANopenFestival_MCU/cmake/CANopenFestival_MCU/default",
     "clangd.arguments": [
         "--compile-commands-dir=${workspaceFolder}/_build/CANopenFestival_MCU/default/"
+    ],
+    "memory-inspector.debugTypes": [
+        "arm-debugger",
+        "embedded-debug",
+        "gdb",
+        "mplab-core-da"
     ]
 }

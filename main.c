@@ -33,23 +33,17 @@ int main(void)
     DEE_Init();
     Encoder_Init();
 
+
     unsigned char nodeID = 0x01;
     setNodeId(&Encoder_Slave_Data,nodeID);
-    setState(&Encoder_Slave_Data,Initialisation);
-    setState(&Encoder_Slave_Data,Pre_operational);
-    setState(&Encoder_Slave_Data,Operational);
+
     
     while(1)
     {
-        //if(CAN_Message_Received())
-        //{
-            Message m;
-
-            //CAN_Read(&m);
-
-            canReceiveTask();
-            canDispatch(&Encoder_Slave_Data, &m);
-        //}
+        Message m;
+        canReceiveTask();
+        canDispatch(&Encoder_Slave_Data, &m);
+        
         Encoder_Read_Data();
         Encoder_Update_To_CANopen();
 
