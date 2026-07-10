@@ -21,8 +21,8 @@
 
 typedef struct
 {
-    uint16_t Multiturn_Bit;    //配置編碼器多圈位數
-    uint16_t SingleTurn_Bit;   //配置編碼器單圈位數
+    uint8_t Multiturn_Bit;    //配置編碼器多圈位數
+    uint8_t SingleTurn_Bit;   //配置編碼器單圈位數
     bool Warning_Bit;           //配置編碼器警告位數
     bool Error_Bit;            //配置編碼器錯誤位數
     uint16_t CRC_Bit;          //配置編碼器CRC位數

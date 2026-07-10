@@ -35,6 +35,8 @@ set(CANopenFestival_MCU_default_default_XC16_FILE_TYPE_compile
     "${CMAKE_CURRENT_SOURCE_DIR}/../../../CANopenFestival.mcc/mcc_generated_files/timer/src/delay.c"
     "${CMAKE_CURRENT_SOURCE_DIR}/../../../CANopenFestival.mcc/mcc_generated_files/timer/src/sccp1.c"
     "${CMAKE_CURRENT_SOURCE_DIR}/../../../Mongo_CanFestival/dictionary/Encoder_Slave.c"
+    "${CMAKE_CURRENT_SOURCE_DIR}/../../../Mongo_CanFestival/hardware/can_drv.c"
+    "${CMAKE_CURRENT_SOURCE_DIR}/../../../Mongo_CanFestival/hardware/timer_drv.c"
     "${CMAKE_CURRENT_SOURCE_DIR}/../../../Mongo_CanFestival/src/dcf.c"
     "${CMAKE_CURRENT_SOURCE_DIR}/../../../Mongo_CanFestival/src/emcy.c"
     "${CMAKE_CURRENT_SOURCE_DIR}/../../../Mongo_CanFestival/src/lifegrd.c"

@@ -23,7 +23,7 @@
 /*
     Main application
 */
-#include "states.h"
+#include "canfestival.h"
 #include "encoder.h"
 
 int main(void)
@@ -41,8 +41,18 @@ int main(void)
     
     while(1)
     {
-        CO_process(&Encoder_Slave_Data, 0);
+        //if(CAN_Message_Received())
+        //{
+            Message m;
+
+            //CAN_Read(&m);
+
+            canReceiveTask();
+            canDispatch(&Encoder_Slave_Data, &m);
+        //}
         Encoder_Read_Data();
         Encoder_Update_To_CANopen();
+
+        TimeDispatch();
     }    
 }
