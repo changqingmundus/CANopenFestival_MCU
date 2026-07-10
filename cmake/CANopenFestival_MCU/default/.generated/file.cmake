@@ -19,7 +19,7 @@ foreach(source_file ${CANopenFestival_MCU_default_default_XC16_FILE_TYPE_assembl
 endforeach()
 
 set(CANopenFestival_MCU_default_default_XC16_FILE_TYPE_compile
-    "${CMAKE_CURRENT_SOURCE_DIR}/../../../CANopenFestival.mcc/main.c"
+    "${CMAKE_CURRENT_SOURCE_DIR}/../../../CANopenFestival.mcc/driver/encoder.c"
     "${CMAKE_CURRENT_SOURCE_DIR}/../../../CANopenFestival.mcc/mcc_generated_files/can/src/can1.c"
     "${CMAKE_CURRENT_SOURCE_DIR}/../../../CANopenFestival.mcc/mcc_generated_files/dee/src/dee.c"
     "${CMAKE_CURRENT_SOURCE_DIR}/../../../CANopenFestival.mcc/mcc_generated_files/flash/src/flash.c"
@@ -34,18 +34,20 @@ set(CANopenFestival_MCU_default_default_XC16_FILE_TYPE_compile
     "${CMAKE_CURRENT_SOURCE_DIR}/../../../CANopenFestival.mcc/mcc_generated_files/system/src/traps.c"
     "${CMAKE_CURRENT_SOURCE_DIR}/../../../CANopenFestival.mcc/mcc_generated_files/timer/src/delay.c"
     "${CMAKE_CURRENT_SOURCE_DIR}/../../../CANopenFestival.mcc/mcc_generated_files/timer/src/sccp1.c"
-    "${CMAKE_CURRENT_SOURCE_DIR}/../../../CANopenFestival.mcc/src/dcf.c"
-    "${CMAKE_CURRENT_SOURCE_DIR}/../../../CANopenFestival.mcc/src/emcy.c"
-    "${CMAKE_CURRENT_SOURCE_DIR}/../../../CANopenFestival.mcc/src/lifegrd.c"
-    "${CMAKE_CURRENT_SOURCE_DIR}/../../../CANopenFestival.mcc/src/lss.c"
-    "${CMAKE_CURRENT_SOURCE_DIR}/../../../CANopenFestival.mcc/src/nmtMaster.c"
-    "${CMAKE_CURRENT_SOURCE_DIR}/../../../CANopenFestival.mcc/src/nmtSlave.c"
-    "${CMAKE_CURRENT_SOURCE_DIR}/../../../CANopenFestival.mcc/src/objacces.c"
-    "${CMAKE_CURRENT_SOURCE_DIR}/../../../CANopenFestival.mcc/src/pdo.c"
-    "${CMAKE_CURRENT_SOURCE_DIR}/../../../CANopenFestival.mcc/src/sdo.c"
-    "${CMAKE_CURRENT_SOURCE_DIR}/../../../CANopenFestival.mcc/src/states.c"
-    "${CMAKE_CURRENT_SOURCE_DIR}/../../../CANopenFestival.mcc/src/sync.c"
-    "${CMAKE_CURRENT_SOURCE_DIR}/../../../CANopenFestival.mcc/src/timer.c")
+    "${CMAKE_CURRENT_SOURCE_DIR}/../../../Mongo_CanFestival/dictionary/Encoder_Slave.c"
+    "${CMAKE_CURRENT_SOURCE_DIR}/../../../Mongo_CanFestival/src/dcf.c"
+    "${CMAKE_CURRENT_SOURCE_DIR}/../../../Mongo_CanFestival/src/emcy.c"
+    "${CMAKE_CURRENT_SOURCE_DIR}/../../../Mongo_CanFestival/src/lifegrd.c"
+    "${CMAKE_CURRENT_SOURCE_DIR}/../../../Mongo_CanFestival/src/lss.c"
+    "${CMAKE_CURRENT_SOURCE_DIR}/../../../Mongo_CanFestival/src/nmtMaster.c"
+    "${CMAKE_CURRENT_SOURCE_DIR}/../../../Mongo_CanFestival/src/nmtSlave.c"
+    "${CMAKE_CURRENT_SOURCE_DIR}/../../../Mongo_CanFestival/src/objacces.c"
+    "${CMAKE_CURRENT_SOURCE_DIR}/../../../Mongo_CanFestival/src/pdo.c"
+    "${CMAKE_CURRENT_SOURCE_DIR}/../../../Mongo_CanFestival/src/sdo.c"
+    "${CMAKE_CURRENT_SOURCE_DIR}/../../../Mongo_CanFestival/src/states.c"
+    "${CMAKE_CURRENT_SOURCE_DIR}/../../../Mongo_CanFestival/src/sync.c"
+    "${CMAKE_CURRENT_SOURCE_DIR}/../../../Mongo_CanFestival/src/timer.c"
+    "${CMAKE_CURRENT_SOURCE_DIR}/../../../main.c")
 set_source_files_properties(${CANopenFestival_MCU_default_default_XC16_FILE_TYPE_compile} PROPERTIES LANGUAGE C)
 set(CANopenFestival_MCU_default_default_XC16_FILE_TYPE_link)
 set(CANopenFestival_MCU_default_default_XC16_FILE_TYPE_bin2hex)

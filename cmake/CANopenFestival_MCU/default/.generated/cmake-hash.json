@@ -1,7 +1,7 @@
 {
     "hashFileVersion": "1.1.0",
-    "projectFileHash": "f21e8a093eacdbfe1a232a0af74658f9f943ce507aa2c3a86bb4a7ce1247919e",
-    "cmakeFilesHash": "833f16b325ac265029a2f6f3e8ee03fe3f0d58fcec8761087eb26b79c81bb30d",
-    "cmakerVersion": "4.2.2",
-    "workspacePath": "/home/coder/project/CANopenFestival_MCU"
+    "projectFileHash": "229da6e7acfd26c770184051510b95885d275aaf4a35f2b8973d5280042214a8",
+    "cmakeFilesHash": "0f941190618df07253137112b0ba26d7b887aca94d6dc867829cf44d3834f411",
+    "cmakerVersion": "4.3.0",
+    "workspacePath": "d:/project docs/vs code prj/canopenfestival_mcu"
 }

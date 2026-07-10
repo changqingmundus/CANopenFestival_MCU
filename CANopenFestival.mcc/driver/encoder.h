@@ -4,8 +4,8 @@
 #include "dee.h"
 #include "stdbool.h"
 #include "stdint.h"
-#include "timer/delay.h"
-#include "system/pins.h"
+#include "delay.h"
+#include "pins.h"
 #include "Encoder_Slave.h"
 
 #define DEE_Encoder_MagicKey 0            //DEE存放編碼器出廠狀態數據
