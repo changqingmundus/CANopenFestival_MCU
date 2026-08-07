@@ -1,5 +1,4 @@
 #include "cleardata.h"
-#include "MB_User_Config.h"
 
 volatile uint8_t high_time_sec = 0; // 記錄高電平持續的秒數
 volatile uint8_t is_counting = 0;   // 是否正在計時中
@@ -87,15 +86,4 @@ void Encoder_Factory_Reset(void)
 {
     DEE_Write(DEE_POSITION_OFFSET_L, 0);
     DEE_Write(DEE_POSITION_OFFSET_H, 0);
-
-    Slave_ID = 1;
-    BaudRate_Index = 1;
-    Parity = 1;
-
-    DEE_Write(DEE_SLAVE_ID, Slave_ID);
-    DEE_Write(DEE_BAUDRATE_INDEX, BaudRate_Index);
-    DEE_Write(DEE_PARITY, Parity);
-
-    Protocol = ModBusRTU;
-    DEE_Write(DEE_Encoder_Protocol, Protocol);
 }

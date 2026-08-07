@@ -12,9 +12,10 @@ TIMEVAL getElapsedTime(void)
 }
 
 
-void SCCP1_Timer_PeriodSet(TIMEVAL value)
+void setTimer(TIMEVAL value)
 {
-    timer_counter = value;
+    //timer_counter = value;
+    SCCP1_Timer_PeriodSet(value);
 }
 
 

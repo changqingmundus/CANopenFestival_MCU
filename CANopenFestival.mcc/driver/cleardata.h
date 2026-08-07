@@ -6,7 +6,6 @@
 #include "sccp1.h"
 #include "dee.h"
 #include "delay.h"
-#include "Protocol_Config.h"
 
 #define ClearData() SET_GetValue()
 
