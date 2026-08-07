@@ -39,7 +39,7 @@ Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
 
 //#define WD_SLEEP
 // Needed defines by Atmel lib
-#define FOSC           8000        // 16 MHz External cristal
+#define FOSC           8000        // 8 MHz External cristal
 #ifndef F_CPU
 #define F_CPU          (1000UL*FOSC) // Need for AVR GCC
 #endif

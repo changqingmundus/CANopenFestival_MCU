@@ -44,7 +44,7 @@ int main(void)
         canReceiveTask();
         canDispatch(&Encoder_Slave_Data, &m);
         
-        Encoder_Read_Data();
+        Encoder_Get_Position();
         Encoder_Update_To_CANopen();
 
         TimeDispatch();

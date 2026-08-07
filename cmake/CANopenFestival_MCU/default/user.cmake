@@ -4,10 +4,10 @@ include_directories(
     ${CMAKE_CURRENT_SOURCE_DIR}/../../../CANopenFestival.mcc/mcc_generated_files/system
     ${CMAKE_CURRENT_SOURCE_DIR}/../../../CANopenFestival.mcc/mcc_generated_files/timer
     ${CMAKE_CURRENT_SOURCE_DIR}/../../../CANopenFestival.mcc/driver
+    ${CMAKE_CURRENT_SOURCE_DIR}/../../../CANopenFestival.mcc/hardware
     ${CMAKE_CURRENT_SOURCE_DIR}/../../../Mongo_CanFestival/inc
     ${CMAKE_CURRENT_SOURCE_DIR}/../../../Mongo_CanFestival/inc/MCU
     ${CMAKE_CURRENT_SOURCE_DIR}/../../../Mongo_CanFestival/dictionary
-    ${CMAKE_CURRENT_SOURCE_DIR}/../../../Mongo_CanFestival/hardware
 )
 add_subdirectory(
 "${CMAKE_CURRENT_SOURCE_DIR}/../../../Mongo_CanFestival"
