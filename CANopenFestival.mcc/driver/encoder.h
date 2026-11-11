@@ -5,51 +5,111 @@
 #include "stdbool.h"
 #include "stdint.h"
 #include "cleardata.h"
+#include "delay.h"
 #include "pins.h"
-#include "Encoder_Slave.h"
 
-#define DEE_Encoder_MagicKey 0            //DEE存放編碼器出廠狀態數據
-#define DEE_Encoder_MultiTurnBitSize 1    //DEE存放編碼器多圈位數配置
-#define DEE_Encoder_SingleTurnBitSize 2   //DEE存放編碼器單圈位數配置
-#define DEE_Encoder_CRCBitSize 3          //DEE存放編碼器CRC位數配置
+#define DEE_Encoder_MagicKey 0          // DEE存放編碼器出廠狀態數據
+#define DEE_Encoder_MultiTurnBitSize 1  // DEE存放編碼器多圈位數配置
+#define DEE_Encoder_SingleTurnBitSize 2 // DEE存放編碼器單圈位數配置
+#define DEE_Encoder_CRCBitSize 3        // DEE存放編碼器CRC位數配置
 
-#define DEE_Speed_Update_Period 4         //DEE存放編碼器速度采集周期
+#define DEE_Speed_Update_Period 4 // DEE存放編碼器速度采集周期
 
-#define DEE_POSITION_OFFSET_L   5         //DEE存放編碼器全部值低16位
-#define DEE_POSITION_OFFSET_H   6         //DEE存放編碼器全部值高16位
-#define DEE_Direction 7                   //DEE存放編碼器旋轉方向
+#define DEE_POSITION_OFFSET_L 5  // DEE存放編碼器全部值16位
+#define DEE_POSITION_OFFSET_H 6  // DEE存放編碼器全部值32位
+#define DEE_POSITION_OFFSET_LL 7 // DEE存放編碼器全部值48位
+#define DEE_POSITION_OFFSET_HH 8 // DEE存放編碼器全部值64位
+#define DEE_Direction 9          // DEE存放編碼器旋轉方向
 
-#define DEE_MultiTurn_Origin_Mode 8       //DEE存放編碼器多圈原點數據
+#define DEE_MultiTurn_Origin_Mode 10 // DEE存放編碼器多圈原點數據
 
+#define DEE_SENSOR_TYPE 18    // DEE存放芯片模式
+#define DEE_SENSOR_ST_CHIP 19 // DEE存放单圈芯片型号
+#define DEE_SENSOR_MT_CHIP 20 // DEE存放多圈芯片型号
 
-#define MA_Clear() SCLK_MA_SetLow()     //設置SLO腳為低電平
-#define MA_Set() SCLK_MA_SetHigh()      //設置SLO腳為高電平
-#define SLO_Get_Value() MISO_SLO_GetValue()  //讀取MISO腳的電平值
+#define MA_Clear() SCLK_MA_SetLow()         // 設置SLO腳為低電平
+#define MA_Set() SCLK_MA_SetHigh()          // 設置SLO腳為高電平
+#define SLO_Get_Value() MISO_SLO_GetValue() // 讀取MISO腳的電平值
 
-#define FACTORY_MAGIC_KEY 0x500A        //編碼器出廠特徵碼
+#define FACTORY_MAGIC_KEY 0x500A // 編碼器出廠特徵碼
 
-#define SPEED_SAMPLE_TIME_MS   10
+#define POSITION_DEAD_BAND 3 // 旋转方向滤波
+#define SPEED_SAMPLE_TIME_MS 10
 #define SPEED_SAMPLE_FACTOR (60000 / SPEED_SAMPLE_TIME_MS)
+
+typedef enum
+{
+    SENSOR_TYPE_SINGLE_TURN = 0x01,
+    SENSOR_TYPE_MULTI_TURN = 0x02
+} SensorType_t;
+
+typedef enum
+{
+    /* No Chip */
+    SENSOR_CHIP_ST_NONE = 0x00,
+
+    /*SingleTurn Chip*/
+    SENSOR_CHIP_MU = 0x01,
+    SENSOR_CHIP_PZ = 0x02,
+} SensorChipST_t;
+
+typedef enum
+{
+    /* MultiTurn Chip */
+    SENSOR_CHIP_MT_NONE = 0x00,
+    SENSOR_CHIP_PVL = 0x01
+} SensorChipMT_t;
+
+typedef enum {
+    CHIP_PROTO_BISS = 0,
+    CHIP_PROTO_SSI  = 1,
+} Chip_Protocol_t;
 
 
 typedef struct
 {
-    uint16_t MultiTurn_Bit;    //配置編碼器多圈位數
-    uint16_t SingleTurn_Bit;   //配置編碼器單圈位數
-    bool Warning_Bit;           //配置編碼器警告位數
-    bool Error_Bit;            //配置編碼器錯誤位數
-    uint16_t CRC_Bit;          //配置編碼器CRC位數
-    //ReadoutData
-    uint64_t Raw_Data;         //編碼器原始數據
-    uint32_t MultiTurn_Data;   //編碼器多圈數據
-    uint32_t SingleTurn_Data;  //編碼器單圈數據
-    uint32_t Warning_Data;     //編碼器警告數據
-    uint32_t Error_Data;       //編碼器錯誤數據
-    uint32_t CRC_Data;         //編碼器CRC數據
-}ENCODER_CONFIG;
+    uint16_t MultiTurn_Bit;  // 配置編碼器多圈位數
+    uint16_t SingleTurn_Bit; // 配置編碼器單圈位數
+    bool Warning_Bit;        // 配置編碼器警告位數
+    bool Error_Bit;          // 配置編碼器錯誤位數
+    uint16_t CRC_Bit;        // 配置編碼器CRC位數
+    // ReadoutData
+    uint64_t Raw_Data;        // 編碼器原始數據
+    uint32_t MultiTurn_Data;  // 編碼器多圈數據
+    uint32_t SingleTurn_Data; // 編碼器單圈數據
+    bool Warning_Data;        // 編碼器警告數據
+    bool Error_Data;          // 編碼器錯誤數據
+    uint32_t CRC_Data;        // 編碼器CRC數據
+} ENCODER_CONFIG;
 
-extern ENCODER_CONFIG Encoder_Config;  //聲明為全局變量
-extern uint32_t Zero_SingleTurn_Data; //當前單圈數據值
+/*send the frame*/
+typedef enum
+{
+    BISS_FRAME_MIN = 0, // Simplified Frame / 精简Biss帧
+    BISS_FRAME_SHORT,   // Short Frame      / 无过程数据
+    BISS_FRAME_LONG,    // Long Frame       / 带过程数据
+    SSI_FRAME           // SSI Frame
+} EncoderFrameMode_t;
+
+typedef enum
+{
+    SENSOR_PROTOCOL_SPI = 0x01,
+    SENSOR_PROTOCOL_BISS = 0x02,
+    SENSOR_PROTOCOL_ABZ = 0x03,
+    SENSOR_PROTOCOL_SSI = 0x04,
+    SENSOR_PROTOCOL_SSI_ERRL = 0x05,
+    SENSOR_PROTOCOL_SSI_ERRH = 0x06,
+    SENSOR_PROTOCOL_EXTSSI = 0x07
+} SensorProtocol_t;
+
+extern SensorType_t Sensor_Type;
+extern SensorChipST_t Sensor_Chip_ST;
+extern SensorChipMT_t Sensor_Chip_MT;
+
+extern Chip_Protocol_t current_chip_protocol;
+
+extern ENCODER_CONFIG Encoder_Config; // 聲明為全局變量
+extern uint32_t Zero_SingleTurn_Data; // 當前單圈數據值
 
 extern uint16_t Encoder_Write_Low;
 extern uint16_t Encoder_Write_High;
@@ -60,23 +120,81 @@ extern uint16_t MultiTurn_Origin_Mode;
 extern uint32_t Encoder_RPM;
 extern uint8_t Encoder_Direction;
 
-extern volatile uint16_t Speed_Timer_Count;
-extern volatile uint16_t Speed_Update_Period;
+extern uint16_t Speed_Timer_Count;
+extern uint16_t Speed_Update_Period;
 
-uint32_t Encoder_Get_Position(void);
-uint32_t Encoder_Get_Total_Position(void);
-uint32_t Encoder_Get_Max_Position(void);
+extern uint16_t Data_Temp;
+
+uint8_t Encoder_Update_Direction(int64_t diff);
+
+uint64_t Encoder_Get_Position(void);
+uint64_t Encoder_Get_Total_Position(void);
+uint64_t Encoder_Get_Max_Position(void);
+
+bool Encoder_SSI_Read(uint8_t bit_num, uint8_t *rx_data);
 
 void Delay_us(uint16_t us);
 
 void Encoder_Init(void);
-void Encoder_SSI_Read(uint8_t bit_num, uint32_t *data);
 void Encoder_Read_Data(void);
 void Encoder_Clear_Data(void);
+
+void MU_OutputBit_Config(uint8_t single_turn_bits, uint8_t multi_turn_bits);
+
+void Enable_GPIO(void);
+
+void Biss_CRC_Update(uint8_t bit);
+
+void Biss_CRC(void); // For Simplified Frame
+
+void Biss_CDM0(void);
+void Biss_CDM1(void);
+void Biss_Short_CDM0(void);
+void Biss_Short_CDM1(void);
+void Biss_Long_CDM0(void);
+void Biss_Long_CDM1(void);
+
+void SSI_CDM0(void);
+void SSI_CDM1(void);
+
+/**
+ * @brief This function enables short frame mode for multiple BiSS slaves in a daisy-chain configuration.
+ *
+ * @retval None
+ */
+void Biss_Enable_Short_Frame(void); // for multi biss slavers
+
+void MU_Change_To_Biss(void);
+void PZ_Change_To_Biss(void);
+
+/**
+ * @brief This function can be used to read one byte from a BiSS register.
+ *
+ * @param mode     BiSS frame mode (short or long).
+ * @param cts      Control communication CTS bit.
+ * @param bissid   BiSS slave ID.
+ * @param bissaddr BiSS register address.
+ * @param data_rx  Pointer to the buffer where the received data is written.
+ * @retval None
+ */
+uint8_t Biss_ReadBytes(EncoderFrameMode_t mode, uint8_t cts, uint8_t bissid, uint8_t bissaddr, uint8_t *data, uint8_t data_len);
+
+void Biss_WriteByteHeader(EncoderFrameMode_t mode, uint8_t cts, uint8_t bissid, uint8_t bissaddr);
+uint8_t Biss_WriteBytes(EncoderFrameMode_t mode, uint8_t *write_data, uint8_t data_len);
+
+uint8_t Sensor_SetProtocol(SensorProtocol_t protocol);
+uint8_t MU_Load_PVL_Config(void);
+uint8_t PZ_Load_PVL_Config(void);
+uint8_t PVL_Check_Status(void);
+uint8_t MU_WriteRegister_Verify(uint8_t addr, uint8_t data);
+uint8_t PZ_WriteRegister_Verify(uint8_t addr, uint8_t data);
+void MU_I2C_Transfer(uint8_t devid, uint8_t ram_start, uint8_t ram_end, uint8_t dev_start);
 
 void Encoder_Update_Speed(void);
 void Encoder_Set_Value(uint32_t set_value);
 void Encoder_Load_Position_Offset(void);
 void Encoder_Save_to_DEE(uint16_t Addr_L, uint16_t Addr_H, uint32_t Data);
+
+void Encoder_Update_To_CANopen(void);
 
 #endif

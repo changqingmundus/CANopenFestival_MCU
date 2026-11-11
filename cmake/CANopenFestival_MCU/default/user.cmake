@@ -3,8 +3,13 @@ include_directories(
     ${CMAKE_CURRENT_SOURCE_DIR}/../../../CANopenFestival.mcc/mcc_generated_files/dee
     ${CMAKE_CURRENT_SOURCE_DIR}/../../../CANopenFestival.mcc/mcc_generated_files/system
     ${CMAKE_CURRENT_SOURCE_DIR}/../../../CANopenFestival.mcc/mcc_generated_files/timer
+    ${CMAKE_CURRENT_SOURCE_DIR}/../../../CANopenFestival.mcc/mcc_generated_files/can
+    ${CMAKE_CURRENT_SOURCE_DIR}/../../../CANopenFestival.mcc/mcc_generated_files/spi_host
     ${CMAKE_CURRENT_SOURCE_DIR}/../../../CANopenFestival.mcc/driver
     ${CMAKE_CURRENT_SOURCE_DIR}/../../../CANopenFestival.mcc/hardware
+    ${CMAKE_CURRENT_SOURCE_DIR}/../../../CANopenFestival.mcc/sensorconfig/MU_Series
+    ${CMAKE_CURRENT_SOURCE_DIR}/../../../CANopenFestival.mcc/sensorconfig/PZ_Series
+    ${CMAKE_CURRENT_SOURCE_DIR}/../../../CANopenFestival.mcc/sensorconfig/PVL_MT_Series
     ${CMAKE_CURRENT_SOURCE_DIR}/../../../Mongo_CanFestival/inc
     ${CMAKE_CURRENT_SOURCE_DIR}/../../../Mongo_CanFestival/inc/MCU
     ${CMAKE_CURRENT_SOURCE_DIR}/../../../Mongo_CanFestival/dictionary

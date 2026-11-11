@@ -56,7 +56,7 @@ void PINS_Initialize(void)
      * Setting the GPIO Direction SFR(s)
      ***************************************************************************/
     TRISA = 0x0016U;
-    TRISB = 0xE3F9U;
+    TRISB = 0xEBF5U;
 
 
     /****************************************************************************
@@ -86,8 +86,12 @@ void PINS_Initialize(void)
      ***************************************************************************/
      __builtin_write_RPCON(0x0000); // unlock PPS
 
-        RPINR26bits.CAN1RXR = 0x0023U; //RB3->CAN1:CAN1RX;
-        RPOR1bits.RP34R = 0x0015U;  //RB2->CAN1:CAN1TX;
+        RPINR20bits.SDI1R = 0x002DU; //RB13->SPI1:SDI1;
+        RPINR26bits.CAN1RXR = 0x0022U; //RB2->CAN1:CAN1RX;
+        RPOR6bits.RP44R = 0x0005U;  //RB12->SPI1:SDO1;
+        RPOR1bits.RP35R = 0x0015U;  //RB3->CAN1:CAN1TX;
+        RPINR20bits.SCK1R = 0x002BU;  //RB11->SPI1:SCK1IN;
+        RPOR5bits.RP43R = 0x0006U;  //RB11->SPI1:SCK1OUT;
 
      __builtin_write_RPCON(0x0800); // lock PPS
 

@@ -1,6 +1,6 @@
 #include "sccp1.h"      // MCC生成
 #include "timer.h"      // CanFestival
-
+#include "encoder.h"
 
 
 static TIMEVAL timer_counter = 0;
@@ -8,13 +8,14 @@ static TIMEVAL timer_counter = 0;
 
 TIMEVAL getElapsedTime(void)
 {
-    return timer_counter;
+    TIMEVAL elapsed = timer_counter;
+    timer_counter = 0;
+    return elapsed;
 }
 
 
 void setTimer(TIMEVAL value)
 {
-    //timer_counter = value;
     SCCP1_Timer_PeriodSet(value);
 }
 

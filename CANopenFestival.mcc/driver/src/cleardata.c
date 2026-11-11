@@ -1,7 +1,7 @@
 #include "cleardata.h"
 
-volatile uint8_t high_time_sec = 0; // 記錄高電平持續的秒數
-volatile uint8_t is_counting = 0;   // 是否正在計時中
+uint8_t high_time_sec = 0; // 記錄高電平持續的秒數
+uint8_t is_counting = 0;   // 是否正在計時中
 
 /**
  * @brief RA4 引腳上升沿中斷回調函式
@@ -86,4 +86,12 @@ void Encoder_Factory_Reset(void)
 {
     DEE_Write(DEE_POSITION_OFFSET_L, 0);
     DEE_Write(DEE_POSITION_OFFSET_H, 0);
+    DEE_Write(DEE_POSITION_OFFSET_LL, 0);
+    DEE_Write(DEE_POSITION_OFFSET_HH, 0);
+
+    Direction_Config = 1;
+    MultiTurn_Origin_Mode = 1;
+
+    DEE_Write(DEE_Direction, Direction_Config);
+    DEE_Write(DEE_MultiTurn_Origin_Mode, MultiTurn_Origin_Mode);
 }

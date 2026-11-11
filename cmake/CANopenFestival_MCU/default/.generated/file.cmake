@@ -37,6 +37,9 @@ set(CANopenFestival_MCU_default_default_XC16_FILE_TYPE_compile
     "${CMAKE_CURRENT_SOURCE_DIR}/../../../CANopenFestival.mcc/mcc_generated_files/system/src/traps.c"
     "${CMAKE_CURRENT_SOURCE_DIR}/../../../CANopenFestival.mcc/mcc_generated_files/timer/src/delay.c"
     "${CMAKE_CURRENT_SOURCE_DIR}/../../../CANopenFestival.mcc/mcc_generated_files/timer/src/sccp1.c"
+    "${CMAKE_CURRENT_SOURCE_DIR}/../../../CANopenFestival.mcc/sensorconfig/MU_Series/src/mu_1sf_driver.c"
+    "${CMAKE_CURRENT_SOURCE_DIR}/../../../CANopenFestival.mcc/sensorconfig/PVL_MT_Series/src/pvl.c"
+    "${CMAKE_CURRENT_SOURCE_DIR}/../../../CANopenFestival.mcc/sensorconfig/PZ_Series/src/pz_1sf_driver.c"
     "${CMAKE_CURRENT_SOURCE_DIR}/../../../Mongo_CanFestival/dictionary/Encoder_Slave.c"
     "${CMAKE_CURRENT_SOURCE_DIR}/../../../Mongo_CanFestival/src/dcf.c"
     "${CMAKE_CURRENT_SOURCE_DIR}/../../../Mongo_CanFestival/src/emcy.c"
@@ -54,6 +57,7 @@ set(CANopenFestival_MCU_default_default_XC16_FILE_TYPE_compile
 set_source_files_properties(${CANopenFestival_MCU_default_default_XC16_FILE_TYPE_compile} PROPERTIES LANGUAGE C)
 set(CANopenFestival_MCU_default_default_XC16_FILE_TYPE_link)
 set(CANopenFestival_MCU_default_default_XC16_FILE_TYPE_bin2hex)
+set(CANopenFestival_MCU_default_default_XC16_FILE_TYPE_objcopy_lss)
 set(CANopenFestival_MCU_default_image_name "default.elf")
 set(CANopenFestival_MCU_default_image_base_name "default")
 

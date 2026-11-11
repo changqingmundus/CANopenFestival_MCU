@@ -8,7 +8,7 @@
 
 /* Prototypes of function provided by object dictionnary */
 UNS32 Encoder_Slave_valueRangeTest (UNS8 typeValue, void * value);
-const indextable * Encoder_Slave_scanIndexOD (UNS16 wIndex, UNS32 * errorCode, ODCallback_t **callbacks);
+const indextable * Encoder_Slave_scanIndexOD (CO_Data *d, UNS16 wIndex, UNS32 * errorCode);
 
 /* Master node data struct */
 extern CO_Data Encoder_Slave_Data;
