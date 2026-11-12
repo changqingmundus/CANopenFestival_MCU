@@ -10,11 +10,6 @@
 #define BISS_START_ACK_TIMEOUT 10U
 #define BISS_STOP_ACK_TIMEOUT 10U
 
-SensorType_t Sensor_Type = SENSOR_TYPE_MULTI_TURN; 
-SensorChipST_t Sensor_Chip_ST = SENSOR_CHIP_PZ;
-SensorChipMT_t Sensor_Chip_MT = SENSOR_CHIP_PVL;
-Chip_Protocol_t current_chip_protocol = CHIP_PROTO_BISS;
-
 int64_t Position_Offset;
 
 uint16_t Encoder_Write_Low = 0;

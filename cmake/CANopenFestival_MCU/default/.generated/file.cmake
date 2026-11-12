@@ -21,6 +21,7 @@ endforeach()
 set(CANopenFestival_MCU_default_default_XC16_FILE_TYPE_compile
     "${CMAKE_CURRENT_SOURCE_DIR}/../../../CANopenFestival.mcc/driver/src/cleardata.c"
     "${CMAKE_CURRENT_SOURCE_DIR}/../../../CANopenFestival.mcc/driver/src/encoder.c"
+    "${CMAKE_CURRENT_SOURCE_DIR}/../../../CANopenFestival.mcc/driver/src/factoryconfig.c"
     "${CMAKE_CURRENT_SOURCE_DIR}/../../../CANopenFestival.mcc/hardware/src/can_drv.c"
     "${CMAKE_CURRENT_SOURCE_DIR}/../../../CANopenFestival.mcc/hardware/src/timer_drv.c"
     "${CMAKE_CURRENT_SOURCE_DIR}/../../../CANopenFestival.mcc/mcc_generated_files/can/src/can1.c"

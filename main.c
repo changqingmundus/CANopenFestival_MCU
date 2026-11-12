@@ -23,9 +23,7 @@
 /*
     Main application
 */
-#include "canfestival.h"
 #include "encoder.h"
-#include "can_drv.h"
 #include "Encoder_Slave.h"
 
 int main(void)
