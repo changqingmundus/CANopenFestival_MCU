@@ -90,10 +90,10 @@ void SCCP1_Timer_Initialize(void)
     CCP1TMRL = 0x0U;
     //TMRH 0x0000; 
     CCP1TMRH = 0x0U;
-    //PRL 46079; 
-    CCP1PRL = 0xB3FFU;
-    //PRH 1220; 
-    CCP1PRH = 0x4C4U;
+    //PRL 23039; 
+    CCP1PRL = 0x59FFU;
+    //PRH 610; 
+    CCP1PRH = 0x262U;
     //CMPA 0; 
     CCP1RA = 0x0U;
     //CMPB 0; 

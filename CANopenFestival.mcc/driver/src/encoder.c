@@ -202,8 +202,8 @@ void Encoder_Init(void)
    }
    else
    {
-      Encoder_Config.MultiTurn_Bit = 8;   // 配置默認多圈位數
-      Encoder_Config.SingleTurn_Bit = 12; // 配置默認單圈位數
+      Encoder_Config.MultiTurn_Bit = 16;   // 配置默認多圈位數
+      Encoder_Config.SingleTurn_Bit = 24; // 配置默認單圈位數
       Encoder_Config.Warning_Bit = 1;
       Encoder_Config.Error_Bit = 1;
       Encoder_Config.CRC_Bit = 6; // 配置默認CRC位數
@@ -1201,10 +1201,10 @@ void MU_I2C_Transfer(uint8_t devid, uint8_t ram_start, uint8_t ram_end, uint8_t 
 
 void Encoder_Update_To_CANopen(void)
 {
-   Encoder_Raw_Data = Encoder_Config.Raw_Data;
-   Multiturn_Data = Encoder_Config.MultiTurn_Data;
-   SingleTurn_Data = Encoder_Config.SingleTurn_Data;
-   Warning_Data = Encoder_Config.Warning_Data;
-   Error_Data = Encoder_Config.Error_Data;
-   CRC_Data = Encoder_Config.CRC_Data;
+   Position_raw_value = Encoder_Config.Raw_Data;
+   //Multiturn_Data = Encoder_Config.MultiTurn_Data;
+   //SingleTurn_Data = Encoder_Config.SingleTurn_Data;
+   //Warning_Data = Encoder_Config.Warning_Data;
+   //Error_Data = Encoder_Config.Error_Data;
+   //CRC_Data = Encoder_Config.CRC_Data;
 }

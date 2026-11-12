@@ -6,12 +6,59 @@
 /**************************************************************************/
 /* Declaration of mapped variables                                        */
 /**************************************************************************/
-UNS64 Encoder_Raw_Data = 0x0;		/* Mapped at index 0x2000, subindex 0x00 */
-UNS32 Multiturn_Data = 0x0;		/* Mapped at index 0x2001, subindex 0x00 */
-UNS32 SingleTurn_Data = 0x0;		/* Mapped at index 0x2002, subindex 0x00 */
-UNS8 Warning_Data = 0x0;		/* Mapped at index 0x2003, subindex 0x00 */
-UNS8 Error_Data = 0x0;		/* Mapped at index 0x2004, subindex 0x00 */
-UNS16 CRC_Data = 0x0;		/* Mapped at index 0x2005, subindex 0x00 */
+UNS32 Encoder_Slave_obj1016[2] = {0x00000000, 0x00000000}; 
+UNS32 Encoder_Slave_obj1003[9] = {0, 0, 0, 0, 0, 0, 0, 0, 0}; 
+
+UNS32 Gear_Factor_Configuration_Mode_Control = 0x1;		/* Mapped at index 0x2001, subindex 0x01 */
+UNS32 Gear_Factor_Configuration_Numerator = 0x1;		/* Mapped at index 0x2001, subindex 0x02 */
+UNS32 Gear_Factor_Configuration_Denominator = 0x1;		/* Mapped at index 0x2001, subindex 0x03 */
+UNS8 Baud_rate = 0x6;		/* Mapped at index 0x2100, subindex 0x00 */
+UNS32 Manufacturer_options = 0x8;		/* Mapped at index 0x2110, subindex 0x00 */
+UNS16 Customer_EEPROM_Data_0 = 0x0;		/* Mapped at index 0x2300, subindex 0x01 */
+UNS16 Customer_EEPROM_Data_1 = 0x0;		/* Mapped at index 0x2300, subindex 0x02 */
+UNS16 Customer_EEPROM_Data_2 = 0x0;		/* Mapped at index 0x2300, subindex 0x03 */
+UNS16 Customer_EEPROM_Data_3 = 0x0;		/* Mapped at index 0x2300, subindex 0x04 */
+UNS16 Customer_EEPROM_Data_4 = 0x0;		/* Mapped at index 0x2300, subindex 0x05 */
+UNS16 Customer_EEPROM_Data_5 = 0x0;		/* Mapped at index 0x2300, subindex 0x06 */
+UNS16 Customer_EEPROM_Data_6 = 0x0;		/* Mapped at index 0x2300, subindex 0x07 */
+UNS32 Operation_Time_Current = 0x0;		/* Mapped at index 0x2A00, subindex 0x01 */
+UNS32 Operation_Time_Total = 0x0;		/* Mapped at index 0x2A00, subindex 0x02 */
+UNS32 Operation_Cycle_Counter = 0x0;		/* Mapped at index 0x2A01, subindex 0x00 */
+UNS16 Operating_Parameters = 0x4;		/* Mapped at index 0x6000, subindex 0x00 */
+UNS32 Measuring_Units_per_Revolution = 0x2000;		/* Mapped at index 0x6001, subindex 0x00 */
+UNS32 Total_Measuring_Range_in_Measuring_Unit = 0x20000000;		/* Mapped at index 0x6002, subindex 0x00 */
+UNS32 Preset_Value = 0x0;		/* Mapped at index 0x6003, subindex 0x00 */
+UNS32 Position_Value = 0x0;		/* Mapped at index 0x6004, subindex 0x00 */
+UNS64 Position_raw_value = 0x0;		/* Mapped at index 0x600C, subindex 0x00 */
+INTEGER16 Speed_Value[] =		/* Mapped at index 0x6030, subindex 0x01 - 0x01 */
+  {
+    0x0	/* 0 */
+  };
+UNS8 Speed_parameter_Speed_source_selector = 0x1;		/* Mapped at index 0x6031, subindex 0x01 */
+UNS16 Speed_parameter_Speed_integration_time = 0x64;		/* Mapped at index 0x6031, subindex 0x02 */
+UNS16 Speed_parameter_Multiplier_value = 0x1;		/* Mapped at index 0x6031, subindex 0x03 */
+UNS16 Speed_parameter_Divider_value = 0x1;		/* Mapped at index 0x6031, subindex 0x04 */
+INTEGER16 Acceleration_Value[] =		/* Mapped at index 0x6040, subindex 0x01 - 0x01 */
+  {
+    0x0	/* 0 */
+  };
+UNS8 Acceleration_parameter_Acceleration_source_selector = 0x1;		/* Mapped at index 0x6041, subindex 0x01 */
+UNS16 Acceleration_parameter_Acceleration_integration_time = 0x64;		/* Mapped at index 0x6041, subindex 0x02 */
+UNS16 Acceleration_parameter_Multiplier_value = 0x1;		/* Mapped at index 0x6041, subindex 0x03 */
+UNS16 Acceleration_parameter_Divider_value = 0x1;		/* Mapped at index 0x6041, subindex 0x04 */
+UNS16 Cyclic_Timer = 0x203;		/* Mapped at index 0x6200, subindex 0x00 */
+UNS16 Operating_Status = 0x4;		/* Mapped at index 0x6500, subindex 0x00 */
+UNS32 Single_Turn_Resolution = 0x1000000;		/* Mapped at index 0x6501, subindex 0x00 */
+UNS16 Number_of_Distinguishable_Revolutions = 0x1000000;		/* Mapped at index 0x6502, subindex 0x00 */
+UNS16 Alarms = 0x0;		/* Mapped at index 0x6503, subindex 0x00 */
+UNS16 Supported_Alarms = 0x1;		/* Mapped at index 0x6504, subindex 0x00 */
+UNS16 Warnings = 0x0;		/* Mapped at index 0x6505, subindex 0x00 */
+UNS16 Supported_Warnings = 0x10;		/* Mapped at index 0x6506, subindex 0x00 */
+UNS32 Profile_and_Software_Version = 0x2010401;		/* Mapped at index 0x6507, subindex 0x00 */
+UNS32 Operating_Time = 0x0;		/* Mapped at index 0x6508, subindex 0x00 */
+INTEGER32 Offset_Value = 0x0;		/* Mapped at index 0x6509, subindex 0x00 */
+INTEGER32 Module_Identification_Manufacturer_Offset_Value = 0x0;		/* Mapped at index 0x650A, subindex 0x01 */
+UNS32 Serial_Number = 0x0;		/* Mapped at index 0x650B, subindex 0x00 */
 
 /**************************************************************************/
 /* Declaration of value range types                                       */
@@ -63,16 +110,34 @@ $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
                        { RO, uint8, sizeof (UNS8), (void*)&Encoder_Slave_obj1001, NULL }
                      };
 
-/* index 0x1003 :   Pre-defined Error Field */
-                    UNS8 Encoder_Slave_highestSubIndex_obj1003 = 0; /* number of subindex - 1*/
-                    UNS32 Encoder_Slave_obj1003[] = 
-                    {
-                      0x0	/* 0 */
-                    };
+/* index 0x1002 :   Manufacturer status register. */
+                    UNS32 Encoder_Slave_obj1002 = 0x0;	/* 0 */
+                    subindex Encoder_Slave_Index1002[] = 
+                     {
+                       { RO, uint32, sizeof (UNS32), (void*)&Encoder_Slave_obj1002, NULL }
+                     };
+
+/* index 0x1003 :   Predefined error field. */
+                    UNS8 Encoder_Slave_highestSubIndex_obj1003 = 9; /* number of subindex - 1*/
+                    UNS32 Encoder_Slave_obj1003_Last_entry = 0x0;	/* 0 */
+                    UNS32 Encoder_Slave_obj1003_Error_Code_Entry_2 = 0x0;	/* 0 */
+                    UNS32 Encoder_Slave_obj1003_Error_Code_Entry_3 = 0x0;	/* 0 */
+                    UNS32 Encoder_Slave_obj1003_Error_Code_Entry_4 = 0x0;	/* 0 */
+                    UNS32 Encoder_Slave_obj1003_Error_Code_Entry_5 = 0x0;	/* 0 */
+                    UNS32 Encoder_Slave_obj1003_Error_Code_Entry_6 = 0x0;	/* 0 */
+                    UNS32 Encoder_Slave_obj1003_Error_Code_Entry_7 = 0x0;	/* 0 */
+                    UNS32 Encoder_Slave_obj1003_Oldest_entry = 0x0;	/* 0 */
                     subindex Encoder_Slave_Index1003[] = 
                      {
-                       { RW, valueRange_EMC, sizeof (UNS8), (void*)&Encoder_Slave_highestSubIndex_obj1003, NULL },
-                       { RO, uint32, sizeof (UNS32), (void*)&Encoder_Slave_obj1003[0], NULL }
+                       { RO, valueRange_EMC, sizeof (UNS8), (void*)&Encoder_Slave_highestSubIndex_obj1003, NULL },
+                       { RO, uint32, sizeof (UNS32), (void*)&Encoder_Slave_obj1003_Last_entry, NULL },
+                       { RO, uint32, sizeof (UNS32), (void*)&Encoder_Slave_obj1003_Error_Code_Entry_2, NULL },
+                       { RO, uint32, sizeof (UNS32), (void*)&Encoder_Slave_obj1003_Error_Code_Entry_3, NULL },
+                       { RO, uint32, sizeof (UNS32), (void*)&Encoder_Slave_obj1003_Error_Code_Entry_4, NULL },
+                       { RO, uint32, sizeof (UNS32), (void*)&Encoder_Slave_obj1003_Error_Code_Entry_5, NULL },
+                       { RO, uint32, sizeof (UNS32), (void*)&Encoder_Slave_obj1003_Error_Code_Entry_6, NULL },
+                       { RO, uint32, sizeof (UNS32), (void*)&Encoder_Slave_obj1003_Error_Code_Entry_7, NULL },
+                       { RO, uint32, sizeof (UNS32), (void*)&Encoder_Slave_obj1003_Oldest_entry, NULL }
                      };
 
 /* index 0x1005 :   SYNC COB ID. */
@@ -92,6 +157,13 @@ $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
                        { RO, visible_string, 10, (void*)&Encoder_Slave_obj1008, NULL }
                      };
 
+/* index 0x100A :   Software version. */
+                    UNS8 Encoder_Slave_obj100A[10] = "V1.0";
+                    subindex Encoder_Slave_Index100A[] = 
+                     {
+                       { RO, visible_string, 10, (void*)&Encoder_Slave_obj100A, NULL }
+                     };
+
 /* index 0x100C :   Guard Time. */
                     UNS16 Encoder_Slave_obj100C = 0x0;	/* 0 */
                     subindex Encoder_Slave_Index100C[] = 
@@ -107,525 +179,33 @@ $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
                      };
 
 /* index 0x1010 :   Store parameters. */
-                    UNS8 Encoder_Slave_highestSubIndex_obj1010 = 127; /* number of subindex - 1*/
-                    UNS32 Encoder_Slave_obj1010_Save_All_Parameters = 0x0;	/* 0 */
-                    UNS32 Encoder_Slave_obj1010_Save_Communication_Parameters = 0x0;	/* 0 */
-                    UNS32 Encoder_Slave_obj1010_Save_Application_Parameters = 0x0;	/* 0 */
-                    UNS32 Encoder_Slave_obj1010_Save_Manufacturer_Parameters_1 = 0x0;	/* 0 */
-                    UNS32 Encoder_Slave_obj1010_Save_Manufacturer_Parameters_2 = 0x0;	/* 0 */
-                    UNS32 Encoder_Slave_obj1010_Save_Manufacturer_Parameters_3 = 0x0;	/* 0 */
-                    UNS32 Encoder_Slave_obj1010_Save_Manufacturer_Parameters_4 = 0x0;	/* 0 */
-                    UNS32 Encoder_Slave_obj1010_Save_Manufacturer_Parameters_5 = 0x0;	/* 0 */
-                    UNS32 Encoder_Slave_obj1010_Save_Manufacturer_Parameters_6 = 0x0;	/* 0 */
-                    UNS32 Encoder_Slave_obj1010_Save_Manufacturer_Parameters_7 = 0x0;	/* 0 */
-                    UNS32 Encoder_Slave_obj1010_Save_Manufacturer_Parameters_8 = 0x0;	/* 0 */
-                    UNS32 Encoder_Slave_obj1010_Save_Manufacturer_Parameters_9 = 0x0;	/* 0 */
-                    UNS32 Encoder_Slave_obj1010_Save_Manufacturer_Parameters_10 = 0x0;	/* 0 */
-                    UNS32 Encoder_Slave_obj1010_Save_Manufacturer_Parameters_11 = 0x0;	/* 0 */
-                    UNS32 Encoder_Slave_obj1010_Save_Manufacturer_Parameters_12 = 0x0;	/* 0 */
-                    UNS32 Encoder_Slave_obj1010_Save_Manufacturer_Parameters_13 = 0x0;	/* 0 */
-                    UNS32 Encoder_Slave_obj1010_Save_Manufacturer_Parameters_14 = 0x0;	/* 0 */
-                    UNS32 Encoder_Slave_obj1010_Save_Manufacturer_Parameters_15 = 0x0;	/* 0 */
-                    UNS32 Encoder_Slave_obj1010_Save_Manufacturer_Parameters_16 = 0x0;	/* 0 */
-                    UNS32 Encoder_Slave_obj1010_Save_Manufacturer_Parameters_17 = 0x0;	/* 0 */
-                    UNS32 Encoder_Slave_obj1010_Save_Manufacturer_Parameters_18 = 0x0;	/* 0 */
-                    UNS32 Encoder_Slave_obj1010_Save_Manufacturer_Parameters_19 = 0x0;	/* 0 */
-                    UNS32 Encoder_Slave_obj1010_Save_Manufacturer_Parameters_20 = 0x0;	/* 0 */
-                    UNS32 Encoder_Slave_obj1010_Save_Manufacturer_Parameters_21 = 0x0;	/* 0 */
-                    UNS32 Encoder_Slave_obj1010_Save_Manufacturer_Parameters_22 = 0x0;	/* 0 */
-                    UNS32 Encoder_Slave_obj1010_Save_Manufacturer_Parameters_23 = 0x0;	/* 0 */
-                    UNS32 Encoder_Slave_obj1010_Save_Manufacturer_Parameters_24 = 0x0;	/* 0 */
-                    UNS32 Encoder_Slave_obj1010_Save_Manufacturer_Parameters_25 = 0x0;	/* 0 */
-                    UNS32 Encoder_Slave_obj1010_Save_Manufacturer_Parameters_26 = 0x0;	/* 0 */
-                    UNS32 Encoder_Slave_obj1010_Save_Manufacturer_Parameters_27 = 0x0;	/* 0 */
-                    UNS32 Encoder_Slave_obj1010_Save_Manufacturer_Parameters_28 = 0x0;	/* 0 */
-                    UNS32 Encoder_Slave_obj1010_Save_Manufacturer_Parameters_29 = 0x0;	/* 0 */
-                    UNS32 Encoder_Slave_obj1010_Save_Manufacturer_Parameters_30 = 0x0;	/* 0 */
-                    UNS32 Encoder_Slave_obj1010_Save_Manufacturer_Parameters_31 = 0x0;	/* 0 */
-                    UNS32 Encoder_Slave_obj1010_Save_Manufacturer_Parameters_32 = 0x0;	/* 0 */
-                    UNS32 Encoder_Slave_obj1010_Save_Manufacturer_Parameters_33 = 0x0;	/* 0 */
-                    UNS32 Encoder_Slave_obj1010_Save_Manufacturer_Parameters_34 = 0x0;	/* 0 */
-                    UNS32 Encoder_Slave_obj1010_Save_Manufacturer_Parameters_35 = 0x0;	/* 0 */
-                    UNS32 Encoder_Slave_obj1010_Save_Manufacturer_Parameters_36 = 0x0;	/* 0 */
-                    UNS32 Encoder_Slave_obj1010_Save_Manufacturer_Parameters_37 = 0x0;	/* 0 */
-                    UNS32 Encoder_Slave_obj1010_Save_Manufacturer_Parameters_38 = 0x0;	/* 0 */
-                    UNS32 Encoder_Slave_obj1010_Save_Manufacturer_Parameters_39 = 0x0;	/* 0 */
-                    UNS32 Encoder_Slave_obj1010_Save_Manufacturer_Parameters_40 = 0x0;	/* 0 */
-                    UNS32 Encoder_Slave_obj1010_Save_Manufacturer_Parameters_41 = 0x0;	/* 0 */
-                    UNS32 Encoder_Slave_obj1010_Save_Manufacturer_Parameters_42 = 0x0;	/* 0 */
-                    UNS32 Encoder_Slave_obj1010_Save_Manufacturer_Parameters_43 = 0x0;	/* 0 */
-                    UNS32 Encoder_Slave_obj1010_Save_Manufacturer_Parameters_44 = 0x0;	/* 0 */
-                    UNS32 Encoder_Slave_obj1010_Save_Manufacturer_Parameters_45 = 0x0;	/* 0 */
-                    UNS32 Encoder_Slave_obj1010_Save_Manufacturer_Parameters_46 = 0x0;	/* 0 */
-                    UNS32 Encoder_Slave_obj1010_Save_Manufacturer_Parameters_47 = 0x0;	/* 0 */
-                    UNS32 Encoder_Slave_obj1010_Save_Manufacturer_Parameters_48 = 0x0;	/* 0 */
-                    UNS32 Encoder_Slave_obj1010_Save_Manufacturer_Parameters_49 = 0x0;	/* 0 */
-                    UNS32 Encoder_Slave_obj1010_Save_Manufacturer_Parameters_50 = 0x0;	/* 0 */
-                    UNS32 Encoder_Slave_obj1010_Save_Manufacturer_Parameters_51 = 0x0;	/* 0 */
-                    UNS32 Encoder_Slave_obj1010_Save_Manufacturer_Parameters_52 = 0x0;	/* 0 */
-                    UNS32 Encoder_Slave_obj1010_Save_Manufacturer_Parameters_53 = 0x0;	/* 0 */
-                    UNS32 Encoder_Slave_obj1010_Save_Manufacturer_Parameters_54 = 0x0;	/* 0 */
-                    UNS32 Encoder_Slave_obj1010_Save_Manufacturer_Parameters_55 = 0x0;	/* 0 */
-                    UNS32 Encoder_Slave_obj1010_Save_Manufacturer_Parameters_56 = 0x0;	/* 0 */
-                    UNS32 Encoder_Slave_obj1010_Save_Manufacturer_Parameters_57 = 0x0;	/* 0 */
-                    UNS32 Encoder_Slave_obj1010_Save_Manufacturer_Parameters_58 = 0x0;	/* 0 */
-                    UNS32 Encoder_Slave_obj1010_Save_Manufacturer_Parameters_59 = 0x0;	/* 0 */
-                    UNS32 Encoder_Slave_obj1010_Save_Manufacturer_Parameters_60 = 0x0;	/* 0 */
-                    UNS32 Encoder_Slave_obj1010_Save_Manufacturer_Parameters_61 = 0x0;	/* 0 */
-                    UNS32 Encoder_Slave_obj1010_Save_Manufacturer_Parameters_62 = 0x0;	/* 0 */
-                    UNS32 Encoder_Slave_obj1010_Save_Manufacturer_Parameters_63 = 0x0;	/* 0 */
-                    UNS32 Encoder_Slave_obj1010_Save_Manufacturer_Parameters_64 = 0x0;	/* 0 */
-                    UNS32 Encoder_Slave_obj1010_Save_Manufacturer_Parameters_65 = 0x0;	/* 0 */
-                    UNS32 Encoder_Slave_obj1010_Save_Manufacturer_Parameters_66 = 0x0;	/* 0 */
-                    UNS32 Encoder_Slave_obj1010_Save_Manufacturer_Parameters_67 = 0x0;	/* 0 */
-                    UNS32 Encoder_Slave_obj1010_Save_Manufacturer_Parameters_68 = 0x0;	/* 0 */
-                    UNS32 Encoder_Slave_obj1010_Save_Manufacturer_Parameters_69 = 0x0;	/* 0 */
-                    UNS32 Encoder_Slave_obj1010_Save_Manufacturer_Parameters_70 = 0x0;	/* 0 */
-                    UNS32 Encoder_Slave_obj1010_Save_Manufacturer_Parameters_71 = 0x0;	/* 0 */
-                    UNS32 Encoder_Slave_obj1010_Save_Manufacturer_Parameters_72 = 0x0;	/* 0 */
-                    UNS32 Encoder_Slave_obj1010_Save_Manufacturer_Parameters_73 = 0x0;	/* 0 */
-                    UNS32 Encoder_Slave_obj1010_Save_Manufacturer_Parameters_74 = 0x0;	/* 0 */
-                    UNS32 Encoder_Slave_obj1010_Save_Manufacturer_Parameters_75 = 0x0;	/* 0 */
-                    UNS32 Encoder_Slave_obj1010_Save_Manufacturer_Parameters_76 = 0x0;	/* 0 */
-                    UNS32 Encoder_Slave_obj1010_Save_Manufacturer_Parameters_77 = 0x0;	/* 0 */
-                    UNS32 Encoder_Slave_obj1010_Save_Manufacturer_Parameters_78 = 0x0;	/* 0 */
-                    UNS32 Encoder_Slave_obj1010_Save_Manufacturer_Parameters_79 = 0x0;	/* 0 */
-                    UNS32 Encoder_Slave_obj1010_Save_Manufacturer_Parameters_80 = 0x0;	/* 0 */
-                    UNS32 Encoder_Slave_obj1010_Save_Manufacturer_Parameters_81 = 0x0;	/* 0 */
-                    UNS32 Encoder_Slave_obj1010_Save_Manufacturer_Parameters_82 = 0x0;	/* 0 */
-                    UNS32 Encoder_Slave_obj1010_Save_Manufacturer_Parameters_83 = 0x0;	/* 0 */
-                    UNS32 Encoder_Slave_obj1010_Save_Manufacturer_Parameters_84 = 0x0;	/* 0 */
-                    UNS32 Encoder_Slave_obj1010_Save_Manufacturer_Parameters_85 = 0x0;	/* 0 */
-                    UNS32 Encoder_Slave_obj1010_Save_Manufacturer_Parameters_86 = 0x0;	/* 0 */
-                    UNS32 Encoder_Slave_obj1010_Save_Manufacturer_Parameters_87 = 0x0;	/* 0 */
-                    UNS32 Encoder_Slave_obj1010_Save_Manufacturer_Parameters_88 = 0x0;	/* 0 */
-                    UNS32 Encoder_Slave_obj1010_Save_Manufacturer_Parameters_89 = 0x0;	/* 0 */
-                    UNS32 Encoder_Slave_obj1010_Save_Manufacturer_Parameters_90 = 0x0;	/* 0 */
-                    UNS32 Encoder_Slave_obj1010_Save_Manufacturer_Parameters_91 = 0x0;	/* 0 */
-                    UNS32 Encoder_Slave_obj1010_Save_Manufacturer_Parameters_92 = 0x0;	/* 0 */
-                    UNS32 Encoder_Slave_obj1010_Save_Manufacturer_Parameters_93 = 0x0;	/* 0 */
-                    UNS32 Encoder_Slave_obj1010_Save_Manufacturer_Parameters_94 = 0x0;	/* 0 */
-                    UNS32 Encoder_Slave_obj1010_Save_Manufacturer_Parameters_95 = 0x0;	/* 0 */
-                    UNS32 Encoder_Slave_obj1010_Save_Manufacturer_Parameters_96 = 0x0;	/* 0 */
-                    UNS32 Encoder_Slave_obj1010_Save_Manufacturer_Parameters_97 = 0x0;	/* 0 */
-                    UNS32 Encoder_Slave_obj1010_Save_Manufacturer_Parameters_98 = 0x0;	/* 0 */
-                    UNS32 Encoder_Slave_obj1010_Save_Manufacturer_Parameters_99 = 0x0;	/* 0 */
-                    UNS32 Encoder_Slave_obj1010_Save_Manufacturer_Parameters_100 = 0x0;	/* 0 */
-                    UNS32 Encoder_Slave_obj1010_Save_Manufacturer_Parameters_101 = 0x0;	/* 0 */
-                    UNS32 Encoder_Slave_obj1010_Save_Manufacturer_Parameters_102 = 0x0;	/* 0 */
-                    UNS32 Encoder_Slave_obj1010_Save_Manufacturer_Parameters_103 = 0x0;	/* 0 */
-                    UNS32 Encoder_Slave_obj1010_Save_Manufacturer_Parameters_104 = 0x0;	/* 0 */
-                    UNS32 Encoder_Slave_obj1010_Save_Manufacturer_Parameters_105 = 0x0;	/* 0 */
-                    UNS32 Encoder_Slave_obj1010_Save_Manufacturer_Parameters_106 = 0x0;	/* 0 */
-                    UNS32 Encoder_Slave_obj1010_Save_Manufacturer_Parameters_107 = 0x0;	/* 0 */
-                    UNS32 Encoder_Slave_obj1010_Save_Manufacturer_Parameters_108 = 0x0;	/* 0 */
-                    UNS32 Encoder_Slave_obj1010_Save_Manufacturer_Parameters_109 = 0x0;	/* 0 */
-                    UNS32 Encoder_Slave_obj1010_Save_Manufacturer_Parameters_110 = 0x0;	/* 0 */
-                    UNS32 Encoder_Slave_obj1010_Save_Manufacturer_Parameters_111 = 0x0;	/* 0 */
-                    UNS32 Encoder_Slave_obj1010_Save_Manufacturer_Parameters_112 = 0x0;	/* 0 */
-                    UNS32 Encoder_Slave_obj1010_Save_Manufacturer_Parameters_113 = 0x0;	/* 0 */
-                    UNS32 Encoder_Slave_obj1010_Save_Manufacturer_Parameters_114 = 0x0;	/* 0 */
-                    UNS32 Encoder_Slave_obj1010_Save_Manufacturer_Parameters_115 = 0x0;	/* 0 */
-                    UNS32 Encoder_Slave_obj1010_Save_Manufacturer_Parameters_116 = 0x0;	/* 0 */
-                    UNS32 Encoder_Slave_obj1010_Save_Manufacturer_Parameters_117 = 0x0;	/* 0 */
-                    UNS32 Encoder_Slave_obj1010_Save_Manufacturer_Parameters_118 = 0x0;	/* 0 */
-                    UNS32 Encoder_Slave_obj1010_Save_Manufacturer_Parameters_119 = 0x0;	/* 0 */
-                    UNS32 Encoder_Slave_obj1010_Save_Manufacturer_Parameters_120 = 0x0;	/* 0 */
-                    UNS32 Encoder_Slave_obj1010_Save_Manufacturer_Parameters_121 = 0x0;	/* 0 */
-                    UNS32 Encoder_Slave_obj1010_Save_Manufacturer_Parameters_122 = 0x0;	/* 0 */
-                    UNS32 Encoder_Slave_obj1010_Save_Manufacturer_Parameters_123 = 0x0;	/* 0 */
-                    UNS32 Encoder_Slave_obj1010_Save_Manufacturer_Parameters_124 = 0x0;	/* 0 */
+                    UNS8 Encoder_Slave_highestSubIndex_obj1010 = 4; /* number of subindex - 1*/
+                    UNS32 Encoder_Slave_obj1010_Save_All_Parameters = 0x1;	/* 1 */
+                    UNS32 Encoder_Slave_obj1010_Save_Communication_Parameters = 0x1;	/* 1 */
+                    UNS32 Encoder_Slave_obj1010_Save_Application_Parameters = 0x1;	/* 1 */
+                    UNS32 Encoder_Slave_obj1010_Save_Manufacturer_Parameters_1 = 0x1;	/* 1 */
                     subindex Encoder_Slave_Index1010[] = 
                      {
                        { RO, uint8, sizeof (UNS8), (void*)&Encoder_Slave_highestSubIndex_obj1010, NULL },
                        { RW, uint32, sizeof (UNS32), (void*)&Encoder_Slave_obj1010_Save_All_Parameters, NULL },
                        { RW, uint32, sizeof (UNS32), (void*)&Encoder_Slave_obj1010_Save_Communication_Parameters, NULL },
                        { RW, uint32, sizeof (UNS32), (void*)&Encoder_Slave_obj1010_Save_Application_Parameters, NULL },
-                       { RW, uint32, sizeof (UNS32), (void*)&Encoder_Slave_obj1010_Save_Manufacturer_Parameters_1, NULL },
-                       { RW, uint32, sizeof (UNS32), (void*)&Encoder_Slave_obj1010_Save_Manufacturer_Parameters_2, NULL },
-                       { RW, uint32, sizeof (UNS32), (void*)&Encoder_Slave_obj1010_Save_Manufacturer_Parameters_3, NULL },
-                       { RW, uint32, sizeof (UNS32), (void*)&Encoder_Slave_obj1010_Save_Manufacturer_Parameters_4, NULL },
-                       { RW, uint32, sizeof (UNS32), (void*)&Encoder_Slave_obj1010_Save_Manufacturer_Parameters_5, NULL },
-                       { RW, uint32, sizeof (UNS32), (void*)&Encoder_Slave_obj1010_Save_Manufacturer_Parameters_6, NULL },
-                       { RW, uint32, sizeof (UNS32), (void*)&Encoder_Slave_obj1010_Save_Manufacturer_Parameters_7, NULL },
-                       { RW, uint32, sizeof (UNS32), (void*)&Encoder_Slave_obj1010_Save_Manufacturer_Parameters_8, NULL },
-                       { RW, uint32, sizeof (UNS32), (void*)&Encoder_Slave_obj1010_Save_Manufacturer_Parameters_9, NULL },
-                       { RW, uint32, sizeof (UNS32), (void*)&Encoder_Slave_obj1010_Save_Manufacturer_Parameters_10, NULL },
-                       { RW, uint32, sizeof (UNS32), (void*)&Encoder_Slave_obj1010_Save_Manufacturer_Parameters_11, NULL },
-                       { RW, uint32, sizeof (UNS32), (void*)&Encoder_Slave_obj1010_Save_Manufacturer_Parameters_12, NULL },
-                       { RW, uint32, sizeof (UNS32), (void*)&Encoder_Slave_obj1010_Save_Manufacturer_Parameters_13, NULL },
-                       { RW, uint32, sizeof (UNS32), (void*)&Encoder_Slave_obj1010_Save_Manufacturer_Parameters_14, NULL },
-                       { RW, uint32, sizeof (UNS32), (void*)&Encoder_Slave_obj1010_Save_Manufacturer_Parameters_15, NULL },
-                       { RW, uint32, sizeof (UNS32), (void*)&Encoder_Slave_obj1010_Save_Manufacturer_Parameters_16, NULL },
-                       { RW, uint32, sizeof (UNS32), (void*)&Encoder_Slave_obj1010_Save_Manufacturer_Parameters_17, NULL },
-                       { RW, uint32, sizeof (UNS32), (void*)&Encoder_Slave_obj1010_Save_Manufacturer_Parameters_18, NULL },
-                       { RW, uint32, sizeof (UNS32), (void*)&Encoder_Slave_obj1010_Save_Manufacturer_Parameters_19, NULL },
-                       { RW, uint32, sizeof (UNS32), (void*)&Encoder_Slave_obj1010_Save_Manufacturer_Parameters_20, NULL },
-                       { RW, uint32, sizeof (UNS32), (void*)&Encoder_Slave_obj1010_Save_Manufacturer_Parameters_21, NULL },
-                       { RW, uint32, sizeof (UNS32), (void*)&Encoder_Slave_obj1010_Save_Manufacturer_Parameters_22, NULL },
-                       { RW, uint32, sizeof (UNS32), (void*)&Encoder_Slave_obj1010_Save_Manufacturer_Parameters_23, NULL },
-                       { RW, uint32, sizeof (UNS32), (void*)&Encoder_Slave_obj1010_Save_Manufacturer_Parameters_24, NULL },
-                       { RW, uint32, sizeof (UNS32), (void*)&Encoder_Slave_obj1010_Save_Manufacturer_Parameters_25, NULL },
-                       { RW, uint32, sizeof (UNS32), (void*)&Encoder_Slave_obj1010_Save_Manufacturer_Parameters_26, NULL },
-                       { RW, uint32, sizeof (UNS32), (void*)&Encoder_Slave_obj1010_Save_Manufacturer_Parameters_27, NULL },
-                       { RW, uint32, sizeof (UNS32), (void*)&Encoder_Slave_obj1010_Save_Manufacturer_Parameters_28, NULL },
-                       { RW, uint32, sizeof (UNS32), (void*)&Encoder_Slave_obj1010_Save_Manufacturer_Parameters_29, NULL },
-                       { RW, uint32, sizeof (UNS32), (void*)&Encoder_Slave_obj1010_Save_Manufacturer_Parameters_30, NULL },
-                       { RW, uint32, sizeof (UNS32), (void*)&Encoder_Slave_obj1010_Save_Manufacturer_Parameters_31, NULL },
-                       { RW, uint32, sizeof (UNS32), (void*)&Encoder_Slave_obj1010_Save_Manufacturer_Parameters_32, NULL },
-                       { RW, uint32, sizeof (UNS32), (void*)&Encoder_Slave_obj1010_Save_Manufacturer_Parameters_33, NULL },
-                       { RW, uint32, sizeof (UNS32), (void*)&Encoder_Slave_obj1010_Save_Manufacturer_Parameters_34, NULL },
-                       { RW, uint32, sizeof (UNS32), (void*)&Encoder_Slave_obj1010_Save_Manufacturer_Parameters_35, NULL },
-                       { RW, uint32, sizeof (UNS32), (void*)&Encoder_Slave_obj1010_Save_Manufacturer_Parameters_36, NULL },
-                       { RW, uint32, sizeof (UNS32), (void*)&Encoder_Slave_obj1010_Save_Manufacturer_Parameters_37, NULL },
-                       { RW, uint32, sizeof (UNS32), (void*)&Encoder_Slave_obj1010_Save_Manufacturer_Parameters_38, NULL },
-                       { RW, uint32, sizeof (UNS32), (void*)&Encoder_Slave_obj1010_Save_Manufacturer_Parameters_39, NULL },
-                       { RW, uint32, sizeof (UNS32), (void*)&Encoder_Slave_obj1010_Save_Manufacturer_Parameters_40, NULL },
-                       { RW, uint32, sizeof (UNS32), (void*)&Encoder_Slave_obj1010_Save_Manufacturer_Parameters_41, NULL },
-                       { RW, uint32, sizeof (UNS32), (void*)&Encoder_Slave_obj1010_Save_Manufacturer_Parameters_42, NULL },
-                       { RW, uint32, sizeof (UNS32), (void*)&Encoder_Slave_obj1010_Save_Manufacturer_Parameters_43, NULL },
-                       { RW, uint32, sizeof (UNS32), (void*)&Encoder_Slave_obj1010_Save_Manufacturer_Parameters_44, NULL },
-                       { RW, uint32, sizeof (UNS32), (void*)&Encoder_Slave_obj1010_Save_Manufacturer_Parameters_45, NULL },
-                       { RW, uint32, sizeof (UNS32), (void*)&Encoder_Slave_obj1010_Save_Manufacturer_Parameters_46, NULL },
-                       { RW, uint32, sizeof (UNS32), (void*)&Encoder_Slave_obj1010_Save_Manufacturer_Parameters_47, NULL },
-                       { RW, uint32, sizeof (UNS32), (void*)&Encoder_Slave_obj1010_Save_Manufacturer_Parameters_48, NULL },
-                       { RW, uint32, sizeof (UNS32), (void*)&Encoder_Slave_obj1010_Save_Manufacturer_Parameters_49, NULL },
-                       { RW, uint32, sizeof (UNS32), (void*)&Encoder_Slave_obj1010_Save_Manufacturer_Parameters_50, NULL },
-                       { RW, uint32, sizeof (UNS32), (void*)&Encoder_Slave_obj1010_Save_Manufacturer_Parameters_51, NULL },
-                       { RW, uint32, sizeof (UNS32), (void*)&Encoder_Slave_obj1010_Save_Manufacturer_Parameters_52, NULL },
-                       { RW, uint32, sizeof (UNS32), (void*)&Encoder_Slave_obj1010_Save_Manufacturer_Parameters_53, NULL },
-                       { RW, uint32, sizeof (UNS32), (void*)&Encoder_Slave_obj1010_Save_Manufacturer_Parameters_54, NULL },
-                       { RW, uint32, sizeof (UNS32), (void*)&Encoder_Slave_obj1010_Save_Manufacturer_Parameters_55, NULL },
-                       { RW, uint32, sizeof (UNS32), (void*)&Encoder_Slave_obj1010_Save_Manufacturer_Parameters_56, NULL },
-                       { RW, uint32, sizeof (UNS32), (void*)&Encoder_Slave_obj1010_Save_Manufacturer_Parameters_57, NULL },
-                       { RW, uint32, sizeof (UNS32), (void*)&Encoder_Slave_obj1010_Save_Manufacturer_Parameters_58, NULL },
-                       { RW, uint32, sizeof (UNS32), (void*)&Encoder_Slave_obj1010_Save_Manufacturer_Parameters_59, NULL },
-                       { RW, uint32, sizeof (UNS32), (void*)&Encoder_Slave_obj1010_Save_Manufacturer_Parameters_60, NULL },
-                       { RW, uint32, sizeof (UNS32), (void*)&Encoder_Slave_obj1010_Save_Manufacturer_Parameters_61, NULL },
-                       { RW, uint32, sizeof (UNS32), (void*)&Encoder_Slave_obj1010_Save_Manufacturer_Parameters_62, NULL },
-                       { RW, uint32, sizeof (UNS32), (void*)&Encoder_Slave_obj1010_Save_Manufacturer_Parameters_63, NULL },
-                       { RW, uint32, sizeof (UNS32), (void*)&Encoder_Slave_obj1010_Save_Manufacturer_Parameters_64, NULL },
-                       { RW, uint32, sizeof (UNS32), (void*)&Encoder_Slave_obj1010_Save_Manufacturer_Parameters_65, NULL },
-                       { RW, uint32, sizeof (UNS32), (void*)&Encoder_Slave_obj1010_Save_Manufacturer_Parameters_66, NULL },
-                       { RW, uint32, sizeof (UNS32), (void*)&Encoder_Slave_obj1010_Save_Manufacturer_Parameters_67, NULL },
-                       { RW, uint32, sizeof (UNS32), (void*)&Encoder_Slave_obj1010_Save_Manufacturer_Parameters_68, NULL },
-                       { RW, uint32, sizeof (UNS32), (void*)&Encoder_Slave_obj1010_Save_Manufacturer_Parameters_69, NULL },
-                       { RW, uint32, sizeof (UNS32), (void*)&Encoder_Slave_obj1010_Save_Manufacturer_Parameters_70, NULL },
-                       { RW, uint32, sizeof (UNS32), (void*)&Encoder_Slave_obj1010_Save_Manufacturer_Parameters_71, NULL },
-                       { RW, uint32, sizeof (UNS32), (void*)&Encoder_Slave_obj1010_Save_Manufacturer_Parameters_72, NULL },
-                       { RW, uint32, sizeof (UNS32), (void*)&Encoder_Slave_obj1010_Save_Manufacturer_Parameters_73, NULL },
-                       { RW, uint32, sizeof (UNS32), (void*)&Encoder_Slave_obj1010_Save_Manufacturer_Parameters_74, NULL },
-                       { RW, uint32, sizeof (UNS32), (void*)&Encoder_Slave_obj1010_Save_Manufacturer_Parameters_75, NULL },
-                       { RW, uint32, sizeof (UNS32), (void*)&Encoder_Slave_obj1010_Save_Manufacturer_Parameters_76, NULL },
-                       { RW, uint32, sizeof (UNS32), (void*)&Encoder_Slave_obj1010_Save_Manufacturer_Parameters_77, NULL },
-                       { RW, uint32, sizeof (UNS32), (void*)&Encoder_Slave_obj1010_Save_Manufacturer_Parameters_78, NULL },
-                       { RW, uint32, sizeof (UNS32), (void*)&Encoder_Slave_obj1010_Save_Manufacturer_Parameters_79, NULL },
-                       { RW, uint32, sizeof (UNS32), (void*)&Encoder_Slave_obj1010_Save_Manufacturer_Parameters_80, NULL },
-                       { RW, uint32, sizeof (UNS32), (void*)&Encoder_Slave_obj1010_Save_Manufacturer_Parameters_81, NULL },
-                       { RW, uint32, sizeof (UNS32), (void*)&Encoder_Slave_obj1010_Save_Manufacturer_Parameters_82, NULL },
-                       { RW, uint32, sizeof (UNS32), (void*)&Encoder_Slave_obj1010_Save_Manufacturer_Parameters_83, NULL },
-                       { RW, uint32, sizeof (UNS32), (void*)&Encoder_Slave_obj1010_Save_Manufacturer_Parameters_84, NULL },
-                       { RW, uint32, sizeof (UNS32), (void*)&Encoder_Slave_obj1010_Save_Manufacturer_Parameters_85, NULL },
-                       { RW, uint32, sizeof (UNS32), (void*)&Encoder_Slave_obj1010_Save_Manufacturer_Parameters_86, NULL },
-                       { RW, uint32, sizeof (UNS32), (void*)&Encoder_Slave_obj1010_Save_Manufacturer_Parameters_87, NULL },
-                       { RW, uint32, sizeof (UNS32), (void*)&Encoder_Slave_obj1010_Save_Manufacturer_Parameters_88, NULL },
-                       { RW, uint32, sizeof (UNS32), (void*)&Encoder_Slave_obj1010_Save_Manufacturer_Parameters_89, NULL },
-                       { RW, uint32, sizeof (UNS32), (void*)&Encoder_Slave_obj1010_Save_Manufacturer_Parameters_90, NULL },
-                       { RW, uint32, sizeof (UNS32), (void*)&Encoder_Slave_obj1010_Save_Manufacturer_Parameters_91, NULL },
-                       { RW, uint32, sizeof (UNS32), (void*)&Encoder_Slave_obj1010_Save_Manufacturer_Parameters_92, NULL },
-                       { RW, uint32, sizeof (UNS32), (void*)&Encoder_Slave_obj1010_Save_Manufacturer_Parameters_93, NULL },
-                       { RW, uint32, sizeof (UNS32), (void*)&Encoder_Slave_obj1010_Save_Manufacturer_Parameters_94, NULL },
-                       { RW, uint32, sizeof (UNS32), (void*)&Encoder_Slave_obj1010_Save_Manufacturer_Parameters_95, NULL },
-                       { RW, uint32, sizeof (UNS32), (void*)&Encoder_Slave_obj1010_Save_Manufacturer_Parameters_96, NULL },
-                       { RW, uint32, sizeof (UNS32), (void*)&Encoder_Slave_obj1010_Save_Manufacturer_Parameters_97, NULL },
-                       { RW, uint32, sizeof (UNS32), (void*)&Encoder_Slave_obj1010_Save_Manufacturer_Parameters_98, NULL },
-                       { RW, uint32, sizeof (UNS32), (void*)&Encoder_Slave_obj1010_Save_Manufacturer_Parameters_99, NULL },
-                       { RW, uint32, sizeof (UNS32), (void*)&Encoder_Slave_obj1010_Save_Manufacturer_Parameters_100, NULL },
-                       { RW, uint32, sizeof (UNS32), (void*)&Encoder_Slave_obj1010_Save_Manufacturer_Parameters_101, NULL },
-                       { RW, uint32, sizeof (UNS32), (void*)&Encoder_Slave_obj1010_Save_Manufacturer_Parameters_102, NULL },
-                       { RW, uint32, sizeof (UNS32), (void*)&Encoder_Slave_obj1010_Save_Manufacturer_Parameters_103, NULL },
-                       { RW, uint32, sizeof (UNS32), (void*)&Encoder_Slave_obj1010_Save_Manufacturer_Parameters_104, NULL },
-                       { RW, uint32, sizeof (UNS32), (void*)&Encoder_Slave_obj1010_Save_Manufacturer_Parameters_105, NULL },
-                       { RW, uint32, sizeof (UNS32), (void*)&Encoder_Slave_obj1010_Save_Manufacturer_Parameters_106, NULL },
-                       { RW, uint32, sizeof (UNS32), (void*)&Encoder_Slave_obj1010_Save_Manufacturer_Parameters_107, NULL },
-                       { RW, uint32, sizeof (UNS32), (void*)&Encoder_Slave_obj1010_Save_Manufacturer_Parameters_108, NULL },
-                       { RW, uint32, sizeof (UNS32), (void*)&Encoder_Slave_obj1010_Save_Manufacturer_Parameters_109, NULL },
-                       { RW, uint32, sizeof (UNS32), (void*)&Encoder_Slave_obj1010_Save_Manufacturer_Parameters_110, NULL },
-                       { RW, uint32, sizeof (UNS32), (void*)&Encoder_Slave_obj1010_Save_Manufacturer_Parameters_111, NULL },
-                       { RW, uint32, sizeof (UNS32), (void*)&Encoder_Slave_obj1010_Save_Manufacturer_Parameters_112, NULL },
-                       { RW, uint32, sizeof (UNS32), (void*)&Encoder_Slave_obj1010_Save_Manufacturer_Parameters_113, NULL },
-                       { RW, uint32, sizeof (UNS32), (void*)&Encoder_Slave_obj1010_Save_Manufacturer_Parameters_114, NULL },
-                       { RW, uint32, sizeof (UNS32), (void*)&Encoder_Slave_obj1010_Save_Manufacturer_Parameters_115, NULL },
-                       { RW, uint32, sizeof (UNS32), (void*)&Encoder_Slave_obj1010_Save_Manufacturer_Parameters_116, NULL },
-                       { RW, uint32, sizeof (UNS32), (void*)&Encoder_Slave_obj1010_Save_Manufacturer_Parameters_117, NULL },
-                       { RW, uint32, sizeof (UNS32), (void*)&Encoder_Slave_obj1010_Save_Manufacturer_Parameters_118, NULL },
-                       { RW, uint32, sizeof (UNS32), (void*)&Encoder_Slave_obj1010_Save_Manufacturer_Parameters_119, NULL },
-                       { RW, uint32, sizeof (UNS32), (void*)&Encoder_Slave_obj1010_Save_Manufacturer_Parameters_120, NULL },
-                       { RW, uint32, sizeof (UNS32), (void*)&Encoder_Slave_obj1010_Save_Manufacturer_Parameters_121, NULL },
-                       { RW, uint32, sizeof (UNS32), (void*)&Encoder_Slave_obj1010_Save_Manufacturer_Parameters_122, NULL },
-                       { RW, uint32, sizeof (UNS32), (void*)&Encoder_Slave_obj1010_Save_Manufacturer_Parameters_123, NULL },
-                       { RW, uint32, sizeof (UNS32), (void*)&Encoder_Slave_obj1010_Save_Manufacturer_Parameters_124, NULL }
+                       { RW, uint32, sizeof (UNS32), (void*)&Encoder_Slave_obj1010_Save_Manufacturer_Parameters_1, NULL }
                      };
 
 /* index 0x1011 :   Restore Default Parameters. */
-                    UNS8 Encoder_Slave_highestSubIndex_obj1011 = 127; /* number of subindex - 1*/
-                    UNS32 Encoder_Slave_obj1011_Restore_All_Default_Parameters = 0x0;	/* 0 */
-                    UNS32 Encoder_Slave_obj1011_Restore_Communication_Default_Parameters = 0x0;	/* 0 */
-                    UNS32 Encoder_Slave_obj1011_Restore_Application_Default_Parameters = 0x0;	/* 0 */
-                    UNS32 Encoder_Slave_obj1011_Restore_Manufacturer_Defined_Default_Parameters_1 = 0x0;	/* 0 */
-                    UNS32 Encoder_Slave_obj1011_Restore_Manufacturer_Defined_Default_Parameters_2 = 0x0;	/* 0 */
-                    UNS32 Encoder_Slave_obj1011_Restore_Manufacturer_Defined_Default_Parameters_3 = 0x0;	/* 0 */
-                    UNS32 Encoder_Slave_obj1011_Restore_Manufacturer_Defined_Default_Parameters_4 = 0x0;	/* 0 */
-                    UNS32 Encoder_Slave_obj1011_Restore_Manufacturer_Defined_Default_Parameters_5 = 0x0;	/* 0 */
-                    UNS32 Encoder_Slave_obj1011_Restore_Manufacturer_Defined_Default_Parameters_6 = 0x0;	/* 0 */
-                    UNS32 Encoder_Slave_obj1011_Restore_Manufacturer_Defined_Default_Parameters_7 = 0x0;	/* 0 */
-                    UNS32 Encoder_Slave_obj1011_Restore_Manufacturer_Defined_Default_Parameters_8 = 0x0;	/* 0 */
-                    UNS32 Encoder_Slave_obj1011_Restore_Manufacturer_Defined_Default_Parameters_9 = 0x0;	/* 0 */
-                    UNS32 Encoder_Slave_obj1011_Restore_Manufacturer_Defined_Default_Parameters_10 = 0x0;	/* 0 */
-                    UNS32 Encoder_Slave_obj1011_Restore_Manufacturer_Defined_Default_Parameters_11 = 0x0;	/* 0 */
-                    UNS32 Encoder_Slave_obj1011_Restore_Manufacturer_Defined_Default_Parameters_12 = 0x0;	/* 0 */
-                    UNS32 Encoder_Slave_obj1011_Restore_Manufacturer_Defined_Default_Parameters_13 = 0x0;	/* 0 */
-                    UNS32 Encoder_Slave_obj1011_Restore_Manufacturer_Defined_Default_Parameters_14 = 0x0;	/* 0 */
-                    UNS32 Encoder_Slave_obj1011_Restore_Manufacturer_Defined_Default_Parameters_15 = 0x0;	/* 0 */
-                    UNS32 Encoder_Slave_obj1011_Restore_Manufacturer_Defined_Default_Parameters_16 = 0x0;	/* 0 */
-                    UNS32 Encoder_Slave_obj1011_Restore_Manufacturer_Defined_Default_Parameters_17 = 0x0;	/* 0 */
-                    UNS32 Encoder_Slave_obj1011_Restore_Manufacturer_Defined_Default_Parameters_18 = 0x0;	/* 0 */
-                    UNS32 Encoder_Slave_obj1011_Restore_Manufacturer_Defined_Default_Parameters_19 = 0x0;	/* 0 */
-                    UNS32 Encoder_Slave_obj1011_Restore_Manufacturer_Defined_Default_Parameters_20 = 0x0;	/* 0 */
-                    UNS32 Encoder_Slave_obj1011_Restore_Manufacturer_Defined_Default_Parameters_21 = 0x0;	/* 0 */
-                    UNS32 Encoder_Slave_obj1011_Restore_Manufacturer_Defined_Default_Parameters_22 = 0x0;	/* 0 */
-                    UNS32 Encoder_Slave_obj1011_Restore_Manufacturer_Defined_Default_Parameters_23 = 0x0;	/* 0 */
-                    UNS32 Encoder_Slave_obj1011_Restore_Manufacturer_Defined_Default_Parameters_24 = 0x0;	/* 0 */
-                    UNS32 Encoder_Slave_obj1011_Restore_Manufacturer_Defined_Default_Parameters_25 = 0x0;	/* 0 */
-                    UNS32 Encoder_Slave_obj1011_Restore_Manufacturer_Defined_Default_Parameters_26 = 0x0;	/* 0 */
-                    UNS32 Encoder_Slave_obj1011_Restore_Manufacturer_Defined_Default_Parameters_27 = 0x0;	/* 0 */
-                    UNS32 Encoder_Slave_obj1011_Restore_Manufacturer_Defined_Default_Parameters_28 = 0x0;	/* 0 */
-                    UNS32 Encoder_Slave_obj1011_Restore_Manufacturer_Defined_Default_Parameters_29 = 0x0;	/* 0 */
-                    UNS32 Encoder_Slave_obj1011_Restore_Manufacturer_Defined_Default_Parameters_30 = 0x0;	/* 0 */
-                    UNS32 Encoder_Slave_obj1011_Restore_Manufacturer_Defined_Default_Parameters_31 = 0x0;	/* 0 */
-                    UNS32 Encoder_Slave_obj1011_Restore_Manufacturer_Defined_Default_Parameters_32 = 0x0;	/* 0 */
-                    UNS32 Encoder_Slave_obj1011_Restore_Manufacturer_Defined_Default_Parameters_33 = 0x0;	/* 0 */
-                    UNS32 Encoder_Slave_obj1011_Restore_Manufacturer_Defined_Default_Parameters_34 = 0x0;	/* 0 */
-                    UNS32 Encoder_Slave_obj1011_Restore_Manufacturer_Defined_Default_Parameters_35 = 0x0;	/* 0 */
-                    UNS32 Encoder_Slave_obj1011_Restore_Manufacturer_Defined_Default_Parameters_36 = 0x0;	/* 0 */
-                    UNS32 Encoder_Slave_obj1011_Restore_Manufacturer_Defined_Default_Parameters_37 = 0x0;	/* 0 */
-                    UNS32 Encoder_Slave_obj1011_Restore_Manufacturer_Defined_Default_Parameters_38 = 0x0;	/* 0 */
-                    UNS32 Encoder_Slave_obj1011_Restore_Manufacturer_Defined_Default_Parameters_39 = 0x0;	/* 0 */
-                    UNS32 Encoder_Slave_obj1011_Restore_Manufacturer_Defined_Default_Parameters_40 = 0x0;	/* 0 */
-                    UNS32 Encoder_Slave_obj1011_Restore_Manufacturer_Defined_Default_Parameters_41 = 0x0;	/* 0 */
-                    UNS32 Encoder_Slave_obj1011_Restore_Manufacturer_Defined_Default_Parameters_42 = 0x0;	/* 0 */
-                    UNS32 Encoder_Slave_obj1011_Restore_Manufacturer_Defined_Default_Parameters_43 = 0x0;	/* 0 */
-                    UNS32 Encoder_Slave_obj1011_Restore_Manufacturer_Defined_Default_Parameters_44 = 0x0;	/* 0 */
-                    UNS32 Encoder_Slave_obj1011_Restore_Manufacturer_Defined_Default_Parameters_45 = 0x0;	/* 0 */
-                    UNS32 Encoder_Slave_obj1011_Restore_Manufacturer_Defined_Default_Parameters_46 = 0x0;	/* 0 */
-                    UNS32 Encoder_Slave_obj1011_Restore_Manufacturer_Defined_Default_Parameters_47 = 0x0;	/* 0 */
-                    UNS32 Encoder_Slave_obj1011_Restore_Manufacturer_Defined_Default_Parameters_48 = 0x0;	/* 0 */
-                    UNS32 Encoder_Slave_obj1011_Restore_Manufacturer_Defined_Default_Parameters_49 = 0x0;	/* 0 */
-                    UNS32 Encoder_Slave_obj1011_Restore_Manufacturer_Defined_Default_Parameters_50 = 0x0;	/* 0 */
-                    UNS32 Encoder_Slave_obj1011_Restore_Manufacturer_Defined_Default_Parameters_51 = 0x0;	/* 0 */
-                    UNS32 Encoder_Slave_obj1011_Restore_Manufacturer_Defined_Default_Parameters_52 = 0x0;	/* 0 */
-                    UNS32 Encoder_Slave_obj1011_Restore_Manufacturer_Defined_Default_Parameters_53 = 0x0;	/* 0 */
-                    UNS32 Encoder_Slave_obj1011_Restore_Manufacturer_Defined_Default_Parameters_54 = 0x0;	/* 0 */
-                    UNS32 Encoder_Slave_obj1011_Restore_Manufacturer_Defined_Default_Parameters_55 = 0x0;	/* 0 */
-                    UNS32 Encoder_Slave_obj1011_Restore_Manufacturer_Defined_Default_Parameters_56 = 0x0;	/* 0 */
-                    UNS32 Encoder_Slave_obj1011_Restore_Manufacturer_Defined_Default_Parameters_57 = 0x0;	/* 0 */
-                    UNS32 Encoder_Slave_obj1011_Restore_Manufacturer_Defined_Default_Parameters_58 = 0x0;	/* 0 */
-                    UNS32 Encoder_Slave_obj1011_Restore_Manufacturer_Defined_Default_Parameters_59 = 0x0;	/* 0 */
-                    UNS32 Encoder_Slave_obj1011_Restore_Manufacturer_Defined_Default_Parameters_60 = 0x0;	/* 0 */
-                    UNS32 Encoder_Slave_obj1011_Restore_Manufacturer_Defined_Default_Parameters_61 = 0x0;	/* 0 */
-                    UNS32 Encoder_Slave_obj1011_Restore_Manufacturer_Defined_Default_Parameters_62 = 0x0;	/* 0 */
-                    UNS32 Encoder_Slave_obj1011_Restore_Manufacturer_Defined_Default_Parameters_63 = 0x0;	/* 0 */
-                    UNS32 Encoder_Slave_obj1011_Restore_Manufacturer_Defined_Default_Parameters_64 = 0x0;	/* 0 */
-                    UNS32 Encoder_Slave_obj1011_Restore_Manufacturer_Defined_Default_Parameters_65 = 0x0;	/* 0 */
-                    UNS32 Encoder_Slave_obj1011_Restore_Manufacturer_Defined_Default_Parameters_66 = 0x0;	/* 0 */
-                    UNS32 Encoder_Slave_obj1011_Restore_Manufacturer_Defined_Default_Parameters_67 = 0x0;	/* 0 */
-                    UNS32 Encoder_Slave_obj1011_Restore_Manufacturer_Defined_Default_Parameters_68 = 0x0;	/* 0 */
-                    UNS32 Encoder_Slave_obj1011_Restore_Manufacturer_Defined_Default_Parameters_69 = 0x0;	/* 0 */
-                    UNS32 Encoder_Slave_obj1011_Restore_Manufacturer_Defined_Default_Parameters_70 = 0x0;	/* 0 */
-                    UNS32 Encoder_Slave_obj1011_Restore_Manufacturer_Defined_Default_Parameters_71 = 0x0;	/* 0 */
-                    UNS32 Encoder_Slave_obj1011_Restore_Manufacturer_Defined_Default_Parameters_72 = 0x0;	/* 0 */
-                    UNS32 Encoder_Slave_obj1011_Restore_Manufacturer_Defined_Default_Parameters_73 = 0x0;	/* 0 */
-                    UNS32 Encoder_Slave_obj1011_Restore_Manufacturer_Defined_Default_Parameters_74 = 0x0;	/* 0 */
-                    UNS32 Encoder_Slave_obj1011_Restore_Manufacturer_Defined_Default_Parameters_75 = 0x0;	/* 0 */
-                    UNS32 Encoder_Slave_obj1011_Restore_Manufacturer_Defined_Default_Parameters_76 = 0x0;	/* 0 */
-                    UNS32 Encoder_Slave_obj1011_Restore_Manufacturer_Defined_Default_Parameters_77 = 0x0;	/* 0 */
-                    UNS32 Encoder_Slave_obj1011_Restore_Manufacturer_Defined_Default_Parameters_78 = 0x0;	/* 0 */
-                    UNS32 Encoder_Slave_obj1011_Restore_Manufacturer_Defined_Default_Parameters_79 = 0x0;	/* 0 */
-                    UNS32 Encoder_Slave_obj1011_Restore_Manufacturer_Defined_Default_Parameters_80 = 0x0;	/* 0 */
-                    UNS32 Encoder_Slave_obj1011_Restore_Manufacturer_Defined_Default_Parameters_81 = 0x0;	/* 0 */
-                    UNS32 Encoder_Slave_obj1011_Restore_Manufacturer_Defined_Default_Parameters_82 = 0x0;	/* 0 */
-                    UNS32 Encoder_Slave_obj1011_Restore_Manufacturer_Defined_Default_Parameters_83 = 0x0;	/* 0 */
-                    UNS32 Encoder_Slave_obj1011_Restore_Manufacturer_Defined_Default_Parameters_84 = 0x0;	/* 0 */
-                    UNS32 Encoder_Slave_obj1011_Restore_Manufacturer_Defined_Default_Parameters_85 = 0x0;	/* 0 */
-                    UNS32 Encoder_Slave_obj1011_Restore_Manufacturer_Defined_Default_Parameters_86 = 0x0;	/* 0 */
-                    UNS32 Encoder_Slave_obj1011_Restore_Manufacturer_Defined_Default_Parameters_87 = 0x0;	/* 0 */
-                    UNS32 Encoder_Slave_obj1011_Restore_Manufacturer_Defined_Default_Parameters_88 = 0x0;	/* 0 */
-                    UNS32 Encoder_Slave_obj1011_Restore_Manufacturer_Defined_Default_Parameters_89 = 0x0;	/* 0 */
-                    UNS32 Encoder_Slave_obj1011_Restore_Manufacturer_Defined_Default_Parameters_90 = 0x0;	/* 0 */
-                    UNS32 Encoder_Slave_obj1011_Restore_Manufacturer_Defined_Default_Parameters_91 = 0x0;	/* 0 */
-                    UNS32 Encoder_Slave_obj1011_Restore_Manufacturer_Defined_Default_Parameters_92 = 0x0;	/* 0 */
-                    UNS32 Encoder_Slave_obj1011_Restore_Manufacturer_Defined_Default_Parameters_93 = 0x0;	/* 0 */
-                    UNS32 Encoder_Slave_obj1011_Restore_Manufacturer_Defined_Default_Parameters_94 = 0x0;	/* 0 */
-                    UNS32 Encoder_Slave_obj1011_Restore_Manufacturer_Defined_Default_Parameters_95 = 0x0;	/* 0 */
-                    UNS32 Encoder_Slave_obj1011_Restore_Manufacturer_Defined_Default_Parameters_96 = 0x0;	/* 0 */
-                    UNS32 Encoder_Slave_obj1011_Restore_Manufacturer_Defined_Default_Parameters_97 = 0x0;	/* 0 */
-                    UNS32 Encoder_Slave_obj1011_Restore_Manufacturer_Defined_Default_Parameters_98 = 0x0;	/* 0 */
-                    UNS32 Encoder_Slave_obj1011_Restore_Manufacturer_Defined_Default_Parameters_99 = 0x0;	/* 0 */
-                    UNS32 Encoder_Slave_obj1011_Restore_Manufacturer_Defined_Default_Parameters_100 = 0x0;	/* 0 */
-                    UNS32 Encoder_Slave_obj1011_Restore_Manufacturer_Defined_Default_Parameters_101 = 0x0;	/* 0 */
-                    UNS32 Encoder_Slave_obj1011_Restore_Manufacturer_Defined_Default_Parameters_102 = 0x0;	/* 0 */
-                    UNS32 Encoder_Slave_obj1011_Restore_Manufacturer_Defined_Default_Parameters_103 = 0x0;	/* 0 */
-                    UNS32 Encoder_Slave_obj1011_Restore_Manufacturer_Defined_Default_Parameters_104 = 0x0;	/* 0 */
-                    UNS32 Encoder_Slave_obj1011_Restore_Manufacturer_Defined_Default_Parameters_105 = 0x0;	/* 0 */
-                    UNS32 Encoder_Slave_obj1011_Restore_Manufacturer_Defined_Default_Parameters_106 = 0x0;	/* 0 */
-                    UNS32 Encoder_Slave_obj1011_Restore_Manufacturer_Defined_Default_Parameters_107 = 0x0;	/* 0 */
-                    UNS32 Encoder_Slave_obj1011_Restore_Manufacturer_Defined_Default_Parameters_108 = 0x0;	/* 0 */
-                    UNS32 Encoder_Slave_obj1011_Restore_Manufacturer_Defined_Default_Parameters_109 = 0x0;	/* 0 */
-                    UNS32 Encoder_Slave_obj1011_Restore_Manufacturer_Defined_Default_Parameters_110 = 0x0;	/* 0 */
-                    UNS32 Encoder_Slave_obj1011_Restore_Manufacturer_Defined_Default_Parameters_111 = 0x0;	/* 0 */
-                    UNS32 Encoder_Slave_obj1011_Restore_Manufacturer_Defined_Default_Parameters_112 = 0x0;	/* 0 */
-                    UNS32 Encoder_Slave_obj1011_Restore_Manufacturer_Defined_Default_Parameters_113 = 0x0;	/* 0 */
-                    UNS32 Encoder_Slave_obj1011_Restore_Manufacturer_Defined_Default_Parameters_114 = 0x0;	/* 0 */
-                    UNS32 Encoder_Slave_obj1011_Restore_Manufacturer_Defined_Default_Parameters_115 = 0x0;	/* 0 */
-                    UNS32 Encoder_Slave_obj1011_Restore_Manufacturer_Defined_Default_Parameters_116 = 0x0;	/* 0 */
-                    UNS32 Encoder_Slave_obj1011_Restore_Manufacturer_Defined_Default_Parameters_117 = 0x0;	/* 0 */
-                    UNS32 Encoder_Slave_obj1011_Restore_Manufacturer_Defined_Default_Parameters_118 = 0x0;	/* 0 */
-                    UNS32 Encoder_Slave_obj1011_Restore_Manufacturer_Defined_Default_Parameters_119 = 0x0;	/* 0 */
-                    UNS32 Encoder_Slave_obj1011_Restore_Manufacturer_Defined_Default_Parameters_120 = 0x0;	/* 0 */
-                    UNS32 Encoder_Slave_obj1011_Restore_Manufacturer_Defined_Default_Parameters_121 = 0x0;	/* 0 */
-                    UNS32 Encoder_Slave_obj1011_Restore_Manufacturer_Defined_Default_Parameters_122 = 0x0;	/* 0 */
-                    UNS32 Encoder_Slave_obj1011_Restore_Manufacturer_Defined_Default_Parameters_123 = 0x0;	/* 0 */
-                    UNS32 Encoder_Slave_obj1011_Restore_Manufacturer_Defined_Default_Parameters_124 = 0x0;	/* 0 */
+                    UNS8 Encoder_Slave_highestSubIndex_obj1011 = 4; /* number of subindex - 1*/
+                    UNS32 Encoder_Slave_obj1011_Restore_All_Default_Parameters = 0x1;	/* 1 */
+                    UNS32 Encoder_Slave_obj1011_Restore_Communication_Default_Parameters = 0x1;	/* 1 */
+                    UNS32 Encoder_Slave_obj1011_Restore_Application_Default_Parameters = 0x1;	/* 1 */
+                    UNS32 Encoder_Slave_obj1011_Restore_Manufacturer_Defined_Default_Parameters_1 = 0x1;	/* 1 */
                     subindex Encoder_Slave_Index1011[] = 
                      {
                        { RO, uint8, sizeof (UNS8), (void*)&Encoder_Slave_highestSubIndex_obj1011, NULL },
                        { RW, uint32, sizeof (UNS32), (void*)&Encoder_Slave_obj1011_Restore_All_Default_Parameters, NULL },
                        { RW, uint32, sizeof (UNS32), (void*)&Encoder_Slave_obj1011_Restore_Communication_Default_Parameters, NULL },
                        { RW, uint32, sizeof (UNS32), (void*)&Encoder_Slave_obj1011_Restore_Application_Default_Parameters, NULL },
-                       { RW, uint32, sizeof (UNS32), (void*)&Encoder_Slave_obj1011_Restore_Manufacturer_Defined_Default_Parameters_1, NULL },
-                       { RW, uint32, sizeof (UNS32), (void*)&Encoder_Slave_obj1011_Restore_Manufacturer_Defined_Default_Parameters_2, NULL },
-                       { RW, uint32, sizeof (UNS32), (void*)&Encoder_Slave_obj1011_Restore_Manufacturer_Defined_Default_Parameters_3, NULL },
-                       { RW, uint32, sizeof (UNS32), (void*)&Encoder_Slave_obj1011_Restore_Manufacturer_Defined_Default_Parameters_4, NULL },
-                       { RW, uint32, sizeof (UNS32), (void*)&Encoder_Slave_obj1011_Restore_Manufacturer_Defined_Default_Parameters_5, NULL },
-                       { RW, uint32, sizeof (UNS32), (void*)&Encoder_Slave_obj1011_Restore_Manufacturer_Defined_Default_Parameters_6, NULL },
-                       { RW, uint32, sizeof (UNS32), (void*)&Encoder_Slave_obj1011_Restore_Manufacturer_Defined_Default_Parameters_7, NULL },
-                       { RW, uint32, sizeof (UNS32), (void*)&Encoder_Slave_obj1011_Restore_Manufacturer_Defined_Default_Parameters_8, NULL },
-                       { RW, uint32, sizeof (UNS32), (void*)&Encoder_Slave_obj1011_Restore_Manufacturer_Defined_Default_Parameters_9, NULL },
-                       { RW, uint32, sizeof (UNS32), (void*)&Encoder_Slave_obj1011_Restore_Manufacturer_Defined_Default_Parameters_10, NULL },
-                       { RW, uint32, sizeof (UNS32), (void*)&Encoder_Slave_obj1011_Restore_Manufacturer_Defined_Default_Parameters_11, NULL },
-                       { RW, uint32, sizeof (UNS32), (void*)&Encoder_Slave_obj1011_Restore_Manufacturer_Defined_Default_Parameters_12, NULL },
-                       { RW, uint32, sizeof (UNS32), (void*)&Encoder_Slave_obj1011_Restore_Manufacturer_Defined_Default_Parameters_13, NULL },
-                       { RW, uint32, sizeof (UNS32), (void*)&Encoder_Slave_obj1011_Restore_Manufacturer_Defined_Default_Parameters_14, NULL },
-                       { RW, uint32, sizeof (UNS32), (void*)&Encoder_Slave_obj1011_Restore_Manufacturer_Defined_Default_Parameters_15, NULL },
-                       { RW, uint32, sizeof (UNS32), (void*)&Encoder_Slave_obj1011_Restore_Manufacturer_Defined_Default_Parameters_16, NULL },
-                       { RW, uint32, sizeof (UNS32), (void*)&Encoder_Slave_obj1011_Restore_Manufacturer_Defined_Default_Parameters_17, NULL },
-                       { RW, uint32, sizeof (UNS32), (void*)&Encoder_Slave_obj1011_Restore_Manufacturer_Defined_Default_Parameters_18, NULL },
-                       { RW, uint32, sizeof (UNS32), (void*)&Encoder_Slave_obj1011_Restore_Manufacturer_Defined_Default_Parameters_19, NULL },
-                       { RW, uint32, sizeof (UNS32), (void*)&Encoder_Slave_obj1011_Restore_Manufacturer_Defined_Default_Parameters_20, NULL },
-                       { RW, uint32, sizeof (UNS32), (void*)&Encoder_Slave_obj1011_Restore_Manufacturer_Defined_Default_Parameters_21, NULL },
-                       { RW, uint32, sizeof (UNS32), (void*)&Encoder_Slave_obj1011_Restore_Manufacturer_Defined_Default_Parameters_22, NULL },
-                       { RW, uint32, sizeof (UNS32), (void*)&Encoder_Slave_obj1011_Restore_Manufacturer_Defined_Default_Parameters_23, NULL },
-                       { RW, uint32, sizeof (UNS32), (void*)&Encoder_Slave_obj1011_Restore_Manufacturer_Defined_Default_Parameters_24, NULL },
-                       { RW, uint32, sizeof (UNS32), (void*)&Encoder_Slave_obj1011_Restore_Manufacturer_Defined_Default_Parameters_25, NULL },
-                       { RW, uint32, sizeof (UNS32), (void*)&Encoder_Slave_obj1011_Restore_Manufacturer_Defined_Default_Parameters_26, NULL },
-                       { RW, uint32, sizeof (UNS32), (void*)&Encoder_Slave_obj1011_Restore_Manufacturer_Defined_Default_Parameters_27, NULL },
-                       { RW, uint32, sizeof (UNS32), (void*)&Encoder_Slave_obj1011_Restore_Manufacturer_Defined_Default_Parameters_28, NULL },
-                       { RW, uint32, sizeof (UNS32), (void*)&Encoder_Slave_obj1011_Restore_Manufacturer_Defined_Default_Parameters_29, NULL },
-                       { RW, uint32, sizeof (UNS32), (void*)&Encoder_Slave_obj1011_Restore_Manufacturer_Defined_Default_Parameters_30, NULL },
-                       { RW, uint32, sizeof (UNS32), (void*)&Encoder_Slave_obj1011_Restore_Manufacturer_Defined_Default_Parameters_31, NULL },
-                       { RW, uint32, sizeof (UNS32), (void*)&Encoder_Slave_obj1011_Restore_Manufacturer_Defined_Default_Parameters_32, NULL },
-                       { RW, uint32, sizeof (UNS32), (void*)&Encoder_Slave_obj1011_Restore_Manufacturer_Defined_Default_Parameters_33, NULL },
-                       { RW, uint32, sizeof (UNS32), (void*)&Encoder_Slave_obj1011_Restore_Manufacturer_Defined_Default_Parameters_34, NULL },
-                       { RW, uint32, sizeof (UNS32), (void*)&Encoder_Slave_obj1011_Restore_Manufacturer_Defined_Default_Parameters_35, NULL },
-                       { RW, uint32, sizeof (UNS32), (void*)&Encoder_Slave_obj1011_Restore_Manufacturer_Defined_Default_Parameters_36, NULL },
-                       { RW, uint32, sizeof (UNS32), (void*)&Encoder_Slave_obj1011_Restore_Manufacturer_Defined_Default_Parameters_37, NULL },
-                       { RW, uint32, sizeof (UNS32), (void*)&Encoder_Slave_obj1011_Restore_Manufacturer_Defined_Default_Parameters_38, NULL },
-                       { RW, uint32, sizeof (UNS32), (void*)&Encoder_Slave_obj1011_Restore_Manufacturer_Defined_Default_Parameters_39, NULL },
-                       { RW, uint32, sizeof (UNS32), (void*)&Encoder_Slave_obj1011_Restore_Manufacturer_Defined_Default_Parameters_40, NULL },
-                       { RW, uint32, sizeof (UNS32), (void*)&Encoder_Slave_obj1011_Restore_Manufacturer_Defined_Default_Parameters_41, NULL },
-                       { RW, uint32, sizeof (UNS32), (void*)&Encoder_Slave_obj1011_Restore_Manufacturer_Defined_Default_Parameters_42, NULL },
-                       { RW, uint32, sizeof (UNS32), (void*)&Encoder_Slave_obj1011_Restore_Manufacturer_Defined_Default_Parameters_43, NULL },
-                       { RW, uint32, sizeof (UNS32), (void*)&Encoder_Slave_obj1011_Restore_Manufacturer_Defined_Default_Parameters_44, NULL },
-                       { RW, uint32, sizeof (UNS32), (void*)&Encoder_Slave_obj1011_Restore_Manufacturer_Defined_Default_Parameters_45, NULL },
-                       { RW, uint32, sizeof (UNS32), (void*)&Encoder_Slave_obj1011_Restore_Manufacturer_Defined_Default_Parameters_46, NULL },
-                       { RW, uint32, sizeof (UNS32), (void*)&Encoder_Slave_obj1011_Restore_Manufacturer_Defined_Default_Parameters_47, NULL },
-                       { RW, uint32, sizeof (UNS32), (void*)&Encoder_Slave_obj1011_Restore_Manufacturer_Defined_Default_Parameters_48, NULL },
-                       { RW, uint32, sizeof (UNS32), (void*)&Encoder_Slave_obj1011_Restore_Manufacturer_Defined_Default_Parameters_49, NULL },
-                       { RW, uint32, sizeof (UNS32), (void*)&Encoder_Slave_obj1011_Restore_Manufacturer_Defined_Default_Parameters_50, NULL },
-                       { RW, uint32, sizeof (UNS32), (void*)&Encoder_Slave_obj1011_Restore_Manufacturer_Defined_Default_Parameters_51, NULL },
-                       { RW, uint32, sizeof (UNS32), (void*)&Encoder_Slave_obj1011_Restore_Manufacturer_Defined_Default_Parameters_52, NULL },
-                       { RW, uint32, sizeof (UNS32), (void*)&Encoder_Slave_obj1011_Restore_Manufacturer_Defined_Default_Parameters_53, NULL },
-                       { RW, uint32, sizeof (UNS32), (void*)&Encoder_Slave_obj1011_Restore_Manufacturer_Defined_Default_Parameters_54, NULL },
-                       { RW, uint32, sizeof (UNS32), (void*)&Encoder_Slave_obj1011_Restore_Manufacturer_Defined_Default_Parameters_55, NULL },
-                       { RW, uint32, sizeof (UNS32), (void*)&Encoder_Slave_obj1011_Restore_Manufacturer_Defined_Default_Parameters_56, NULL },
-                       { RW, uint32, sizeof (UNS32), (void*)&Encoder_Slave_obj1011_Restore_Manufacturer_Defined_Default_Parameters_57, NULL },
-                       { RW, uint32, sizeof (UNS32), (void*)&Encoder_Slave_obj1011_Restore_Manufacturer_Defined_Default_Parameters_58, NULL },
-                       { RW, uint32, sizeof (UNS32), (void*)&Encoder_Slave_obj1011_Restore_Manufacturer_Defined_Default_Parameters_59, NULL },
-                       { RW, uint32, sizeof (UNS32), (void*)&Encoder_Slave_obj1011_Restore_Manufacturer_Defined_Default_Parameters_60, NULL },
-                       { RW, uint32, sizeof (UNS32), (void*)&Encoder_Slave_obj1011_Restore_Manufacturer_Defined_Default_Parameters_61, NULL },
-                       { RW, uint32, sizeof (UNS32), (void*)&Encoder_Slave_obj1011_Restore_Manufacturer_Defined_Default_Parameters_62, NULL },
-                       { RW, uint32, sizeof (UNS32), (void*)&Encoder_Slave_obj1011_Restore_Manufacturer_Defined_Default_Parameters_63, NULL },
-                       { RW, uint32, sizeof (UNS32), (void*)&Encoder_Slave_obj1011_Restore_Manufacturer_Defined_Default_Parameters_64, NULL },
-                       { RW, uint32, sizeof (UNS32), (void*)&Encoder_Slave_obj1011_Restore_Manufacturer_Defined_Default_Parameters_65, NULL },
-                       { RW, uint32, sizeof (UNS32), (void*)&Encoder_Slave_obj1011_Restore_Manufacturer_Defined_Default_Parameters_66, NULL },
-                       { RW, uint32, sizeof (UNS32), (void*)&Encoder_Slave_obj1011_Restore_Manufacturer_Defined_Default_Parameters_67, NULL },
-                       { RW, uint32, sizeof (UNS32), (void*)&Encoder_Slave_obj1011_Restore_Manufacturer_Defined_Default_Parameters_68, NULL },
-                       { RW, uint32, sizeof (UNS32), (void*)&Encoder_Slave_obj1011_Restore_Manufacturer_Defined_Default_Parameters_69, NULL },
-                       { RW, uint32, sizeof (UNS32), (void*)&Encoder_Slave_obj1011_Restore_Manufacturer_Defined_Default_Parameters_70, NULL },
-                       { RW, uint32, sizeof (UNS32), (void*)&Encoder_Slave_obj1011_Restore_Manufacturer_Defined_Default_Parameters_71, NULL },
-                       { RW, uint32, sizeof (UNS32), (void*)&Encoder_Slave_obj1011_Restore_Manufacturer_Defined_Default_Parameters_72, NULL },
-                       { RW, uint32, sizeof (UNS32), (void*)&Encoder_Slave_obj1011_Restore_Manufacturer_Defined_Default_Parameters_73, NULL },
-                       { RW, uint32, sizeof (UNS32), (void*)&Encoder_Slave_obj1011_Restore_Manufacturer_Defined_Default_Parameters_74, NULL },
-                       { RW, uint32, sizeof (UNS32), (void*)&Encoder_Slave_obj1011_Restore_Manufacturer_Defined_Default_Parameters_75, NULL },
-                       { RW, uint32, sizeof (UNS32), (void*)&Encoder_Slave_obj1011_Restore_Manufacturer_Defined_Default_Parameters_76, NULL },
-                       { RW, uint32, sizeof (UNS32), (void*)&Encoder_Slave_obj1011_Restore_Manufacturer_Defined_Default_Parameters_77, NULL },
-                       { RW, uint32, sizeof (UNS32), (void*)&Encoder_Slave_obj1011_Restore_Manufacturer_Defined_Default_Parameters_78, NULL },
-                       { RW, uint32, sizeof (UNS32), (void*)&Encoder_Slave_obj1011_Restore_Manufacturer_Defined_Default_Parameters_79, NULL },
-                       { RW, uint32, sizeof (UNS32), (void*)&Encoder_Slave_obj1011_Restore_Manufacturer_Defined_Default_Parameters_80, NULL },
-                       { RW, uint32, sizeof (UNS32), (void*)&Encoder_Slave_obj1011_Restore_Manufacturer_Defined_Default_Parameters_81, NULL },
-                       { RW, uint32, sizeof (UNS32), (void*)&Encoder_Slave_obj1011_Restore_Manufacturer_Defined_Default_Parameters_82, NULL },
-                       { RW, uint32, sizeof (UNS32), (void*)&Encoder_Slave_obj1011_Restore_Manufacturer_Defined_Default_Parameters_83, NULL },
-                       { RW, uint32, sizeof (UNS32), (void*)&Encoder_Slave_obj1011_Restore_Manufacturer_Defined_Default_Parameters_84, NULL },
-                       { RW, uint32, sizeof (UNS32), (void*)&Encoder_Slave_obj1011_Restore_Manufacturer_Defined_Default_Parameters_85, NULL },
-                       { RW, uint32, sizeof (UNS32), (void*)&Encoder_Slave_obj1011_Restore_Manufacturer_Defined_Default_Parameters_86, NULL },
-                       { RW, uint32, sizeof (UNS32), (void*)&Encoder_Slave_obj1011_Restore_Manufacturer_Defined_Default_Parameters_87, NULL },
-                       { RW, uint32, sizeof (UNS32), (void*)&Encoder_Slave_obj1011_Restore_Manufacturer_Defined_Default_Parameters_88, NULL },
-                       { RW, uint32, sizeof (UNS32), (void*)&Encoder_Slave_obj1011_Restore_Manufacturer_Defined_Default_Parameters_89, NULL },
-                       { RW, uint32, sizeof (UNS32), (void*)&Encoder_Slave_obj1011_Restore_Manufacturer_Defined_Default_Parameters_90, NULL },
-                       { RW, uint32, sizeof (UNS32), (void*)&Encoder_Slave_obj1011_Restore_Manufacturer_Defined_Default_Parameters_91, NULL },
-                       { RW, uint32, sizeof (UNS32), (void*)&Encoder_Slave_obj1011_Restore_Manufacturer_Defined_Default_Parameters_92, NULL },
-                       { RW, uint32, sizeof (UNS32), (void*)&Encoder_Slave_obj1011_Restore_Manufacturer_Defined_Default_Parameters_93, NULL },
-                       { RW, uint32, sizeof (UNS32), (void*)&Encoder_Slave_obj1011_Restore_Manufacturer_Defined_Default_Parameters_94, NULL },
-                       { RW, uint32, sizeof (UNS32), (void*)&Encoder_Slave_obj1011_Restore_Manufacturer_Defined_Default_Parameters_95, NULL },
-                       { RW, uint32, sizeof (UNS32), (void*)&Encoder_Slave_obj1011_Restore_Manufacturer_Defined_Default_Parameters_96, NULL },
-                       { RW, uint32, sizeof (UNS32), (void*)&Encoder_Slave_obj1011_Restore_Manufacturer_Defined_Default_Parameters_97, NULL },
-                       { RW, uint32, sizeof (UNS32), (void*)&Encoder_Slave_obj1011_Restore_Manufacturer_Defined_Default_Parameters_98, NULL },
-                       { RW, uint32, sizeof (UNS32), (void*)&Encoder_Slave_obj1011_Restore_Manufacturer_Defined_Default_Parameters_99, NULL },
-                       { RW, uint32, sizeof (UNS32), (void*)&Encoder_Slave_obj1011_Restore_Manufacturer_Defined_Default_Parameters_100, NULL },
-                       { RW, uint32, sizeof (UNS32), (void*)&Encoder_Slave_obj1011_Restore_Manufacturer_Defined_Default_Parameters_101, NULL },
-                       { RW, uint32, sizeof (UNS32), (void*)&Encoder_Slave_obj1011_Restore_Manufacturer_Defined_Default_Parameters_102, NULL },
-                       { RW, uint32, sizeof (UNS32), (void*)&Encoder_Slave_obj1011_Restore_Manufacturer_Defined_Default_Parameters_103, NULL },
-                       { RW, uint32, sizeof (UNS32), (void*)&Encoder_Slave_obj1011_Restore_Manufacturer_Defined_Default_Parameters_104, NULL },
-                       { RW, uint32, sizeof (UNS32), (void*)&Encoder_Slave_obj1011_Restore_Manufacturer_Defined_Default_Parameters_105, NULL },
-                       { RW, uint32, sizeof (UNS32), (void*)&Encoder_Slave_obj1011_Restore_Manufacturer_Defined_Default_Parameters_106, NULL },
-                       { RW, uint32, sizeof (UNS32), (void*)&Encoder_Slave_obj1011_Restore_Manufacturer_Defined_Default_Parameters_107, NULL },
-                       { RW, uint32, sizeof (UNS32), (void*)&Encoder_Slave_obj1011_Restore_Manufacturer_Defined_Default_Parameters_108, NULL },
-                       { RW, uint32, sizeof (UNS32), (void*)&Encoder_Slave_obj1011_Restore_Manufacturer_Defined_Default_Parameters_109, NULL },
-                       { RW, uint32, sizeof (UNS32), (void*)&Encoder_Slave_obj1011_Restore_Manufacturer_Defined_Default_Parameters_110, NULL },
-                       { RW, uint32, sizeof (UNS32), (void*)&Encoder_Slave_obj1011_Restore_Manufacturer_Defined_Default_Parameters_111, NULL },
-                       { RW, uint32, sizeof (UNS32), (void*)&Encoder_Slave_obj1011_Restore_Manufacturer_Defined_Default_Parameters_112, NULL },
-                       { RW, uint32, sizeof (UNS32), (void*)&Encoder_Slave_obj1011_Restore_Manufacturer_Defined_Default_Parameters_113, NULL },
-                       { RW, uint32, sizeof (UNS32), (void*)&Encoder_Slave_obj1011_Restore_Manufacturer_Defined_Default_Parameters_114, NULL },
-                       { RW, uint32, sizeof (UNS32), (void*)&Encoder_Slave_obj1011_Restore_Manufacturer_Defined_Default_Parameters_115, NULL },
-                       { RW, uint32, sizeof (UNS32), (void*)&Encoder_Slave_obj1011_Restore_Manufacturer_Defined_Default_Parameters_116, NULL },
-                       { RW, uint32, sizeof (UNS32), (void*)&Encoder_Slave_obj1011_Restore_Manufacturer_Defined_Default_Parameters_117, NULL },
-                       { RW, uint32, sizeof (UNS32), (void*)&Encoder_Slave_obj1011_Restore_Manufacturer_Defined_Default_Parameters_118, NULL },
-                       { RW, uint32, sizeof (UNS32), (void*)&Encoder_Slave_obj1011_Restore_Manufacturer_Defined_Default_Parameters_119, NULL },
-                       { RW, uint32, sizeof (UNS32), (void*)&Encoder_Slave_obj1011_Restore_Manufacturer_Defined_Default_Parameters_120, NULL },
-                       { RW, uint32, sizeof (UNS32), (void*)&Encoder_Slave_obj1011_Restore_Manufacturer_Defined_Default_Parameters_121, NULL },
-                       { RW, uint32, sizeof (UNS32), (void*)&Encoder_Slave_obj1011_Restore_Manufacturer_Defined_Default_Parameters_122, NULL },
-                       { RW, uint32, sizeof (UNS32), (void*)&Encoder_Slave_obj1011_Restore_Manufacturer_Defined_Default_Parameters_123, NULL },
-                       { RW, uint32, sizeof (UNS32), (void*)&Encoder_Slave_obj1011_Restore_Manufacturer_Defined_Default_Parameters_124, NULL }
+                       { RW, uint32, sizeof (UNS32), (void*)&Encoder_Slave_obj1011_Restore_Manufacturer_Defined_Default_Parameters_1, NULL }
                      };
 
 /* index 0x1014 :   Emergency COB ID. */
@@ -637,14 +217,11 @@ $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
 
 /* index 0x1016 :   Consumer Heartbeat Time. */
                     UNS8 Encoder_Slave_highestSubIndex_obj1016 = 1; /* number of subindex - 1*/
-                    UNS32 Encoder_Slave_obj1016[] = 
-                    {
-                      0x0	/* 0 */
-                    };
+                    UNS32 Encoder_Slave_obj1016_Consumer_Heartbeat_Time = 0x0;	/* 0 */
                     subindex Encoder_Slave_Index1016[] = 
                      {
                        { RO, uint8, sizeof (UNS8), (void*)&Encoder_Slave_highestSubIndex_obj1016, NULL },
-                       { RW, uint32, sizeof (UNS32), (void*)&Encoder_Slave_obj1016[0], NULL }
+                       { RW, uint32, sizeof (UNS32), (void*)&Encoder_Slave_obj1016_Consumer_Heartbeat_Time, NULL }
                      };
 
 /* index 0x1017 :   Producer Heartbeat Time. */
@@ -658,7 +235,7 @@ $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
                     UNS8 Encoder_Slave_highestSubIndex_obj1018 = 4; /* number of subindex - 1*/
                     UNS32 Encoder_Slave_obj1018_Vendor_ID = 0x5F;	/* 95 */
                     UNS32 Encoder_Slave_obj1018_Product_Code = 0x76;	/* 118 */
-                    UNS32 Encoder_Slave_obj1018_Revision_Number = 0x1;	/* 1 */
+                    UNS32 Encoder_Slave_obj1018_Revision_Number = 0x3E9;	/* 1001 */
                     UNS32 Encoder_Slave_obj1018_Serial_Number = 0x12345678;	/* 305419896 */
                     subindex Encoder_Slave_Index1018[] = 
                      {
@@ -670,14 +247,12 @@ $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
                      };
 
 /* index 0x1029 :   Error Behavior. */
-                    UNS8 Encoder_Slave_highestSubIndex_obj1029 = 255; /* number of subindex - 1*/
-                    UNS8 Encoder_Slave_obj1029_Communication_Error = 0x0;	/* 0 */
-                    UNS8 Encoder_Slave_obj1029_Device_Profile = 0x0;	/* 0 */
+                    UNS8 Encoder_Slave_highestSubIndex_obj1029 = 1; /* number of subindex - 1*/
+                    UNS8 Encoder_Slave_obj1029_Communication_Error = 0x1;	/* 1 */
                     subindex Encoder_Slave_Index1029[] = 
                      {
                        { RO, uint8, sizeof (UNS8), (void*)&Encoder_Slave_highestSubIndex_obj1029, NULL },
-                       { RW, uint8, sizeof (UNS8), (void*)&Encoder_Slave_obj1029_Communication_Error, NULL },
-                       { RW, uint8, sizeof (UNS8), (void*)&Encoder_Slave_obj1029_Device_Profile, NULL }
+                       { RW, uint8, sizeof (UNS8), (void*)&Encoder_Slave_obj1029_Communication_Error, NULL }
                      };
 
 /* index 0x1200 :   Server SDO Parameter. */
@@ -782,106 +357,94 @@ $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
 
 /* index 0x1600 :   Receive PDO 1 Mapping. */
                     UNS8 Encoder_Slave_highestSubIndex_obj1600 = 8; /* number of subindex - 1*/
-                    UNS32 Encoder_Slave_obj1600[] = 
-                    {
-                      0x0,	/* 0 */
-                      0x0,	/* 0 */
-                      0x0,	/* 0 */
-                      0x0,	/* 0 */
-                      0x0,	/* 0 */
-                      0x0,	/* 0 */
-                      0x0,	/* 0 */
-                      0x0	/* 0 */
-                    };
+                    UNS32 Encoder_Slave_obj1600_PDO_1_Mapping_for_an_application_object_1 = 0x0;	/* 0 */
+                    UNS32 Encoder_Slave_obj1600_PDO_1_Mapping_for_an_application_object_2 = 0x0;	/* 0 */
+                    UNS32 Encoder_Slave_obj1600_PDO_1_Mapping_for_an_application_object_3 = 0x0;	/* 0 */
+                    UNS32 Encoder_Slave_obj1600_PDO_1_Mapping_for_an_application_object_4 = 0x0;	/* 0 */
+                    UNS32 Encoder_Slave_obj1600_PDO_1_Mapping_for_an_application_object_5 = 0x0;	/* 0 */
+                    UNS32 Encoder_Slave_obj1600_PDO_1_Mapping_for_an_application_object_6 = 0x0;	/* 0 */
+                    UNS32 Encoder_Slave_obj1600_PDO_1_Mapping_for_an_application_object_7 = 0x0;	/* 0 */
+                    UNS32 Encoder_Slave_obj1600_PDO_1_Mapping_for_an_application_object_8 = 0x0;	/* 0 */
                     subindex Encoder_Slave_Index1600[] = 
                      {
-                       { RW, uint8, sizeof (UNS8), (void*)&Encoder_Slave_highestSubIndex_obj1600, NULL },
-                       { RW, uint32, sizeof (UNS32), (void*)&Encoder_Slave_obj1600[0], NULL },
-                       { RW, uint32, sizeof (UNS32), (void*)&Encoder_Slave_obj1600[1], NULL },
-                       { RW, uint32, sizeof (UNS32), (void*)&Encoder_Slave_obj1600[2], NULL },
-                       { RW, uint32, sizeof (UNS32), (void*)&Encoder_Slave_obj1600[3], NULL },
-                       { RW, uint32, sizeof (UNS32), (void*)&Encoder_Slave_obj1600[4], NULL },
-                       { RW, uint32, sizeof (UNS32), (void*)&Encoder_Slave_obj1600[5], NULL },
-                       { RW, uint32, sizeof (UNS32), (void*)&Encoder_Slave_obj1600[6], NULL },
-                       { RW, uint32, sizeof (UNS32), (void*)&Encoder_Slave_obj1600[7], NULL }
+                       { RO, uint8, sizeof (UNS8), (void*)&Encoder_Slave_highestSubIndex_obj1600, NULL },
+                       { RW, uint32, sizeof (UNS32), (void*)&Encoder_Slave_obj1600_PDO_1_Mapping_for_an_application_object_1, NULL },
+                       { RW, uint32, sizeof (UNS32), (void*)&Encoder_Slave_obj1600_PDO_1_Mapping_for_an_application_object_2, NULL },
+                       { RW, uint32, sizeof (UNS32), (void*)&Encoder_Slave_obj1600_PDO_1_Mapping_for_an_application_object_3, NULL },
+                       { RW, uint32, sizeof (UNS32), (void*)&Encoder_Slave_obj1600_PDO_1_Mapping_for_an_application_object_4, NULL },
+                       { RW, uint32, sizeof (UNS32), (void*)&Encoder_Slave_obj1600_PDO_1_Mapping_for_an_application_object_5, NULL },
+                       { RW, uint32, sizeof (UNS32), (void*)&Encoder_Slave_obj1600_PDO_1_Mapping_for_an_application_object_6, NULL },
+                       { RW, uint32, sizeof (UNS32), (void*)&Encoder_Slave_obj1600_PDO_1_Mapping_for_an_application_object_7, NULL },
+                       { RW, uint32, sizeof (UNS32), (void*)&Encoder_Slave_obj1600_PDO_1_Mapping_for_an_application_object_8, NULL }
                      };
 
 /* index 0x1601 :   Receive PDO 2 Mapping. */
                     UNS8 Encoder_Slave_highestSubIndex_obj1601 = 8; /* number of subindex - 1*/
-                    UNS32 Encoder_Slave_obj1601[] = 
-                    {
-                      0x0,	/* 0 */
-                      0x0,	/* 0 */
-                      0x0,	/* 0 */
-                      0x0,	/* 0 */
-                      0x0,	/* 0 */
-                      0x0,	/* 0 */
-                      0x0,	/* 0 */
-                      0x0	/* 0 */
-                    };
+                    UNS32 Encoder_Slave_obj1601_PDO_2_Mapping_for_an_application_object_1 = 0x0;	/* 0 */
+                    UNS32 Encoder_Slave_obj1601_PDO_2_Mapping_for_an_application_object_2 = 0x0;	/* 0 */
+                    UNS32 Encoder_Slave_obj1601_PDO_2_Mapping_for_an_application_object_3 = 0x0;	/* 0 */
+                    UNS32 Encoder_Slave_obj1601_PDO_2_Mapping_for_an_application_object_4 = 0x0;	/* 0 */
+                    UNS32 Encoder_Slave_obj1601_PDO_2_Mapping_for_an_application_object_5 = 0x0;	/* 0 */
+                    UNS32 Encoder_Slave_obj1601_PDO_2_Mapping_for_an_application_object_6 = 0x0;	/* 0 */
+                    UNS32 Encoder_Slave_obj1601_PDO_2_Mapping_for_an_application_object_7 = 0x0;	/* 0 */
+                    UNS32 Encoder_Slave_obj1601_PDO_2_Mapping_for_an_application_object_8 = 0x0;	/* 0 */
                     subindex Encoder_Slave_Index1601[] = 
                      {
-                       { RW, uint8, sizeof (UNS8), (void*)&Encoder_Slave_highestSubIndex_obj1601, NULL },
-                       { RW, uint32, sizeof (UNS32), (void*)&Encoder_Slave_obj1601[0], NULL },
-                       { RW, uint32, sizeof (UNS32), (void*)&Encoder_Slave_obj1601[1], NULL },
-                       { RW, uint32, sizeof (UNS32), (void*)&Encoder_Slave_obj1601[2], NULL },
-                       { RW, uint32, sizeof (UNS32), (void*)&Encoder_Slave_obj1601[3], NULL },
-                       { RW, uint32, sizeof (UNS32), (void*)&Encoder_Slave_obj1601[4], NULL },
-                       { RW, uint32, sizeof (UNS32), (void*)&Encoder_Slave_obj1601[5], NULL },
-                       { RW, uint32, sizeof (UNS32), (void*)&Encoder_Slave_obj1601[6], NULL },
-                       { RW, uint32, sizeof (UNS32), (void*)&Encoder_Slave_obj1601[7], NULL }
+                       { RO, uint8, sizeof (UNS8), (void*)&Encoder_Slave_highestSubIndex_obj1601, NULL },
+                       { RW, uint32, sizeof (UNS32), (void*)&Encoder_Slave_obj1601_PDO_2_Mapping_for_an_application_object_1, NULL },
+                       { RW, uint32, sizeof (UNS32), (void*)&Encoder_Slave_obj1601_PDO_2_Mapping_for_an_application_object_2, NULL },
+                       { RW, uint32, sizeof (UNS32), (void*)&Encoder_Slave_obj1601_PDO_2_Mapping_for_an_application_object_3, NULL },
+                       { RW, uint32, sizeof (UNS32), (void*)&Encoder_Slave_obj1601_PDO_2_Mapping_for_an_application_object_4, NULL },
+                       { RW, uint32, sizeof (UNS32), (void*)&Encoder_Slave_obj1601_PDO_2_Mapping_for_an_application_object_5, NULL },
+                       { RW, uint32, sizeof (UNS32), (void*)&Encoder_Slave_obj1601_PDO_2_Mapping_for_an_application_object_6, NULL },
+                       { RW, uint32, sizeof (UNS32), (void*)&Encoder_Slave_obj1601_PDO_2_Mapping_for_an_application_object_7, NULL },
+                       { RW, uint32, sizeof (UNS32), (void*)&Encoder_Slave_obj1601_PDO_2_Mapping_for_an_application_object_8, NULL }
                      };
 
 /* index 0x1602 :   Receive PDO 3 Mapping. */
                     UNS8 Encoder_Slave_highestSubIndex_obj1602 = 8; /* number of subindex - 1*/
-                    UNS32 Encoder_Slave_obj1602[] = 
-                    {
-                      0x0,	/* 0 */
-                      0x0,	/* 0 */
-                      0x0,	/* 0 */
-                      0x0,	/* 0 */
-                      0x0,	/* 0 */
-                      0x0,	/* 0 */
-                      0x0,	/* 0 */
-                      0x0	/* 0 */
-                    };
+                    UNS32 Encoder_Slave_obj1602_PDO_3_Mapping_for_an_application_object_1 = 0x0;	/* 0 */
+                    UNS32 Encoder_Slave_obj1602_PDO_3_Mapping_for_an_application_object_2 = 0x0;	/* 0 */
+                    UNS32 Encoder_Slave_obj1602_PDO_3_Mapping_for_an_application_object_3 = 0x0;	/* 0 */
+                    UNS32 Encoder_Slave_obj1602_PDO_3_Mapping_for_an_application_object_4 = 0x0;	/* 0 */
+                    UNS32 Encoder_Slave_obj1602_PDO_3_Mapping_for_an_application_object_5 = 0x0;	/* 0 */
+                    UNS32 Encoder_Slave_obj1602_PDO_3_Mapping_for_an_application_object_6 = 0x0;	/* 0 */
+                    UNS32 Encoder_Slave_obj1602_PDO_3_Mapping_for_an_application_object_7 = 0x0;	/* 0 */
+                    UNS32 Encoder_Slave_obj1602_PDO_3_Mapping_for_an_application_object_8 = 0x0;	/* 0 */
                     subindex Encoder_Slave_Index1602[] = 
                      {
-                       { RW, uint8, sizeof (UNS8), (void*)&Encoder_Slave_highestSubIndex_obj1602, NULL },
-                       { RW, uint32, sizeof (UNS32), (void*)&Encoder_Slave_obj1602[0], NULL },
-                       { RW, uint32, sizeof (UNS32), (void*)&Encoder_Slave_obj1602[1], NULL },
-                       { RW, uint32, sizeof (UNS32), (void*)&Encoder_Slave_obj1602[2], NULL },
-                       { RW, uint32, sizeof (UNS32), (void*)&Encoder_Slave_obj1602[3], NULL },
-                       { RW, uint32, sizeof (UNS32), (void*)&Encoder_Slave_obj1602[4], NULL },
-                       { RW, uint32, sizeof (UNS32), (void*)&Encoder_Slave_obj1602[5], NULL },
-                       { RW, uint32, sizeof (UNS32), (void*)&Encoder_Slave_obj1602[6], NULL },
-                       { RW, uint32, sizeof (UNS32), (void*)&Encoder_Slave_obj1602[7], NULL }
+                       { RO, uint8, sizeof (UNS8), (void*)&Encoder_Slave_highestSubIndex_obj1602, NULL },
+                       { RW, uint32, sizeof (UNS32), (void*)&Encoder_Slave_obj1602_PDO_3_Mapping_for_an_application_object_1, NULL },
+                       { RW, uint32, sizeof (UNS32), (void*)&Encoder_Slave_obj1602_PDO_3_Mapping_for_an_application_object_2, NULL },
+                       { RW, uint32, sizeof (UNS32), (void*)&Encoder_Slave_obj1602_PDO_3_Mapping_for_an_application_object_3, NULL },
+                       { RW, uint32, sizeof (UNS32), (void*)&Encoder_Slave_obj1602_PDO_3_Mapping_for_an_application_object_4, NULL },
+                       { RW, uint32, sizeof (UNS32), (void*)&Encoder_Slave_obj1602_PDO_3_Mapping_for_an_application_object_5, NULL },
+                       { RW, uint32, sizeof (UNS32), (void*)&Encoder_Slave_obj1602_PDO_3_Mapping_for_an_application_object_6, NULL },
+                       { RW, uint32, sizeof (UNS32), (void*)&Encoder_Slave_obj1602_PDO_3_Mapping_for_an_application_object_7, NULL },
+                       { RW, uint32, sizeof (UNS32), (void*)&Encoder_Slave_obj1602_PDO_3_Mapping_for_an_application_object_8, NULL }
                      };
 
 /* index 0x1603 :   Receive PDO 4 Mapping. */
                     UNS8 Encoder_Slave_highestSubIndex_obj1603 = 8; /* number of subindex - 1*/
-                    UNS32 Encoder_Slave_obj1603[] = 
-                    {
-                      0x0,	/* 0 */
-                      0x0,	/* 0 */
-                      0x0,	/* 0 */
-                      0x0,	/* 0 */
-                      0x0,	/* 0 */
-                      0x0,	/* 0 */
-                      0x0,	/* 0 */
-                      0x0	/* 0 */
-                    };
+                    UNS32 Encoder_Slave_obj1603_PDO_4_Mapping_for_an_application_object_1 = 0x0;	/* 0 */
+                    UNS32 Encoder_Slave_obj1603_PDO_4_Mapping_for_an_application_object_2 = 0x0;	/* 0 */
+                    UNS32 Encoder_Slave_obj1603_PDO_4_Mapping_for_an_application_object_3 = 0x0;	/* 0 */
+                    UNS32 Encoder_Slave_obj1603_PDO_4_Mapping_for_an_application_object_4 = 0x0;	/* 0 */
+                    UNS32 Encoder_Slave_obj1603_PDO_4_Mapping_for_an_application_object_5 = 0x0;	/* 0 */
+                    UNS32 Encoder_Slave_obj1603_PDO_4_Mapping_for_an_application_object_6 = 0x0;	/* 0 */
+                    UNS32 Encoder_Slave_obj1603_PDO_4_Mapping_for_an_application_object_7 = 0x0;	/* 0 */
+                    UNS32 Encoder_Slave_obj1603_PDO_4_Mapping_for_an_application_object_8 = 0x0;	/* 0 */
                     subindex Encoder_Slave_Index1603[] = 
                      {
-                       { RW, uint8, sizeof (UNS8), (void*)&Encoder_Slave_highestSubIndex_obj1603, NULL },
-                       { RW, uint32, sizeof (UNS32), (void*)&Encoder_Slave_obj1603[0], NULL },
-                       { RW, uint32, sizeof (UNS32), (void*)&Encoder_Slave_obj1603[1], NULL },
-                       { RW, uint32, sizeof (UNS32), (void*)&Encoder_Slave_obj1603[2], NULL },
-                       { RW, uint32, sizeof (UNS32), (void*)&Encoder_Slave_obj1603[3], NULL },
-                       { RW, uint32, sizeof (UNS32), (void*)&Encoder_Slave_obj1603[4], NULL },
-                       { RW, uint32, sizeof (UNS32), (void*)&Encoder_Slave_obj1603[5], NULL },
-                       { RW, uint32, sizeof (UNS32), (void*)&Encoder_Slave_obj1603[6], NULL },
-                       { RW, uint32, sizeof (UNS32), (void*)&Encoder_Slave_obj1603[7], NULL }
+                       { RO, uint8, sizeof (UNS8), (void*)&Encoder_Slave_highestSubIndex_obj1603, NULL },
+                       { RW, uint32, sizeof (UNS32), (void*)&Encoder_Slave_obj1603_PDO_4_Mapping_for_an_application_object_1, NULL },
+                       { RW, uint32, sizeof (UNS32), (void*)&Encoder_Slave_obj1603_PDO_4_Mapping_for_an_application_object_2, NULL },
+                       { RW, uint32, sizeof (UNS32), (void*)&Encoder_Slave_obj1603_PDO_4_Mapping_for_an_application_object_3, NULL },
+                       { RW, uint32, sizeof (UNS32), (void*)&Encoder_Slave_obj1603_PDO_4_Mapping_for_an_application_object_4, NULL },
+                       { RW, uint32, sizeof (UNS32), (void*)&Encoder_Slave_obj1603_PDO_4_Mapping_for_an_application_object_5, NULL },
+                       { RW, uint32, sizeof (UNS32), (void*)&Encoder_Slave_obj1603_PDO_4_Mapping_for_an_application_object_6, NULL },
+                       { RW, uint32, sizeof (UNS32), (void*)&Encoder_Slave_obj1603_PDO_4_Mapping_for_an_application_object_7, NULL },
+                       { RW, uint32, sizeof (UNS32), (void*)&Encoder_Slave_obj1603_PDO_4_Mapping_for_an_application_object_8, NULL }
                      };
 
 /* index 0x1800 :   Transmit PDO 1 Parameter. */
@@ -890,7 +453,7 @@ $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
                     UNS8 Encoder_Slave_obj1800_Transmission_Type = 0xFF;	/* 255 */
                     UNS16 Encoder_Slave_obj1800_Inhibit_Time = 0x0;	/* 0 */
                     UNS8 Encoder_Slave_obj1800_Compatibility_Entry = 0x0;	/* 0 */
-                    UNS16 Encoder_Slave_obj1800_Event_Timer = 0xA;	/* 10 */
+                    UNS16 Encoder_Slave_obj1800_Event_Timer = 0x203;	/* 515 */
                     UNS8 Encoder_Slave_obj1800_SYNC_start_value = 0x0;	/* 0 */
                     subindex Encoder_Slave_Index1800[] = 
                      {
@@ -906,10 +469,10 @@ $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
 /* index 0x1801 :   Transmit PDO 2 Parameter. */
                     UNS8 Encoder_Slave_highestSubIndex_obj1801 = 6; /* number of subindex - 1*/
                     UNS32 Encoder_Slave_obj1801_COB_ID_used_by_PDO = 0x280;	/* 640 */
-                    UNS8 Encoder_Slave_obj1801_Transmission_Type = 0x0;	/* 0 */
+                    UNS8 Encoder_Slave_obj1801_Transmission_Type = 0x2;	/* 2 */
                     UNS16 Encoder_Slave_obj1801_Inhibit_Time = 0x0;	/* 0 */
                     UNS8 Encoder_Slave_obj1801_Compatibility_Entry = 0x0;	/* 0 */
-                    UNS16 Encoder_Slave_obj1801_Event_Timer = 0x0;	/* 0 */
+                    UNS16 Encoder_Slave_obj1801_Event_Timer = 0x100;	/* 256 */
                     UNS8 Encoder_Slave_obj1801_SYNC_start_value = 0x0;	/* 0 */
                     subindex Encoder_Slave_Index1801[] = 
                      {
@@ -942,101 +505,283 @@ $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
                      };
 
 /* index 0x1A00 :   Transmit PDO 1 Mapping. */
-                    UNS8 Encoder_Slave_highestSubIndex_obj1A00 = 2; /* number of subindex - 1*/
-                    UNS32 Encoder_Slave_obj1A00[] = 
-                    {
-                      0x20010020,	/* 536936480 */
-                      0x20020020	/* 537002016 */
-                    };
+                    UNS8 Encoder_Slave_highestSubIndex_obj1A00 = 8; /* number of subindex - 1*/
+                    UNS32 Encoder_Slave_obj1A00_PDO_mapping_entry_1 = 0x60040020;	/* 1610874912 */
+                    UNS32 Encoder_Slave_obj1A00_PDO_mapping_entry_2 = 0x0;	/* 0 */
+                    UNS32 Encoder_Slave_obj1A00_PDO_mapping_entry_3 = 0x0;	/* 0 */
+                    UNS32 Encoder_Slave_obj1A00_PDO_mapping_entry_4 = 0x0;	/* 0 */
+                    UNS32 Encoder_Slave_obj1A00_PDO_mapping_entry_5 = 0x0;	/* 0 */
+                    UNS32 Encoder_Slave_obj1A00_PDO_mapping_entry_6 = 0x0;	/* 0 */
+                    UNS32 Encoder_Slave_obj1A00_PDO_mapping_entry_7 = 0x0;	/* 0 */
+                    UNS32 Encoder_Slave_obj1A00_PDO_mapping_entry_8 = 0x0;	/* 0 */
                     subindex Encoder_Slave_Index1A00[] = 
                      {
                        { RO, uint8, sizeof (UNS8), (void*)&Encoder_Slave_highestSubIndex_obj1A00, NULL },
-                       { RO, uint32, sizeof (UNS32), (void*)&Encoder_Slave_obj1A00[0], NULL },
-                       { RO, uint32, sizeof (UNS32), (void*)&Encoder_Slave_obj1A00[1], NULL }
+                       { RW, uint32, sizeof (UNS32), (void*)&Encoder_Slave_obj1A00_PDO_mapping_entry_1, NULL },
+                       { RW, uint32, sizeof (UNS32), (void*)&Encoder_Slave_obj1A00_PDO_mapping_entry_2, NULL },
+                       { RW, uint32, sizeof (UNS32), (void*)&Encoder_Slave_obj1A00_PDO_mapping_entry_3, NULL },
+                       { RW, uint32, sizeof (UNS32), (void*)&Encoder_Slave_obj1A00_PDO_mapping_entry_4, NULL },
+                       { RW, uint32, sizeof (UNS32), (void*)&Encoder_Slave_obj1A00_PDO_mapping_entry_5, NULL },
+                       { RW, uint32, sizeof (UNS32), (void*)&Encoder_Slave_obj1A00_PDO_mapping_entry_6, NULL },
+                       { RW, uint32, sizeof (UNS32), (void*)&Encoder_Slave_obj1A00_PDO_mapping_entry_7, NULL },
+                       { RW, uint32, sizeof (UNS32), (void*)&Encoder_Slave_obj1A00_PDO_mapping_entry_8, NULL }
                      };
 
 /* index 0x1A01 :   Transmit PDO 2 Mapping. */
                     UNS8 Encoder_Slave_highestSubIndex_obj1A01 = 8; /* number of subindex - 1*/
-                    UNS32 Encoder_Slave_obj1A01[] = 
-                    {
-                      0x0,	/* 0 */
-                      0x0,	/* 0 */
-                      0x0,	/* 0 */
-                      0x0,	/* 0 */
-                      0x0,	/* 0 */
-                      0x0,	/* 0 */
-                      0x0,	/* 0 */
-                      0x0	/* 0 */
-                    };
+                    UNS32 Encoder_Slave_obj1A01_PDO_2_Mapping_for_a_process_data_variable_1 = 0x60040020;	/* 1610874912 */
+                    UNS32 Encoder_Slave_obj1A01_PDO_2_Mapping_for_a_process_data_variable_2 = 0x0;	/* 0 */
+                    UNS32 Encoder_Slave_obj1A01_PDO_2_Mapping_for_a_process_data_variable_3 = 0x0;	/* 0 */
+                    UNS32 Encoder_Slave_obj1A01_PDO_2_Mapping_for_a_process_data_variable_4 = 0x0;	/* 0 */
+                    UNS32 Encoder_Slave_obj1A01_PDO_2_Mapping_for_a_process_data_variable_5 = 0x0;	/* 0 */
+                    UNS32 Encoder_Slave_obj1A01_PDO_2_Mapping_for_a_process_data_variable_6 = 0x0;	/* 0 */
+                    UNS32 Encoder_Slave_obj1A01_PDO_2_Mapping_for_a_process_data_variable_7 = 0x0;	/* 0 */
+                    UNS32 Encoder_Slave_obj1A01_PDO_2_Mapping_for_a_process_data_variable_8 = 0x0;	/* 0 */
                     subindex Encoder_Slave_Index1A01[] = 
                      {
-                       { RW, uint8, sizeof (UNS8), (void*)&Encoder_Slave_highestSubIndex_obj1A01, NULL },
-                       { RW, uint32, sizeof (UNS32), (void*)&Encoder_Slave_obj1A01[0], NULL },
-                       { RW, uint32, sizeof (UNS32), (void*)&Encoder_Slave_obj1A01[1], NULL },
-                       { RW, uint32, sizeof (UNS32), (void*)&Encoder_Slave_obj1A01[2], NULL },
-                       { RW, uint32, sizeof (UNS32), (void*)&Encoder_Slave_obj1A01[3], NULL },
-                       { RW, uint32, sizeof (UNS32), (void*)&Encoder_Slave_obj1A01[4], NULL },
-                       { RW, uint32, sizeof (UNS32), (void*)&Encoder_Slave_obj1A01[5], NULL },
-                       { RW, uint32, sizeof (UNS32), (void*)&Encoder_Slave_obj1A01[6], NULL },
-                       { RW, uint32, sizeof (UNS32), (void*)&Encoder_Slave_obj1A01[7], NULL }
+                       { RO, uint8, sizeof (UNS8), (void*)&Encoder_Slave_highestSubIndex_obj1A01, NULL },
+                       { RW, uint32, sizeof (UNS32), (void*)&Encoder_Slave_obj1A01_PDO_2_Mapping_for_a_process_data_variable_1, NULL },
+                       { RW, uint32, sizeof (UNS32), (void*)&Encoder_Slave_obj1A01_PDO_2_Mapping_for_a_process_data_variable_2, NULL },
+                       { RW, uint32, sizeof (UNS32), (void*)&Encoder_Slave_obj1A01_PDO_2_Mapping_for_a_process_data_variable_3, NULL },
+                       { RW, uint32, sizeof (UNS32), (void*)&Encoder_Slave_obj1A01_PDO_2_Mapping_for_a_process_data_variable_4, NULL },
+                       { RW, uint32, sizeof (UNS32), (void*)&Encoder_Slave_obj1A01_PDO_2_Mapping_for_a_process_data_variable_5, NULL },
+                       { RW, uint32, sizeof (UNS32), (void*)&Encoder_Slave_obj1A01_PDO_2_Mapping_for_a_process_data_variable_6, NULL },
+                       { RW, uint32, sizeof (UNS32), (void*)&Encoder_Slave_obj1A01_PDO_2_Mapping_for_a_process_data_variable_7, NULL },
+                       { RW, uint32, sizeof (UNS32), (void*)&Encoder_Slave_obj1A01_PDO_2_Mapping_for_a_process_data_variable_8, NULL }
                      };
 
 /* index 0x1A02 :   Transmit PDO 3 Mapping. */
                     UNS8 Encoder_Slave_highestSubIndex_obj1A02 = 0; /* number of subindex - 1*/
-                    UNS32 Encoder_Slave_obj1A02[] = 
-                    {
-                    };
                     subindex Encoder_Slave_Index1A02[] = 
                      {
-                       { RW, uint8, sizeof (UNS8), (void*)&Encoder_Slave_highestSubIndex_obj1A02, NULL }
+                       { RO, uint8, sizeof (UNS8), (void*)&Encoder_Slave_highestSubIndex_obj1A02, NULL }
                      };
 
-/* index 0x2000 :   Mapped variable Encoder_Raw_Data */
-                    subindex Encoder_Slave_Index2000[] = 
+/* index 0x1F80 :   NMT startup. */
+                    UNS32 Encoder_Slave_obj1F80 = 0x0;	/* 0 */
+                    subindex Encoder_Slave_Index1F80[] = 
                      {
-                       { RO, uint64, sizeof (UNS64), (void*)&Encoder_Raw_Data, NULL }
+                       { RW, uint32, sizeof (UNS32), (void*)&Encoder_Slave_obj1F80, NULL }
                      };
 
-/* index 0x2001 :   Mapped variable Multiturn_Data */
+/* index 0x2001 :   Mapped variable Gear Factor Configuration */
+                    UNS8 Encoder_Slave_highestSubIndex_obj2001 = 3; /* number of subindex - 1*/
                     subindex Encoder_Slave_Index2001[] = 
                      {
-                       { RO, uint32, sizeof (UNS32), (void*)&Multiturn_Data, NULL }
+                       { RO, uint8, sizeof (UNS8), (void*)&Encoder_Slave_highestSubIndex_obj2001, NULL },
+                       { RW, uint32, sizeof (UNS32), (void*)&Gear_Factor_Configuration_Mode_Control, NULL },
+                       { RW, uint32, sizeof (UNS32), (void*)&Gear_Factor_Configuration_Numerator, NULL },
+                       { RW, uint32, sizeof (UNS32), (void*)&Gear_Factor_Configuration_Denominator, NULL }
                      };
 
-/* index 0x2002 :   Mapped variable SingleTurn_Data */
-                    subindex Encoder_Slave_Index2002[] = 
+/* index 0x2100 :   Mapped variable Baud rate */
+                    subindex Encoder_Slave_Index2100[] = 
                      {
-                       { RO, uint32, sizeof (UNS32), (void*)&SingleTurn_Data, NULL }
+                       { RW, uint8, sizeof (UNS8), (void*)&Baud_rate, NULL }
                      };
 
-/* index 0x2003 :   Mapped variable Warning_Data */
-                    subindex Encoder_Slave_Index2003[] = 
+/* index 0x2110 :   Mapped variable Manufacturer options */
+                    subindex Encoder_Slave_Index2110[] = 
                      {
-                       { RO, boolean, sizeof (UNS8), (void*)&Warning_Data, NULL }
+                       { RW, uint32, sizeof (UNS32), (void*)&Manufacturer_options, NULL }
                      };
 
-/* index 0x2004 :   Mapped variable Error_Data */
-                    subindex Encoder_Slave_Index2004[] = 
+/* index 0x2300 :   Mapped variable Customer EEPROM */
+                    UNS8 Encoder_Slave_highestSubIndex_obj2300 = 7; /* number of subindex - 1*/
+                    subindex Encoder_Slave_Index2300[] = 
                      {
-                       { RO, boolean, sizeof (UNS8), (void*)&Error_Data, NULL }
+                       { RO, uint8, sizeof (UNS8), (void*)&Encoder_Slave_highestSubIndex_obj2300, NULL },
+                       { RW, uint16, sizeof (UNS16), (void*)&Customer_EEPROM_Data_0, NULL },
+                       { RW, uint16, sizeof (UNS16), (void*)&Customer_EEPROM_Data_1, NULL },
+                       { RW, uint16, sizeof (UNS16), (void*)&Customer_EEPROM_Data_2, NULL },
+                       { RW, uint16, sizeof (UNS16), (void*)&Customer_EEPROM_Data_3, NULL },
+                       { RW, uint16, sizeof (UNS16), (void*)&Customer_EEPROM_Data_4, NULL },
+                       { RW, uint16, sizeof (UNS16), (void*)&Customer_EEPROM_Data_5, NULL },
+                       { RW, uint16, sizeof (UNS16), (void*)&Customer_EEPROM_Data_6, NULL }
                      };
 
-/* index 0x2005 :   Mapped variable CRC_Data */
-                    subindex Encoder_Slave_Index2005[] = 
+/* index 0x2A00 :   Mapped variable Operation Time */
+                    UNS8 Encoder_Slave_highestSubIndex_obj2A00 = 2; /* number of subindex - 1*/
+                    subindex Encoder_Slave_Index2A00[] = 
                      {
-                       { RO, uint16, sizeof (UNS16), (void*)&CRC_Data, NULL }
+                       { RO, uint8, sizeof (UNS8), (void*)&Encoder_Slave_highestSubIndex_obj2A00, NULL },
+                       { RO, uint32, sizeof (UNS32), (void*)&Operation_Time_Current, NULL },
+                       { RO, uint32, sizeof (UNS32), (void*)&Operation_Time_Total, NULL }
+                     };
+
+/* index 0x2A01 :   Mapped variable Operation Cycle Counter */
+                    subindex Encoder_Slave_Index2A01[] = 
+                     {
+                       { RO, uint32, sizeof (UNS32), (void*)&Operation_Cycle_Counter, NULL }
+                     };
+
+/* index 0x6000 :   Mapped variable Operating Parameters */
+                    subindex Encoder_Slave_Index6000[] = 
+                     {
+                       { RW, uint16, sizeof (UNS16), (void*)&Operating_Parameters, NULL }
+                     };
+
+/* index 0x6001 :   Mapped variable Measuring Units per Revolution */
+                    subindex Encoder_Slave_Index6001[] = 
+                     {
+                       { RW, uint32, sizeof (UNS32), (void*)&Measuring_Units_per_Revolution, NULL }
+                     };
+
+/* index 0x6002 :   Mapped variable Total Measuring Range in Measuring Unit */
+                    subindex Encoder_Slave_Index6002[] = 
+                     {
+                       { RW, uint32, sizeof (UNS32), (void*)&Total_Measuring_Range_in_Measuring_Unit, NULL }
+                     };
+
+/* index 0x6003 :   Mapped variable Preset Value */
+                    subindex Encoder_Slave_Index6003[] = 
+                     {
+                       { RW, uint32, sizeof (UNS32), (void*)&Preset_Value, NULL }
+                     };
+
+/* index 0x6004 :   Mapped variable Position Value */
+                    subindex Encoder_Slave_Index6004[] = 
+                     {
+                       { RO, uint32, sizeof (UNS32), (void*)&Position_Value, NULL }
+                     };
+
+/* index 0x600C :   Mapped variable Position raw value */
+                    subindex Encoder_Slave_Index600C[] = 
+                     {
+                       { RO, uint64, sizeof (UNS64), (void*)&Position_raw_value, NULL }
+                     };
+
+/* index 0x6030 :   Mapped variable Speed Value */
+                    UNS8 Encoder_Slave_highestSubIndex_obj6030 = 1; /* number of subindex - 1*/
+                    subindex Encoder_Slave_Index6030[] = 
+                     {
+                       { RO, uint8, sizeof (UNS8), (void*)&Encoder_Slave_highestSubIndex_obj6030, NULL },
+                       { RO, int16, sizeof (INTEGER16), (void*)&Speed_Value[0], NULL }
+                     };
+
+/* index 0x6031 :   Mapped variable Speed parameter */
+                    UNS8 Encoder_Slave_highestSubIndex_obj6031 = 4; /* number of subindex - 1*/
+                    subindex Encoder_Slave_Index6031[] = 
+                     {
+                       { RO, uint8, sizeof (UNS8), (void*)&Encoder_Slave_highestSubIndex_obj6031, NULL },
+                       { RW, uint8, sizeof (UNS8), (void*)&Speed_parameter_Speed_source_selector, NULL },
+                       { RW, uint16, sizeof (UNS16), (void*)&Speed_parameter_Speed_integration_time, NULL },
+                       { RW, uint16, sizeof (UNS16), (void*)&Speed_parameter_Multiplier_value, NULL },
+                       { RW, uint16, sizeof (UNS16), (void*)&Speed_parameter_Divider_value, NULL }
+                     };
+
+/* index 0x6040 :   Mapped variable Acceleration Value */
+                    UNS8 Encoder_Slave_highestSubIndex_obj6040 = 1; /* number of subindex - 1*/
+                    subindex Encoder_Slave_Index6040[] = 
+                     {
+                       { RO, uint8, sizeof (UNS8), (void*)&Encoder_Slave_highestSubIndex_obj6040, NULL },
+                       { RO, int16, sizeof (INTEGER16), (void*)&Acceleration_Value[0], NULL }
+                     };
+
+/* index 0x6041 :   Mapped variable Acceleration parameter */
+                    UNS8 Encoder_Slave_highestSubIndex_obj6041 = 4; /* number of subindex - 1*/
+                    subindex Encoder_Slave_Index6041[] = 
+                     {
+                       { RO, uint8, sizeof (UNS8), (void*)&Encoder_Slave_highestSubIndex_obj6041, NULL },
+                       { RW, uint8, sizeof (UNS8), (void*)&Acceleration_parameter_Acceleration_source_selector, NULL },
+                       { RW, uint16, sizeof (UNS16), (void*)&Acceleration_parameter_Acceleration_integration_time, NULL },
+                       { RW, uint16, sizeof (UNS16), (void*)&Acceleration_parameter_Multiplier_value, NULL },
+                       { RW, uint16, sizeof (UNS16), (void*)&Acceleration_parameter_Divider_value, NULL }
+                     };
+
+/* index 0x6200 :   Mapped variable Cyclic Timer */
+                    subindex Encoder_Slave_Index6200[] = 
+                     {
+                       { RW, uint16, sizeof (UNS16), (void*)&Cyclic_Timer, NULL }
+                     };
+
+/* index 0x6500 :   Mapped variable Operating Status */
+                    subindex Encoder_Slave_Index6500[] = 
+                     {
+                       { RO, uint16, sizeof (UNS16), (void*)&Operating_Status, NULL }
+                     };
+
+/* index 0x6501 :   Mapped variable Single Turn Resolution */
+                    subindex Encoder_Slave_Index6501[] = 
+                     {
+                       { RO, uint32, sizeof (UNS32), (void*)&Single_Turn_Resolution, NULL }
+                     };
+
+/* index 0x6502 :   Mapped variable Number of Distinguishable Revolutions */
+                    subindex Encoder_Slave_Index6502[] = 
+                     {
+                       { RW, uint16, sizeof (UNS16), (void*)&Number_of_Distinguishable_Revolutions, NULL }
+                     };
+
+/* index 0x6503 :   Mapped variable Alarms */
+                    subindex Encoder_Slave_Index6503[] = 
+                     {
+                       { RO, uint16, sizeof (UNS16), (void*)&Alarms, NULL }
+                     };
+
+/* index 0x6504 :   Mapped variable Supported Alarms */
+                    subindex Encoder_Slave_Index6504[] = 
+                     {
+                       { RO, uint16, sizeof (UNS16), (void*)&Supported_Alarms, NULL }
+                     };
+
+/* index 0x6505 :   Mapped variable Warnings */
+                    subindex Encoder_Slave_Index6505[] = 
+                     {
+                       { RO, uint16, sizeof (UNS16), (void*)&Warnings, NULL }
+                     };
+
+/* index 0x6506 :   Mapped variable Supported Warnings */
+                    subindex Encoder_Slave_Index6506[] = 
+                     {
+                       { RO, uint16, sizeof (UNS16), (void*)&Supported_Warnings, NULL }
+                     };
+
+/* index 0x6507 :   Mapped variable Profile and Software Version */
+                    subindex Encoder_Slave_Index6507[] = 
+                     {
+                       { RO, uint32, sizeof (UNS32), (void*)&Profile_and_Software_Version, NULL }
+                     };
+
+/* index 0x6508 :   Mapped variable Operating Time */
+                    subindex Encoder_Slave_Index6508[] = 
+                     {
+                       { RO, uint32, sizeof (UNS32), (void*)&Operating_Time, NULL }
+                     };
+
+/* index 0x6509 :   Mapped variable Offset Value */
+                    subindex Encoder_Slave_Index6509[] = 
+                     {
+                       { RO, int32, sizeof (INTEGER32), (void*)&Offset_Value, NULL }
+                     };
+
+/* index 0x650A :   Mapped variable Module Identification */
+                    UNS8 Encoder_Slave_highestSubIndex_obj650A = 1; /* number of subindex - 1*/
+                    subindex Encoder_Slave_Index650A[] = 
+                     {
+                       { RO, uint8, sizeof (UNS8), (void*)&Encoder_Slave_highestSubIndex_obj650A, NULL },
+                       { RO, int32, sizeof (INTEGER32), (void*)&Module_Identification_Manufacturer_Offset_Value, NULL }
+                     };
+
+/* index 0x650B :   Mapped variable Serial Number */
+                    subindex Encoder_Slave_Index650B[] = 
+                     {
+                       { RO, uint32, sizeof (UNS32), (void*)&Serial_Number, NULL }
                      };
 
 /**************************************************************************/
 /* Declaration of pointed variables                                       */
 /**************************************************************************/
 
-const indextable Encoder_Slave_objdict[] = 
+const indextable Encoder_Slave_objdict[] =
 {
   { (subindex*)Encoder_Slave_Index1000,sizeof(Encoder_Slave_Index1000)/sizeof(Encoder_Slave_Index1000[0]), 0x1000},
   { (subindex*)Encoder_Slave_Index1001,sizeof(Encoder_Slave_Index1001)/sizeof(Encoder_Slave_Index1001[0]), 0x1001},
+  { (subindex*)Encoder_Slave_Index1002,sizeof(Encoder_Slave_Index1002)/sizeof(Encoder_Slave_Index1002[0]), 0x1002},
+  { (subindex*)Encoder_Slave_Index1003,sizeof(Encoder_Slave_Index1003)/sizeof(Encoder_Slave_Index1003[0]), 0x1003},
   { (subindex*)Encoder_Slave_Index1005,sizeof(Encoder_Slave_Index1005)/sizeof(Encoder_Slave_Index1005[0]), 0x1005},
   { (subindex*)Encoder_Slave_Index1008,sizeof(Encoder_Slave_Index1008)/sizeof(Encoder_Slave_Index1008[0]), 0x1008},
+  { (subindex*)Encoder_Slave_Index100A,sizeof(Encoder_Slave_Index100A)/sizeof(Encoder_Slave_Index100A[0]), 0x100A},
   { (subindex*)Encoder_Slave_Index100C,sizeof(Encoder_Slave_Index100C)/sizeof(Encoder_Slave_Index100C[0]), 0x100C},
   { (subindex*)Encoder_Slave_Index100D,sizeof(Encoder_Slave_Index100D)/sizeof(Encoder_Slave_Index100D[0]), 0x100D},
   { (subindex*)Encoder_Slave_Index1010,sizeof(Encoder_Slave_Index1010)/sizeof(Encoder_Slave_Index1010[0]), 0x1010},
@@ -1062,63 +807,114 @@ const indextable Encoder_Slave_objdict[] =
   { (subindex*)Encoder_Slave_Index1A00,sizeof(Encoder_Slave_Index1A00)/sizeof(Encoder_Slave_Index1A00[0]), 0x1A00},
   { (subindex*)Encoder_Slave_Index1A01,sizeof(Encoder_Slave_Index1A01)/sizeof(Encoder_Slave_Index1A01[0]), 0x1A01},
   { (subindex*)Encoder_Slave_Index1A02,sizeof(Encoder_Slave_Index1A02)/sizeof(Encoder_Slave_Index1A02[0]), 0x1A02},
-  { (subindex*)Encoder_Slave_Index2000,sizeof(Encoder_Slave_Index2000)/sizeof(Encoder_Slave_Index2000[0]), 0x2000},
+  { (subindex*)Encoder_Slave_Index1F80,sizeof(Encoder_Slave_Index1F80)/sizeof(Encoder_Slave_Index1F80[0]), 0x1F80},
   { (subindex*)Encoder_Slave_Index2001,sizeof(Encoder_Slave_Index2001)/sizeof(Encoder_Slave_Index2001[0]), 0x2001},
-  { (subindex*)Encoder_Slave_Index2002,sizeof(Encoder_Slave_Index2002)/sizeof(Encoder_Slave_Index2002[0]), 0x2002},
-  { (subindex*)Encoder_Slave_Index2003,sizeof(Encoder_Slave_Index2003)/sizeof(Encoder_Slave_Index2003[0]), 0x2003},
-  { (subindex*)Encoder_Slave_Index2004,sizeof(Encoder_Slave_Index2004)/sizeof(Encoder_Slave_Index2004[0]), 0x2004},
-  { (subindex*)Encoder_Slave_Index2005,sizeof(Encoder_Slave_Index2005)/sizeof(Encoder_Slave_Index2005[0]), 0x2005},
+  { (subindex*)Encoder_Slave_Index2100,sizeof(Encoder_Slave_Index2100)/sizeof(Encoder_Slave_Index2100[0]), 0x2100},
+  { (subindex*)Encoder_Slave_Index2110,sizeof(Encoder_Slave_Index2110)/sizeof(Encoder_Slave_Index2110[0]), 0x2110},
+  { (subindex*)Encoder_Slave_Index2300,sizeof(Encoder_Slave_Index2300)/sizeof(Encoder_Slave_Index2300[0]), 0x2300},
+  { (subindex*)Encoder_Slave_Index2A00,sizeof(Encoder_Slave_Index2A00)/sizeof(Encoder_Slave_Index2A00[0]), 0x2A00},
+  { (subindex*)Encoder_Slave_Index2A01,sizeof(Encoder_Slave_Index2A01)/sizeof(Encoder_Slave_Index2A01[0]), 0x2A01},
+  { (subindex*)Encoder_Slave_Index6000,sizeof(Encoder_Slave_Index6000)/sizeof(Encoder_Slave_Index6000[0]), 0x6000},
+  { (subindex*)Encoder_Slave_Index6001,sizeof(Encoder_Slave_Index6001)/sizeof(Encoder_Slave_Index6001[0]), 0x6001},
+  { (subindex*)Encoder_Slave_Index6002,sizeof(Encoder_Slave_Index6002)/sizeof(Encoder_Slave_Index6002[0]), 0x6002},
+  { (subindex*)Encoder_Slave_Index6003,sizeof(Encoder_Slave_Index6003)/sizeof(Encoder_Slave_Index6003[0]), 0x6003},
+  { (subindex*)Encoder_Slave_Index6004,sizeof(Encoder_Slave_Index6004)/sizeof(Encoder_Slave_Index6004[0]), 0x6004},
+  { (subindex*)Encoder_Slave_Index600C,sizeof(Encoder_Slave_Index600C)/sizeof(Encoder_Slave_Index600C[0]), 0x600C},
+  { (subindex*)Encoder_Slave_Index6030,sizeof(Encoder_Slave_Index6030)/sizeof(Encoder_Slave_Index6030[0]), 0x6030},
+  { (subindex*)Encoder_Slave_Index6031,sizeof(Encoder_Slave_Index6031)/sizeof(Encoder_Slave_Index6031[0]), 0x6031},
+  { (subindex*)Encoder_Slave_Index6040,sizeof(Encoder_Slave_Index6040)/sizeof(Encoder_Slave_Index6040[0]), 0x6040},
+  { (subindex*)Encoder_Slave_Index6041,sizeof(Encoder_Slave_Index6041)/sizeof(Encoder_Slave_Index6041[0]), 0x6041},
+  { (subindex*)Encoder_Slave_Index6200,sizeof(Encoder_Slave_Index6200)/sizeof(Encoder_Slave_Index6200[0]), 0x6200},
+  { (subindex*)Encoder_Slave_Index6500,sizeof(Encoder_Slave_Index6500)/sizeof(Encoder_Slave_Index6500[0]), 0x6500},
+  { (subindex*)Encoder_Slave_Index6501,sizeof(Encoder_Slave_Index6501)/sizeof(Encoder_Slave_Index6501[0]), 0x6501},
+  { (subindex*)Encoder_Slave_Index6502,sizeof(Encoder_Slave_Index6502)/sizeof(Encoder_Slave_Index6502[0]), 0x6502},
+  { (subindex*)Encoder_Slave_Index6503,sizeof(Encoder_Slave_Index6503)/sizeof(Encoder_Slave_Index6503[0]), 0x6503},
+  { (subindex*)Encoder_Slave_Index6504,sizeof(Encoder_Slave_Index6504)/sizeof(Encoder_Slave_Index6504[0]), 0x6504},
+  { (subindex*)Encoder_Slave_Index6505,sizeof(Encoder_Slave_Index6505)/sizeof(Encoder_Slave_Index6505[0]), 0x6505},
+  { (subindex*)Encoder_Slave_Index6506,sizeof(Encoder_Slave_Index6506)/sizeof(Encoder_Slave_Index6506[0]), 0x6506},
+  { (subindex*)Encoder_Slave_Index6507,sizeof(Encoder_Slave_Index6507)/sizeof(Encoder_Slave_Index6507[0]), 0x6507},
+  { (subindex*)Encoder_Slave_Index6508,sizeof(Encoder_Slave_Index6508)/sizeof(Encoder_Slave_Index6508[0]), 0x6508},
+  { (subindex*)Encoder_Slave_Index6509,sizeof(Encoder_Slave_Index6509)/sizeof(Encoder_Slave_Index6509[0]), 0x6509},
+  { (subindex*)Encoder_Slave_Index650A,sizeof(Encoder_Slave_Index650A)/sizeof(Encoder_Slave_Index650A[0]), 0x650A},
+  { (subindex*)Encoder_Slave_Index650B,sizeof(Encoder_Slave_Index650B)/sizeof(Encoder_Slave_Index650B[0]), 0x650B},
 };
 
 const indextable * Encoder_Slave_scanIndexOD (CO_Data *d, UNS16 wIndex, UNS32 * errorCode)
 {
-	(void)d;
-	int i;
-	switch(wIndex){
-		case 0x1000: i = 0;break;
-		case 0x1001: i = 1;break;
-		case 0x1005: i = 2;break;
-		case 0x1008: i = 3;break;
-		case 0x100C: i = 4;break;
-		case 0x100D: i = 5;break;
-		case 0x1010: i = 6;break;
-		case 0x1011: i = 7;break;
-		case 0x1014: i = 8;break;
-		case 0x1016: i = 9;break;
-		case 0x1017: i = 10;break;
-		case 0x1018: i = 11;break;
-		case 0x1029: i = 12;break;
-		case 0x1200: i = 13;break;
-		case 0x1280: i = 14;break;
-		case 0x1400: i = 15;break;
-		case 0x1401: i = 16;break;
-		case 0x1402: i = 17;break;
-		case 0x1403: i = 18;break;
-		case 0x1600: i = 19;break;
-		case 0x1601: i = 20;break;
-		case 0x1602: i = 21;break;
-		case 0x1603: i = 22;break;
-		case 0x1800: i = 23;break;
-		case 0x1801: i = 24;break;
-		case 0x1802: i = 25;break;
-		case 0x1A00: i = 26;break;
-		case 0x1A01: i = 27;break;
-		case 0x1A02: i = 28;break;
-		case 0x2000: i = 29;break;
-		case 0x2001: i = 30;break;
-		case 0x2002: i = 31;break;
-		case 0x2003: i = 32;break;
-		case 0x2004: i = 33;break;
-		case 0x2005: i = 34;break;
-		default:
-			*errorCode = OD_NO_SUCH_OBJECT;
-			return NULL;
-	}
-	*errorCode = OD_SUCCESSFUL;
-	return &Encoder_Slave_objdict[i];
+    int i;
+    (void)d; /* unused parameter */
+    switch(wIndex){
+       case 0x1000: i = 0;break;
+       case 0x1001: i = 1;break;
+       case 0x1002: i = 2;break;
+       case 0x1003: i = 3;break;
+       case 0x1005: i = 4;break;
+       case 0x1008: i = 5;break;
+       case 0x100A: i = 6;break;
+       case 0x100C: i = 7;break;
+       case 0x100D: i = 8;break;
+       case 0x1010: i = 9;break;
+       case 0x1011: i = 10;break;
+       case 0x1014: i = 11;break;
+       case 0x1016: i = 12;break;
+       case 0x1017: i = 13;break;
+       case 0x1018: i = 14;break;
+       case 0x1029: i = 15;break;
+       case 0x1200: i = 16;break;
+       case 0x1280: i = 17;break;
+       case 0x1400: i = 18;break;
+       case 0x1401: i = 19;break;
+       case 0x1402: i = 20;break;
+       case 0x1403: i = 21;break;
+       case 0x1600: i = 22;break;
+       case 0x1601: i = 23;break;
+       case 0x1602: i = 24;break;
+       case 0x1603: i = 25;break;
+       case 0x1800: i = 26;break;
+       case 0x1801: i = 27;break;
+       case 0x1802: i = 28;break;
+       case 0x1A00: i = 29;break;
+       case 0x1A01: i = 30;break;
+       case 0x1A02: i = 31;break;
+       case 0x1F80: i = 32;break;
+       case 0x2001: i = 33;break;
+       case 0x2100: i = 34;break;
+       case 0x2110: i = 35;break;
+       case 0x2300: i = 36;break;
+       case 0x2A00: i = 37;break;
+       case 0x2A01: i = 38;break;
+       case 0x6000: i = 39;break;
+       case 0x6001: i = 40;break;
+       case 0x6002: i = 41;break;
+       case 0x6003: i = 42;break;
+       case 0x6004: i = 43;break;
+       case 0x600C: i = 44;break;
+       case 0x6030: i = 45;break;
+       case 0x6031: i = 46;break;
+       case 0x6040: i = 47;break;
+       case 0x6041: i = 48;break;
+       case 0x6200: i = 49;break;
+       case 0x6500: i = 50;break;
+       case 0x6501: i = 51;break;
+       case 0x6502: i = 52;break;
+       case 0x6503: i = 53;break;
+       case 0x6504: i = 54;break;
+       case 0x6505: i = 55;break;
+       case 0x6506: i = 56;break;
+       case 0x6507: i = 57;break;
+       case 0x6508: i = 58;break;
+       case 0x6509: i = 59;break;
+       case 0x650A: i = 60;break;
+       case 0x650B: i = 61;break;
+       default:
+            *errorCode = OD_NO_SUCH_OBJECT;
+            return NULL;
+    }
+    *errorCode = OD_SUCCESSFUL;
+    return &Encoder_Slave_objdict[i];
 }
 
-/* 
+/*
  * To count at which received SYNC a PDO must be sent.
  * Even if no pdoTransmit are defined, at least one entry is computed
  * for compilations issues.
@@ -1126,24 +922,24 @@ const indextable * Encoder_Slave_scanIndexOD (CO_Data *d, UNS16 wIndex, UNS32 * 
 s_PDO_status Encoder_Slave_PDO_status[3] = {s_PDO_status_Initializer,s_PDO_status_Initializer,s_PDO_status_Initializer};
 
 const quick_index Encoder_Slave_firstIndex = {
-  13, /* SDO_SVR */
-  14, /* SDO_CLT */
-  15, /* PDO_RCV */
-  19, /* PDO_RCV_MAP */
-  23, /* PDO_TRS */
-  26 /* PDO_TRS_MAP */
+  16, /* SDO_SVR */
+  17, /* SDO_CLT */
+  18, /* PDO_RCV */
+  22, /* PDO_RCV_MAP */
+  26, /* PDO_TRS */
+  29 /* PDO_TRS_MAP */
 };
 
 const quick_index Encoder_Slave_lastIndex = {
-  13, /* SDO_SVR */
-  14, /* SDO_CLT */
-  18, /* PDO_RCV */
-  22, /* PDO_RCV_MAP */
-  25, /* PDO_TRS */
-  28 /* PDO_TRS_MAP */
+  16, /* SDO_SVR */
+  17, /* SDO_CLT */
+  21, /* PDO_RCV */
+  25, /* PDO_RCV_MAP */
+  28, /* PDO_TRS */
+  31 /* PDO_TRS_MAP */
 };
 
-const UNS16 Encoder_Slave_ObjdictSize = sizeof(Encoder_Slave_objdict)/sizeof(Encoder_Slave_objdict[0]); 
+const UNS16 Encoder_Slave_ObjdictSize = sizeof(Encoder_Slave_objdict)/sizeof(Encoder_Slave_objdict[0]);
 
 CO_Data Encoder_Slave_Data = CANOPEN_NODE_DATA_INITIALIZER(Encoder_Slave);
 

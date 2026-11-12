@@ -1,4 +1,4 @@
-#include "sccp1.h"      // MCC生成
+#include "sccp2.h"      // MCC生成
 #include "timer.h"      // CanFestival
 
 
@@ -15,11 +15,13 @@ TIMEVAL getElapsedTime(void)
 
 void setTimer(TIMEVAL value)
 {
-    SCCP1_Timer_PeriodSet(value);
+    //SCCP1_Timer_Stop();
+    //SCCP1_Timer_PeriodSet(value);
+    //SCCP1_Timer_Start();
 }
 
 
-void SCCP1_TimeoutCallback(void)
+void SCCP2_TimeoutCallback(void)
 {
     timer_counter++;
 }

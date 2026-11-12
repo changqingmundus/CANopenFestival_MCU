@@ -12,11 +12,49 @@ const indextable * Encoder_Slave_scanIndexOD (CO_Data *d, UNS16 wIndex, UNS32 * 
 
 /* Master node data struct */
 extern CO_Data Encoder_Slave_Data;
-extern UNS64 Encoder_Raw_Data;		/* Mapped at index 0x2000, subindex 0x00*/
-extern UNS32 Multiturn_Data;		/* Mapped at index 0x2001, subindex 0x00*/
-extern UNS32 SingleTurn_Data;		/* Mapped at index 0x2002, subindex 0x00*/
-extern UNS8 Warning_Data;		/* Mapped at index 0x2003, subindex 0x00*/
-extern UNS8 Error_Data;		/* Mapped at index 0x2004, subindex 0x00*/
-extern UNS16 CRC_Data;		/* Mapped at index 0x2005, subindex 0x00*/
+extern UNS32 Gear_Factor_Configuration_Mode_Control;		/* Mapped at index 0x2001, subindex 0x01 */
+extern UNS32 Gear_Factor_Configuration_Numerator;		/* Mapped at index 0x2001, subindex 0x02 */
+extern UNS32 Gear_Factor_Configuration_Denominator;		/* Mapped at index 0x2001, subindex 0x03 */
+extern UNS8 Baud_rate;		/* Mapped at index 0x2100, subindex 0x00*/
+extern UNS32 Manufacturer_options;		/* Mapped at index 0x2110, subindex 0x00*/
+extern UNS16 Customer_EEPROM_Data_0;		/* Mapped at index 0x2300, subindex 0x01 */
+extern UNS16 Customer_EEPROM_Data_1;		/* Mapped at index 0x2300, subindex 0x02 */
+extern UNS16 Customer_EEPROM_Data_2;		/* Mapped at index 0x2300, subindex 0x03 */
+extern UNS16 Customer_EEPROM_Data_3;		/* Mapped at index 0x2300, subindex 0x04 */
+extern UNS16 Customer_EEPROM_Data_4;		/* Mapped at index 0x2300, subindex 0x05 */
+extern UNS16 Customer_EEPROM_Data_5;		/* Mapped at index 0x2300, subindex 0x06 */
+extern UNS16 Customer_EEPROM_Data_6;		/* Mapped at index 0x2300, subindex 0x07 */
+extern UNS32 Operation_Time_Current;		/* Mapped at index 0x2A00, subindex 0x01 */
+extern UNS32 Operation_Time_Total;		/* Mapped at index 0x2A00, subindex 0x02 */
+extern UNS32 Operation_Cycle_Counter;		/* Mapped at index 0x2A01, subindex 0x00*/
+extern UNS16 Operating_Parameters;		/* Mapped at index 0x6000, subindex 0x00*/
+extern UNS32 Measuring_Units_per_Revolution;		/* Mapped at index 0x6001, subindex 0x00*/
+extern UNS32 Total_Measuring_Range_in_Measuring_Unit;		/* Mapped at index 0x6002, subindex 0x00*/
+extern UNS32 Preset_Value;		/* Mapped at index 0x6003, subindex 0x00*/
+extern UNS32 Position_Value;		/* Mapped at index 0x6004, subindex 0x00*/
+extern UNS64 Position_raw_value;		/* Mapped at index 0x600C, subindex 0x00*/
+extern INTEGER16 Speed_Value[1];		/* Mapped at index 0x6030, subindex 0x01 - 0x01 */
+extern UNS8 Speed_parameter_Speed_source_selector;		/* Mapped at index 0x6031, subindex 0x01 */
+extern UNS16 Speed_parameter_Speed_integration_time;		/* Mapped at index 0x6031, subindex 0x02 */
+extern UNS16 Speed_parameter_Multiplier_value;		/* Mapped at index 0x6031, subindex 0x03 */
+extern UNS16 Speed_parameter_Divider_value;		/* Mapped at index 0x6031, subindex 0x04 */
+extern INTEGER16 Acceleration_Value[1];		/* Mapped at index 0x6040, subindex 0x01 - 0x01 */
+extern UNS8 Acceleration_parameter_Acceleration_source_selector;		/* Mapped at index 0x6041, subindex 0x01 */
+extern UNS16 Acceleration_parameter_Acceleration_integration_time;		/* Mapped at index 0x6041, subindex 0x02 */
+extern UNS16 Acceleration_parameter_Multiplier_value;		/* Mapped at index 0x6041, subindex 0x03 */
+extern UNS16 Acceleration_parameter_Divider_value;		/* Mapped at index 0x6041, subindex 0x04 */
+extern UNS16 Cyclic_Timer;		/* Mapped at index 0x6200, subindex 0x00*/
+extern UNS16 Operating_Status;		/* Mapped at index 0x6500, subindex 0x00*/
+extern UNS32 Single_Turn_Resolution;		/* Mapped at index 0x6501, subindex 0x00*/
+extern UNS16 Number_of_Distinguishable_Revolutions;		/* Mapped at index 0x6502, subindex 0x00*/
+extern UNS16 Alarms;		/* Mapped at index 0x6503, subindex 0x00*/
+extern UNS16 Supported_Alarms;		/* Mapped at index 0x6504, subindex 0x00*/
+extern UNS16 Warnings;		/* Mapped at index 0x6505, subindex 0x00*/
+extern UNS16 Supported_Warnings;		/* Mapped at index 0x6506, subindex 0x00*/
+extern UNS32 Profile_and_Software_Version;		/* Mapped at index 0x6507, subindex 0x00*/
+extern UNS32 Operating_Time;		/* Mapped at index 0x6508, subindex 0x00*/
+extern INTEGER32 Offset_Value;		/* Mapped at index 0x6509, subindex 0x00*/
+extern INTEGER32 Module_Identification_Manufacturer_Offset_Value;		/* Mapped at index 0x650A, subindex 0x01 */
+extern UNS32 Serial_Number;		/* Mapped at index 0x650B, subindex 0x00*/
 
 #endif // ENCODER_SLAVE_H

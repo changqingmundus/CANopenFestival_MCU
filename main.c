@@ -25,6 +25,7 @@
 */
 #include "encoder.h"
 #include "Encoder_Slave.h"
+#include "Encoder_Slave_objectdefines.h"
 
 int main(void)
 {
@@ -38,11 +39,12 @@ int main(void)
     setState(&Encoder_Slave_Data, Initialisation);
     setState(&Encoder_Slave_Data, Operational);
 
-    LED0_SetHigh();
-    LED1_SetHigh();
+    SCCP2_Timer_Start();
 
     while (1)
     {
+        Encoder_Read_Data();
+        
         canReceiveTask();
 
         Encoder_Get_Position();
