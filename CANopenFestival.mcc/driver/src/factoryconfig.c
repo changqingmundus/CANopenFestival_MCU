@@ -18,9 +18,9 @@ const struct factory_param FACTORY_CRC_BIT = {.addr = FACTORY_OUTPUT_CONFIG, .po
 const struct factory_param FACTORY_SINGLE_TURN_BIT = {.addr = FACTORY_OUTPUT_CONFIG, .pos = 4, .len = 6};
 const struct factory_param FACTORY_MULTI_TURN_BIT = {.addr = FACTORY_OUTPUT_CONFIG, .pos = 10, .len = 6};
 
-uint8_t Factory_SingleTurnBit = 0;
-uint8_t Factory_MultiTurnBit = 0;
-uint8_t Factory_CRCBit = 0;
+uint8_t Factory_SingleTurnBit = 24;
+uint8_t Factory_MultiTurnBit = 16;
+uint8_t Factory_CRCBit = 6;
 
 static uint16_t Factory_GetField(uint16_t value, const struct factory_param *param);
 

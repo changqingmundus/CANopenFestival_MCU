@@ -1201,10 +1201,6 @@ void MU_I2C_Transfer(uint8_t devid, uint8_t ram_start, uint8_t ram_end, uint8_t 
 
 void Encoder_Update_To_CANopen(void)
 {
-   Position_raw_value = Encoder_Config.Raw_Data;
-   //Multiturn_Data = Encoder_Config.MultiTurn_Data;
-   //SingleTurn_Data = Encoder_Config.SingleTurn_Data;
-   //Warning_Data = Encoder_Config.Warning_Data;
-   //Error_Data = Encoder_Config.Error_Data;
-   //CRC_Data = Encoder_Config.CRC_Data;
+   Position_raw_value = Encoder_Get_Total_Position();
+   Position_Value = Encoder_Config.SingleTurn_Data; //Encoder_Get_Position();
 }

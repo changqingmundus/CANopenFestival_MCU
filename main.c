@@ -25,7 +25,6 @@
 */
 #include "encoder.h"
 #include "Encoder_Slave.h"
-#include "Encoder_Slave_objectdefines.h"
 
 int main(void)
 {
@@ -39,15 +38,19 @@ int main(void)
     setState(&Encoder_Slave_Data, Initialisation);
     setState(&Encoder_Slave_Data, Operational);
 
-    SCCP2_Timer_Start();
+    int i = 0;
 
     while (1)
     {
-        Encoder_Read_Data();
-        
+        if(i < 2)
+        {
+            Sensor_PZ_Config();
+            i++;
+        }
+
         canReceiveTask();
 
-        Encoder_Get_Position();
+        Encoder_Read_Data();
         Encoder_Update_To_CANopen();
 
         TimeDispatch();
