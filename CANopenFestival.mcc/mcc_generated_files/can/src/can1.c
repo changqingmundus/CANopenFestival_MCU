@@ -488,6 +488,71 @@ static void CAN1_RX_FIFO_Configuration(void)
 static void CAN1_RX_FIFO_FilterMaskConfiguration(void)
 {
     /* Configure RX FIFO Filter control settings*/
+    
+    // message stored in FIFO1
+    C1FLTCON0Lbits.F0BP = 1U;
+    // EID 0; SID 0; 
+    C1FLTOBJ0L = 0x0U;
+    // EID 0; EXIDE disabled; SID11 disabled; 
+    C1FLTOBJ0H = 0x0U;
+    // MSID 2047; MEID 0; 
+    C1MASK0L = 0x7FFU;
+    // MEID 0; MSID11 disabled; MIDE enabled; 
+    C1MASK0H = 0x4000U;
+    // Enable the filter 0
+    C1FLTCON0Lbits.FLTEN0 = 1U;
+    
+    // message stored in FIFO1
+    C1FLTCON0Lbits.F1BP = 1U;
+    // EID 0; SID 1537; 
+    C1FLTOBJ1L = 0x601U;
+    // EID 0; EXIDE disabled; SID11 disabled; 
+    C1FLTOBJ1H = 0x0U;
+    // MSID 2047; MEID 0; 
+    C1MASK1L = 0x7FFU;
+    // MEID 0; MSID11 disabled; MIDE enabled; 
+    C1MASK1H = 0x4000U;
+    // Enable the filter 1
+    C1FLTCON0Lbits.FLTEN1 = 1U;
+    
+    // message stored in FIFO1
+    C1FLTCON0Hbits.F2BP = 1U;
+    // EID 0; SID 128; 
+    C1FLTOBJ2L = 0x80U;
+    // EID 0; EXIDE disabled; SID11 disabled; 
+    C1FLTOBJ2H = 0x0U;
+    // MSID 2047; MEID 0; 
+    C1MASK2L = 0x7FFU;
+    // MEID 0; MSID11 disabled; MIDE enabled; 
+    C1MASK2H = 0x4000U;
+    // Enable the filter 2
+    C1FLTCON0Hbits.FLTEN2 = 1U;
+    
+    // message stored in FIFO1
+    C1FLTCON0Hbits.F3BP = 1U;
+    // EID 0; SID 2021; 
+    C1FLTOBJ3L = 0x7E5U;
+    // EID 0; EXIDE disabled; SID11 disabled; 
+    C1FLTOBJ3H = 0x0U;
+    // MSID 2047; MEID 0; 
+    C1MASK3L = 0x7FFU;
+    // MEID 0; MSID11 disabled; MIDE enabled; 
+    C1MASK3H = 0x4000U;
+    // Enable the filter 3
+    C1FLTCON0Hbits.FLTEN3 = 1U;
+    
+    // message stored in FIFO1
+    C1FLTCON1Lbits.F4BP = 1U;
+    // EID 0; SID 1793; 
+    C1FLTOBJ4L = 0x701U;
+    // EID 0; EXIDE disabled; SID11 disabled; 
+    C1FLTOBJ4H = 0x0U;
+    // MSID 2047; MEID 0; 
+    C1MASK4L = 0x7FFU;
+    // MEID 0; MSID11 disabled; MIDE enabled; 
+    C1MASK4H = 0x4000U;
+    // Enable the filter 4
+    C1FLTCON1Lbits.FLTEN4 = 1U;
 }
 
 /**
@@ -599,6 +664,36 @@ void CAN1_Deinitialize(void)
         C1FIFOCON1L = 0x400;
         
         /* Reset RX FIFO Filter control settings to POR*/
+        C1FLTCON0Lbits.F0BP = 0x0;
+        C1FLTOBJ0L = 0x0;
+        C1FLTOBJ0H = 0x0;
+        C1MASK0L = 0x0;
+        C1MASK0H = 0x0;
+        C1FLTCON0Lbits.FLTEN0 = 0x0;
+        C1FLTCON0Lbits.F1BP = 0x0;
+        C1FLTOBJ1L = 0x0;
+        C1FLTOBJ1H = 0x0;
+        C1MASK1L = 0x0;
+        C1MASK1H = 0x0;
+        C1FLTCON0Lbits.FLTEN1 = 0x0;
+        C1FLTCON0Hbits.F2BP = 0x0;
+        C1FLTOBJ2L = 0x0;
+        C1FLTOBJ2H = 0x0;
+        C1MASK2L = 0x0;
+        C1MASK2H = 0x0;
+        C1FLTCON0Hbits.FLTEN2 = 0x0;
+        C1FLTCON0Hbits.F3BP = 0x0;
+        C1FLTOBJ3L = 0x0;
+        C1FLTOBJ3H = 0x0;
+        C1MASK3L = 0x0;
+        C1MASK3H = 0x0;
+        C1FLTCON0Hbits.FLTEN3 = 0x0;
+        C1FLTCON1Lbits.F4BP = 0x0;
+        C1FLTOBJ4L = 0x0;
+        C1FLTOBJ4H = 0x0;
+        C1MASK4L = 0x0;
+        C1MASK4H = 0x0;
+        C1FLTCON1Lbits.FLTEN4 = 0x0;
 
         /* CAN Error Notification */
         // Clear the interrupt flags

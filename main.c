@@ -28,6 +28,8 @@
 #include "factoryconfig.h"
 #include "can_drv.h"
 
+extern volatile uint8_t timer_dispatch_pending;
+
 int main(void)
 {
 
@@ -56,5 +58,11 @@ int main(void)
 
         Encoder_Read_Data();
         Encoder_Update_To_CANopen();
+
+        if(timer_dispatch_pending)
+        {
+            timer_dispatch_pending = 0;
+            TimeDispatch();
+        }
     }
 }

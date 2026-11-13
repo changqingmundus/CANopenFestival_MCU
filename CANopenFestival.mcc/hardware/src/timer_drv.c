@@ -2,6 +2,7 @@
 #include "timer.h"         // CanFestival
 
 static TIMEVAL timer_counter = 0;
+volatile uint8_t timer_dispatch_pending = 0;
 
 TIMEVAL getElapsedTime(void)
 {
@@ -18,6 +19,6 @@ void setTimer(TIMEVAL value)
 
 void SCCP2_TimeoutCallback(void)
 {
-    TimeDispatch();
+    timer_dispatch_pending = 1;
     timer_counter++;
 }
