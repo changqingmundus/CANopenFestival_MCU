@@ -14,6 +14,7 @@ include_directories(
     ${CMAKE_CURRENT_SOURCE_DIR}/../../../Mongo_CanFestival/inc/MCU
     ${CMAKE_CURRENT_SOURCE_DIR}/../../../Mongo_CanFestival/dictionary
 )
+
 add_subdirectory(
 "${CMAKE_CURRENT_SOURCE_DIR}/../../../Mongo_CanFestival"
 "${CMAKE_BINARY_DIR}/Mongo_CanFestival"

@@ -25,6 +25,8 @@
 */
 #include "encoder.h"
 #include "Encoder_Slave.h"
+#include "factoryconfig.h"
+#include "can_drv.h"
 
 int main(void)
 {

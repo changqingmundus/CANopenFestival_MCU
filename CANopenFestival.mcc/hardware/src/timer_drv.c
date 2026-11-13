@@ -1,6 +1,5 @@
 #include "sccp2.h"         // MCC生成
 #include "timer.h"         // CanFestival
-#include "Encoder_Slave.h" // CanFestival
 
 static TIMEVAL timer_counter = 0;
 
