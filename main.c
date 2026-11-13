@@ -34,6 +34,8 @@ int main(void)
     SYSTEM_Initialize();
     DEE_Init();
     Encoder_Init();
+    SET_SetInterruptHandler(ClearData_CN_Callback);
+    Timer1_TimeoutCallbackRegister(ClearData_Timer_Callback);
 
     unsigned char nodeID = 0x01;
     setNodeId(&Encoder_Slave_Data, nodeID);
@@ -54,7 +56,5 @@ int main(void)
 
         Encoder_Read_Data();
         Encoder_Update_To_CANopen();
-
-        TimeDispatch();
     }
 }

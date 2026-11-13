@@ -28,8 +28,8 @@ Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
 // TIMEVAL is not at least on 32 bits
 #define TIMEVAL UNS32
 
-// using 16 bits timer
-#define TIMEVAL_MAX 0xFFFF
+// using 32 bits timer
+#define TIMEVAL_MAX 0xFFFFFFFF
 
 // The timer is incrementing every 10 us.
 #define MS_TO_TIMEVAL(ms) ((ms) * 100)

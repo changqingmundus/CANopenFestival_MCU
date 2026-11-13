@@ -12,10 +12,12 @@ TIMEVAL getElapsedTime(void)
 
 void setTimer(TIMEVAL value)
 {
-    SCCP2_Timer_PeriodSet(value);
+    uint32_t real_ticks = value * 400U;
+    SCCP2_Timer_PeriodSet(real_ticks);
 }
 
 void SCCP2_TimeoutCallback(void)
 {
+    TimeDispatch();
     timer_counter++;
 }
