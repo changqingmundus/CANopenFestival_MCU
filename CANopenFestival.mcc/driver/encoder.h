@@ -195,6 +195,7 @@ void Encoder_Set_Value(uint32_t set_value);
 void Encoder_Load_Position_Offset(void);
 void Encoder_Save_to_DEE(uint16_t Addr_L, uint16_t Addr_H, uint32_t Data);
 
+void Encoder_Update_To_CANopen_init(void);
 void Encoder_Update_To_CANopen(void);
 
 #endif

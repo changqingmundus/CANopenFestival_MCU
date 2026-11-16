@@ -32,7 +32,6 @@ extern volatile uint8_t timer_dispatch_pending;
 
 int main(void)
 {
-
     SYSTEM_Initialize();
     DEE_Init();
     Encoder_Init();
@@ -42,7 +41,6 @@ int main(void)
     unsigned char nodeID = 0x01;
     setNodeId(&Encoder_Slave_Data, nodeID);
     setState(&Encoder_Slave_Data, Initialisation);
-    setState(&Encoder_Slave_Data, Operational);
 
     int i = 0;
 
@@ -57,6 +55,7 @@ int main(void)
         canReceiveTask();
 
         Encoder_Read_Data();
+        Encoder_Update_Speed();
         Encoder_Update_To_CANopen();
 
         if(timer_dispatch_pending)

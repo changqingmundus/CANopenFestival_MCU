@@ -35,13 +35,9 @@ unsigned char canSend(CAN_PORT notused, Message *m)
  */
 void canReceiveTask(void)
 {
-    uint8_t rxData[8];
-
     struct CAN_MSG_OBJ rxMsg = {0};
     Message msg = {0};
-
-    rxMsg.data = rxData;
-
+    
     if (CAN1_Receive(&rxMsg))
     {
         msg.cob_id = rxMsg.msgId;
@@ -52,9 +48,36 @@ void canReceiveTask(void)
 
         for (uint8_t i = 0; i < msg.len; i++)
         {
-            msg.data[i] = rxData[i];
+            msg.data[i] = rxMsg.data[i];
         }
 
         canDispatch(&Encoder_Slave_Data, &msg);
     }
+}
+
+// 1. 接收 FIFO 溢出回调
+void CAN1_RxBufferOverFlowCallback(void)
+{
+    C1INTLbits.RXOVIF = 0; 
+}
+
+// 2. 总线错误回调（处理 Bus-Off 自动恢复）
+void CAN1_BusErrorCallback(void)
+{
+    // 使用 MCC 提供的 CAN1_IsBusOff() 直接判断是否进入 Bus-Off 状态
+    if (CAN1_IsBusOff() == true) 
+    {
+        // 1. 切回配置模式
+        CAN1_OperationModeSet(CAN_CONFIGURATION_MODE);
+        
+        // 2. 重新切回正常模式（MCC 中普通 CAN 2.0 模式名为 CAN_NORMAL_2_0_MODE）
+        CAN1_OperationModeSet(CAN_NORMAL_2_0_MODE);
+    }
+}
+
+// 3. 系统错误回调
+void CAN1_SystemErrorCallback(void)
+{
+    // 清除系统错误中断标志（SERRIF）
+    C1INTLbits.SERRIF = 0;
 }

@@ -3,6 +3,8 @@
 
 #include "Encoder_Slave.h"
 
+extern UNS32 TPDO_Communication_Parameter_Callback(CO_Data * d, const indextable * OD_entry, UNS8 bSubindex);
+
 /**************************************************************************/
 /* Declaration of mapped variables                                        */
 /**************************************************************************/
@@ -459,10 +461,10 @@ $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
                      {
                        { RO, uint8, sizeof (UNS8), (void*)&Encoder_Slave_highestSubIndex_obj1800, NULL },
                        { RW, uint32, sizeof (UNS32), (void*)&Encoder_Slave_obj1800_COB_ID_used_by_PDO, NULL },
-                       { RW, uint8, sizeof (UNS8), (void*)&Encoder_Slave_obj1800_Transmission_Type, NULL },
-                       { RW, uint16, sizeof (UNS16), (void*)&Encoder_Slave_obj1800_Inhibit_Time, NULL },
+                       { RW, uint8, sizeof (UNS8), (void*)&Encoder_Slave_obj1800_Transmission_Type, (ODCallback_t*)&TPDO_Communication_Parameter_Callback },
+                       { RW, uint16, sizeof (UNS16), (void*)&Encoder_Slave_obj1800_Inhibit_Time, (ODCallback_t*)&TPDO_Communication_Parameter_Callback },
                        { RW, uint8, sizeof (UNS8), (void*)&Encoder_Slave_obj1800_Compatibility_Entry, NULL },
-                       { RW, uint16, sizeof (UNS16), (void*)&Encoder_Slave_obj1800_Event_Timer, NULL },
+                       { RW, uint16, sizeof (UNS16), (void*)&Encoder_Slave_obj1800_Event_Timer, (ODCallback_t*)&TPDO_Communication_Parameter_Callback },
                        { RW, uint8, sizeof (UNS8), (void*)&Encoder_Slave_obj1800_SYNC_start_value, NULL }
                      };
 
@@ -478,10 +480,10 @@ $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
                      {
                        { RO, uint8, sizeof (UNS8), (void*)&Encoder_Slave_highestSubIndex_obj1801, NULL },
                        { RW, uint32, sizeof (UNS32), (void*)&Encoder_Slave_obj1801_COB_ID_used_by_PDO, NULL },
-                       { RW, uint8, sizeof (UNS8), (void*)&Encoder_Slave_obj1801_Transmission_Type, NULL },
-                       { RW, uint16, sizeof (UNS16), (void*)&Encoder_Slave_obj1801_Inhibit_Time, NULL },
+                       { RW, uint8, sizeof (UNS8), (void*)&Encoder_Slave_obj1801_Transmission_Type, (ODCallback_t*)&TPDO_Communication_Parameter_Callback },
+                       { RW, uint16, sizeof (UNS16), (void*)&Encoder_Slave_obj1801_Inhibit_Time, (ODCallback_t*)&TPDO_Communication_Parameter_Callback },
                        { RW, uint8, sizeof (UNS8), (void*)&Encoder_Slave_obj1801_Compatibility_Entry, NULL },
-                       { RW, uint16, sizeof (UNS16), (void*)&Encoder_Slave_obj1801_Event_Timer, NULL },
+                       { RW, uint16, sizeof (UNS16), (void*)&Encoder_Slave_obj1801_Event_Timer, (ODCallback_t*)&TPDO_Communication_Parameter_Callback },
                        { RW, uint8, sizeof (UNS8), (void*)&Encoder_Slave_obj1801_SYNC_start_value, NULL }
                      };
 
@@ -516,7 +518,7 @@ $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
                     UNS32 Encoder_Slave_obj1A00_PDO_mapping_entry_8 = 0x0;	/* 0 */
                     subindex Encoder_Slave_Index1A00[] = 
                      {
-                       { RO, uint8, sizeof (UNS8), (void*)&Encoder_Slave_highestSubIndex_obj1A00, NULL },
+                       { RW, uint8, sizeof (UNS8), (void*)&Encoder_Slave_highestSubIndex_obj1A00, NULL },
                        { RW, uint32, sizeof (UNS32), (void*)&Encoder_Slave_obj1A00_PDO_mapping_entry_1, NULL },
                        { RW, uint32, sizeof (UNS32), (void*)&Encoder_Slave_obj1A00_PDO_mapping_entry_2, NULL },
                        { RW, uint32, sizeof (UNS32), (void*)&Encoder_Slave_obj1A00_PDO_mapping_entry_3, NULL },
@@ -539,7 +541,7 @@ $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
                     UNS32 Encoder_Slave_obj1A01_PDO_2_Mapping_for_a_process_data_variable_8 = 0x0;	/* 0 */
                     subindex Encoder_Slave_Index1A01[] = 
                      {
-                       { RO, uint8, sizeof (UNS8), (void*)&Encoder_Slave_highestSubIndex_obj1A01, NULL },
+                       { RW, uint8, sizeof (UNS8), (void*)&Encoder_Slave_highestSubIndex_obj1A01, NULL },
                        { RW, uint32, sizeof (UNS32), (void*)&Encoder_Slave_obj1A01_PDO_2_Mapping_for_a_process_data_variable_1, NULL },
                        { RW, uint32, sizeof (UNS32), (void*)&Encoder_Slave_obj1A01_PDO_2_Mapping_for_a_process_data_variable_2, NULL },
                        { RW, uint32, sizeof (UNS32), (void*)&Encoder_Slave_obj1A01_PDO_2_Mapping_for_a_process_data_variable_3, NULL },

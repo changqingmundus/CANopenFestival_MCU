@@ -202,7 +202,7 @@ void Encoder_Init(void)
    }
    else
    {
-      Encoder_Config.MultiTurn_Bit = 16;   // 配置默認多圈位數
+      Encoder_Config.MultiTurn_Bit = 16;  // 配置默認多圈位數
       Encoder_Config.SingleTurn_Bit = 24; // 配置默認單圈位數
       Encoder_Config.Warning_Bit = 1;
       Encoder_Config.Error_Bit = 1;
@@ -233,6 +233,8 @@ void Encoder_Init(void)
 
       DEE_Write(DEE_Speed_Update_Period, Speed_Update_Period);
    }
+
+   Encoder_Update_To_CANopen_init();
 
    SPI1_Open(0); // open ssi port
 }
@@ -350,7 +352,6 @@ void Encoder_Update_Speed(void)
       total_bits = Encoder_Config.SingleTurn_Bit + Encoder_Config.MultiTurn_Bit;
 
       range = 1ULL << total_bits;
-      
    }
    else
    {
@@ -1199,8 +1200,61 @@ void MU_I2C_Transfer(uint8_t devid, uint8_t ram_start, uint8_t ram_end, uint8_t 
    mu_write_command(CMD_MU_I2C_COM);
 }
 
+void Encoder_Update_To_CANopen_init(void)
+{
+   Measuring_Units_per_Revolution = (UNS32)1U << Encoder_Config.SingleTurn_Bit;
+   Total_Measuring_Range_in_Measuring_Unit = (UNS32)1U << (Encoder_Config.SingleTurn_Bit +
+                                                           Encoder_Config.MultiTurn_Bit);
+   Single_Turn_Resolution = (UNS32)1U << Encoder_Config.SingleTurn_Bit;
+   Number_of_Distinguishable_Revolutions = (UNS16)1U << Encoder_Config.MultiTurn_Bit;
+}
+
 void Encoder_Update_To_CANopen(void)
 {
+   // 1. Encoder Position
    Position_raw_value = Encoder_Get_Total_Position();
-   Position_Value = Encoder_Config.SingleTurn_Data; //Encoder_Get_Position();
+   Position_Value = Encoder_Get_Position();
+
+   // 2. Encoder Speed
+   if (Encoder_RPM > 32767U)
+   {
+      Speed_Value[0] = 32767;
+   }
+   else
+   {
+      Speed_Value[0] = (INTEGER16)Encoder_RPM;
+   }
+
+   // 3. Encoder Acceleration
+   // TODO: Bind Acceleration_Value[0]
+
+   // 4. Encoder Operating Status
+   // TODO: Update Operating_Parameters
+   // TODO: Update Operating_Status
+
+   // 6. Encoder Alarm and Warning
+   Alarms = Encoder_Config.Error_Data ? 0x0001U : 0x0000U;
+   Warnings = Encoder_Config.Warning_Data ? 0x0001U : 0x0000U;
+
+   // 7. Encoder Position Offset
+   Offset_Value = (uint32_t)(Position_Offset & 0xFFFFFFFFULL);
+   // TODO: Bind Module_Identification_Manufacturer_Offset_Value
+
+   // 8. Encoder Operating Time
+   // TODO: Update Operation_Time_Current
+   // TODO: Update Operation_Time_Total
+   // TODO: Update Operation_Time
+
+   // 9. Encoder Operation Counter
+   // TODO: Update Operation_Cycle_Counter
+
+   // 10. Encoder Configuration
+   // TODO: Synchronize Gear Factor Configuration
+   // TODO: Synchronize Speed Parameters
+   // TODO: Synchronize Acceleration Parameters
+   // TODO: Synchronize Cyclic_Timer
+
+   // 11. Encoder Manufacturer Information
+   // TODO: Update Serial_Number
+   // TODO: Update Manufacturer_options
 }
