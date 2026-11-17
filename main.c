@@ -46,7 +46,7 @@ int main(void)
 
     while (1)
     {
-        if(i < 2)
+        if (i < 2)
         {
             Sensor_PZ_Config();
             i++;
@@ -58,7 +58,7 @@ int main(void)
         Encoder_Update_Speed();
         Encoder_Update_To_CANopen();
 
-        if(timer_dispatch_pending)
+        if (timer_dispatch_pending)
         {
             timer_dispatch_pending = 0;
             TimeDispatch();

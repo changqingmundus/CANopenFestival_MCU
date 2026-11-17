@@ -41,7 +41,7 @@
 
 void ConsumerHeartbeatAlarm(CO_Data* d, UNS32 id);
 void ProducerHeartbeatAlarm(CO_Data* d, UNS32 id);
-UNS32 OnHearbeatProducerUpdate(CO_Data* d, const indextable * unused_indextable, UNS8 unused_bSubindex);
+UNS32 OnHeartbeatProducerUpdate(CO_Data* d, const indextable * unused_indextable, UNS8 unused_bSubindex);
 
 void GuardTimeAlarm(CO_Data* d, UNS32 id);
 UNS32 OnNodeGuardUpdate(CO_Data* d, const indextable * unused_indextable, UNS8 unused_bSubindex);
@@ -293,7 +293,7 @@ UNS32 OnHeartbeatProducerUpdate(CO_Data* d, const indextable * unused_indextable
       d->ProducerHeartBeatTimer = SetAlarm(d, 0, &ProducerHeartbeatAlarm, 0, MS_TO_TIMEVAL(time));
     }
   return 0;
-}
+} 
 
 void heartbeatInit(CO_Data* d)
 {
